@@ -94,21 +94,7 @@ handleFilterChange = event => {
                   
                     
                     <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
-                  //   {/* <Card.Group>
-                  //   <Card>
-                  //     <Card.Content>
-                  //       <Image floated='right' size='mini' src='' />
-                  //       <Card.Header>{wine.Wine}</Card.Header>
-                  //       <Card.Meta>{wine.Producer}</Card.Meta>
-                  //       <Card.Meta>{wine.Country}</Card.Meta>
-                  //       <Card.Meta>{wine._id}</Card.Meta>
-                  //       <Card.Description>
-                  //         {wine.Notes}
-                  //       </Card.Description>
-                  //     </Card.Content>
-                  //   </Card>
-                  // </Card.Group> */}
-
+          
                  
                 ))}
                 

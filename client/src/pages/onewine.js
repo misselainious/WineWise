@@ -3,7 +3,7 @@ import API from "../utils/API";
 import { List, ListItem } from "../components/List";
 import { DataWine} from "../components/DataWineTable";
 import { Link } from "react-router-dom";
-import { Grid, Table} from "semantic-ui-react";
+import { Grid, Table, Image} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 
 
@@ -32,6 +32,12 @@ render() {
     return (
 
      <Grid>
+
+{ (wine.URL === "") ?<Image src='/images/StockRED.png'/>
+            :
+            // Else Renders row with info
+            <Image src={`https://gdurl.com${wine.URL}`}/>
+            }
 <Table celled>
     <Table.Header>
       <Table.Row>
