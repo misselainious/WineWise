@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { List } from "../components/List";
 import { DataWine} from "../components/DataWineTable";
 // import { Link } from "react-router-dom";
-import { Grid, GridRow } from "semantic-ui-react";
+import { Grid, GridRow} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 
 
