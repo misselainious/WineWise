@@ -1,18 +1,34 @@
 import _ from "lodash";
 import faker from "faker";
 import React, { Component } from "react";
+import API from "../../utils/API"
 import { Search, Grid, Header, Segment } from "semantic-ui-react";
 
-const source = _.times(5, () => ({
-  title: faker.company.companyName(),
-  description: faker.company.catchPhrase(),
-  image: faker.internet.avatar(),
-  price: faker.finance.amount(0, 100, 2, "$")
-}));
+
+
+
+// const source = _.times(5, () => ({
+
+//   title: faker.company.companyName(),
+//   description: faker.company.catchPhrase(),
+//   image: faker.internet.avatar(),
+//   price: faker.finance.amount(0, 100, 2, "$")
+// }));
 
 export default class SearchExampleStandard extends Component {
+
+    state = {
+        wines: []
+      };
+
   componentWillMount() {
-    this.resetComponent();
+    API.getWines()
+    .then(res => {
+      console.log("Wines: ", res)
+      this.setState({ wines: res.data })
+    }
+    )
+    .catch(err => console.log(err));
   }
 
   resetComponent = () =>
@@ -28,11 +44,11 @@ export default class SearchExampleStandard extends Component {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
-      const isMatch = result => re.test(result.title);
+      const isMatch = result => re.test(this.state.wines.Code);
 
       this.setState({
         isLoading: false,
-        results: _.filter(source, isMatch)
+        results: _.filter(this.state.wines, isMatch)
       });
     }, 300);
   };
@@ -53,18 +69,6 @@ export default class SearchExampleStandard extends Component {
             value={value}
             {...this.props}
           />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: "auto" }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: "auto" }}>
-              {JSON.stringify(source, null, 2)}
-            </pre>
-          </Segment>
         </Grid.Column>
       </Grid>
     );
