@@ -24,18 +24,6 @@ render() {
     delete wine._id
     const wineObjKeys = Object.keys(wine);
 
-    // let wineList = wine
-    // const FieldAdjuster = { "Alcohol_by_volume": "ABV", "Residual_Sugar": "Residual Sugar", "Years_in_Blend": "Years in Blend" }
-    // // filter by each keyword if the filter is selected
-    // for (let keyword of ["Years_in_Blend", "Alcohol_by_volume", "Residual_Sugar"]) {
-    //   wineList = wineList.filter(wine => {
-    //     return (
-    //       (this.state.filters[keyword].length === 0) ||
-    //       this.state.filters[keyword].includes(wine[FieldAdjuster[keyword]])
-    //     )
-    //   })
-    // }
-
     return (
 <Grid celled>
  <Grid.Row>
