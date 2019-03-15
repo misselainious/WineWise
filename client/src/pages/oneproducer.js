@@ -61,6 +61,7 @@ render() {
         </Table>
         </Grid.Column>
          </Grid.Row>
+  
          <Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
        
         <Grid.Row>
@@ -79,7 +80,7 @@ render() {
                 </Grid>
               </List>
             ) : (
-                <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
+                <> </>
               )}
 
 
