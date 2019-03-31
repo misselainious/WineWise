@@ -5,9 +5,10 @@ import API from "../utils/API";
 import { List } from "../components/List";
 import { DataWine } from "../components/DataWineTable";
 // import { Link } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
+import { Grid, Rail, Ref, Segment, Sticky} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
+import SidebarExampleDimmed from "../components/NewSidebar/index"
 
 
 
@@ -23,11 +24,16 @@ class Wines extends Component {
       colors: [],
       regions: [],
       producers: []
-    }
+    },
+     visible: false 
   };
+
+//For Sidebar toggle
+  handleHideClick = () => this.setState({ visible: false })
+  handleShowClick = () => this.setState({ visible: true })
+  handleSidebarHide = () => this.setState({ visible: false })
+
   //onload we get all the wine and producer data
-
-
   componentDidMount() {
     this.loadWines();
     this.loadProducers();
@@ -92,7 +98,7 @@ class Wines extends Component {
   render() {
     const mainStyle = { marginLeft: "250px" }
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
-    const colors = ["Rosé", "White", "Red"]
+    const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
     //
@@ -127,14 +133,19 @@ class Wines extends Component {
 
     return (
 
-      <Grid style={{marginTop: "50px"}}>
+      <Grid style={{marginTop: "100px"}}>
         {/*CheckboxSidebar renders with a double layered array*/}
-        <SearchWines />
+       
         <Grid.Row>
 
           <Grid.Column width={3} >
-   
-            <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+          <Grid.Row>
+          <SearchWines />
+          </Grid.Row>
+          <Grid.Row>
+          <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+          </Grid.Row>
+           
           </Grid.Column>
 
           <Grid.Column width={12}>
@@ -144,7 +155,7 @@ class Wines extends Component {
                 <Grid >
                   <Grid.Row columns={4}>
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                      <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} region={wine.Region} />
                     ))}
                   </Grid.Row>
                 </Grid>

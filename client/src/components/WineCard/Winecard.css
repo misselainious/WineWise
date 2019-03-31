@@ -1,4 +1,10 @@
 .card {
     margin: 10px;
-    /* padding: 50px; */
+}
+.cardImage{
+    background: transparent !important;
+    align-content: center !important;
+}
+.cardHeader{
+    font-size: 15px !important;
 }

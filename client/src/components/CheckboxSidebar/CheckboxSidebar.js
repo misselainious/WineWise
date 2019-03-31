@@ -11,7 +11,9 @@ class CheckboxSidebar extends Component {
             return <CheckBoxes checkables={arry.elements} filterType={arry.filterType} key={parseInt(i)} handleFilterChange={this.props.handleFilterChange} />
         })
 
-        return <div className="sidebar">{checkboxArray}</div>
+        return(
+        <div className="sidebar">{checkboxArray}</div>
+        ) 
     }
 }
 

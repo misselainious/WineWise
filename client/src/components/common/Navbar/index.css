@@ -1,7 +1,7 @@
 .navbarcustomstyle {
      height: 50px !important;
      color: #962d2d !important;
-     max-width: 1200px !important;
+     max-width: 1800px !important;
 }
 
 .titleName {
@@ -18,9 +18,9 @@
      border-color: #961f1f !important;
 }
 
-.searchBarNav {
+/* .searchBarNav {
      margin-left: 65px !important;
-}
+} */
 
 .registerBtn {
      background: #961f1f !important;
