@@ -92,7 +92,7 @@ class Wines extends Component {
   render() {
     const mainStyle = { marginLeft: "250px" }
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
-    const colors = ["Rosé", "White", "Red"]
+    const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
     //

@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-// import { List, ListItem } from "../components/List";
-import { DataProducer} from "../components/DataWineTable";
-import { Link } from "react-router-dom";
-import { Grid, Table, List, Header} from "semantic-ui-react";
+import { Grid, Table, List, Header, Button, Icon, Label} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
+import OneProdBtn from "../components/AllProducersBtn/index"
 
 class OneProducer extends Component {
   state = {
@@ -40,6 +38,7 @@ render() {
 
     return (
      <Grid celled>
+
        <Grid.Row>
          <Grid.Column width={8}>
         <Table celled>
@@ -60,8 +59,9 @@ render() {
         </Table.Body>
         </Table>
         </Grid.Column>
-         </Grid.Row>
-         <Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
+
+<Grid.Column width={8}>
+<Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
        
         <Grid.Row>
           
@@ -71,7 +71,7 @@ render() {
             {producerWines.length ? (
               <List >
                 <Grid >
-                  <Grid.Row columns={4}>
+                  <Grid.Row columns={3}>
                     {producerWines.map(wine => (
                       <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
                     ))}
@@ -85,9 +85,13 @@ render() {
 
           </Grid.Column>
         </Grid.Row>
+        </Grid.Column>
 
+         </Grid.Row>
+         
+         
 
-
+<OneProdBtn />
 
 
 

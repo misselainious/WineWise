@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
 import { List } from "../components/List";
-import { Grid } from "semantic-ui-react";
+import { Grid, Card } from "semantic-ui-react";
 import Producercard from "../components/ProducerCard"
 import SearchProducers from "../components/SearchProducers"
 
@@ -39,19 +39,19 @@ class Producers extends Component {
 render() {
     return (
         <Grid style={{marginTop: "50px"}}>
+          <Grid.Row>
+            <center>
+              <SearchProducers />
+            </center>
+          </Grid.Row>  
+
         {this.state.Producers.length ? (
-              <List>
-                <Grid>
-                  <Grid.Row>
-                      <center>
-                          <SearchProducers />
-                      </center>
-                  </Grid.Row>   
-                {this.state.Producers.map(producer => (
-                    <Producercard id={producer._id} producer={producer.Producer} country={producer.Country} region={producer.Region} key={producer._id}/>            
-                ))}
-                </Grid>
-              </List> 
+          
+            <Card.Group itemsPerRow={4}>
+          {this.state.Producers.map(producer => (
+              <Producercard id={producer._id} producer={producer.Producer} country={producer.Country} region={producer.Region} key={producer._id}/>            
+          ))}
+        </Card.Group>
             ) : (
               <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
             )}
@@ -61,3 +61,4 @@ render() {
 }
 
 export default Producers;
+

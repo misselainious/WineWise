@@ -7,7 +7,7 @@ const img = '/images/StockRED.png'
 
 const Winecard = (props) => (
 
-  <Grid.Column>
+  
     <Card className="card" >
       {(props.url === "") ? <Image src='/images/StockRED.png' />
         :
@@ -31,8 +31,8 @@ const Winecard = (props) => (
               </a>
             </Card.Content> */}
     </Card>
-  </Grid.Column>
 
+ 
 )
 
 export default Winecard
