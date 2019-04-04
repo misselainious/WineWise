@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Search, Grid, Header, Segment } from "semantic-ui-react";
 import API from '../../utils/API'
 import { Link } from "react-router-dom"
+import "./prodSearch.css"
 
 
 export default class SearchBar extends Component {
@@ -60,14 +61,14 @@ export default class SearchBar extends Component {
 
 
     return (
-      <Grid style={{marginLeft: "auto", marginRight: "auto"}}>
-        {/* <Grid.Row>
-          <Header>
-            <h5 style={{marginLeft: 20}}>Search Our Producers</h5>
-          </Header>
-        </Grid.Row> */}
-        <Grid.Column width={6}>
-          <Search
+      // <Grid style={{marginLeft: "auto", marginRight: "auto"}}>
+      //   <Grid.Row>
+      //     <Header>
+      //       <h5 style={{marginLeft: 20}}>Search Our Producers</h5>
+      //     </Header>
+      //   </Grid.Row>
+      //   <Grid.Column width={6}>
+          <Search className="search"
             placeholder="Search producers..."
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
@@ -78,9 +79,9 @@ export default class SearchBar extends Component {
             value={value}
             resultRenderer={resRender}
           />
-        </Grid.Column>
+      //   </Grid.Column>
 
-      </Grid>
+      // </Grid>
     );
   }
 }

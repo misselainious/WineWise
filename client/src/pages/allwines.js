@@ -129,26 +129,32 @@ class Wines extends Component {
 
       <Grid style={{marginTop: "50px"}}>
         {/*CheckboxSidebar renders with a double layered array*/}
-        <SearchWines />
-        <Grid.Row>
 
+        <Grid.Row>
           <Grid.Column width={3} >
-   
-            <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+
+            <Grid.Row>
+              <SearchWines />
+            </Grid.Row>
+
+            <Grid.Row>
+              <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+            </Grid.Row>
+           
           </Grid.Column>
+  
 
           <Grid.Column width={12}>
-          
             {wineList.length ? (
-              <List >
+              // <List >
                 <Grid >
                   <Grid.Row columns={4}>
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                      <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
                     ))}
                   </Grid.Row>
                 </Grid>
-              </List>
+              // </List>
             ) : (
                 <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
               )}

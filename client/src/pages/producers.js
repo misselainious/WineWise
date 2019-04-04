@@ -1,12 +1,17 @@
-import React, { Component } from "react";
+import React, { Component, createRef } from "react";
 // import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
 import { List } from "../components/List";
-import { Grid, Card } from "semantic-ui-react";
+import { Grid, Card, Sticky, Rail, Ref, Header, Segment } from "semantic-ui-react";
 import Producercard from "../components/ProducerCard"
 import SearchProducers from "../components/SearchProducers"
+import { createReadStream } from "fs";
+import { createRequireFromPath } from "module";
 
 class Producers extends Component {
+
+contextRef = createRef()
+
     state = {
       Producers: [], 
       isLoading: false
@@ -38,13 +43,23 @@ class Producers extends Component {
   
 render() {
     return (
-        <Grid style={{marginTop: "50px"}}>
-          <Grid.Row>
+        <Grid style={{marginTop: "40px", marginBottom: "40px"}}>
+        <Grid.Row>
+      <Grid.Column>
+        <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
+      Our Producers
+    </Header>
+    </Grid.Column>
+        </Grid.Row>
+    
+    <Grid.Row>
+            <Grid.Column width={3}>
             <center>
-              <SearchProducers />
+              <SearchProducers />         
             </center>
-          </Grid.Row>  
+            </Grid.Column>
 
+<Grid.Column width={12}>
         {this.state.Producers.length ? (
           
             <Card.Group itemsPerRow={4}>
@@ -55,6 +70,9 @@ render() {
             ) : (
               <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
             )}
+            </Grid.Column>
+          
+            </Grid.Row>
      </Grid>
     );
   }

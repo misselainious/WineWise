@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import { Search, Grid, Header, Segment } from "semantic-ui-react";
 import API from '../../utils/API'
 import { Link } from "react-router-dom"
+import "./searchwines.css";
 
 
 export default class SearchBar extends Component {
@@ -60,7 +61,7 @@ export default class SearchBar extends Component {
 
 
     return (
-      <Grid style={{marginLeft: "auto", marginRight: "auto"}}>
+      <Grid className="searchie" style={{marginLeft: "auto", marginRight: "auto"}}>
         {/* <Header>
             <h5 style={{marginLeft: 20}}>Search Our Wines</h5>
         </Header> */}

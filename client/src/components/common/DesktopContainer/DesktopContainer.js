@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Responsive, Visibility } from "semantic-ui-react";
 
 import Navbar from "../Navbar/Navbar";
+import FixedMenuLayout from "../../NavBar/navbar";
 
 class DesktopContainer extends Component {
   state = {}
@@ -21,7 +22,8 @@ class DesktopContainer extends Component {
           onBottomPassed={this.showFixedMenu}
           onBottomPassedReverse={this.hideFixedMenu}
         >
-          <Navbar fixed={fixed} />
+          {/* <Navbar fixed={fixed} /> */}
+          <FixedMenuLayout />
         </Visibility>
 
         {children}

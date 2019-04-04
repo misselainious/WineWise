@@ -1,10 +1,12 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Card, Button} from 'semantic-ui-react'
+import "./index.css";
 
 const Producercard = (props) => {
   return (
-<Card className="card">
+    <Link to={"/producerdetails/" + props.id}>
+<Card className="card" style={{margin:"10px"}}>
     <Card.Content>
       <Card.Header>{props.producer} {props.header}</Card.Header>
       <Card.Meta>
@@ -12,13 +14,15 @@ const Producercard = (props) => {
       </Card.Meta>
       <Card.Description> 
       {props.producer.country}
-        <Link to={"/producerdetails/" + props.id}>
-
-          <Button className="seeAllWinesBtn" size='small'>
-        <p className="seeAllWinesText">View Producer</p></Button>
-        </Link> </Card.Description>
+        
+          {/* <Button basic color='red' floated='right' className="seeAllWinesBtn" size='small'>
+        View Producer
+          </Button> */}
+        
+      </Card.Description>
     </Card.Content>
-  </Card>
+</Card>
+</Link> 
   )
 }
 

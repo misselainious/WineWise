@@ -14,7 +14,7 @@ const Navbar = props => {
       inverted={!fixed}
       pointing={!fixed}
       secondary={!fixed}
-      size='large'
+      size='small'
       style={{ padding: '1.5em 0em' }}
     >
       <Container className="navbarcustomstyle">
