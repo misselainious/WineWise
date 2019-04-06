@@ -18,14 +18,9 @@ const Winecard = (props) => (
       <Card.Content style={{textAlign: "center"}}>
         <Card.Header className='cardHeader'>{props.producer} {props.header}</Card.Header>
         <Card.Meta className='cardData'>
-          <span className='date'>{props.region}, {props.country}</span>
+          <span>{props.region}, {props.country}</span>
         </Card.Meta>
       </Card.Content>
-      {/* <Card.Content extra>
-              <a>
-                more here
-              </a>
-            </Card.Content> */}
     </Card>
     </Link> 
  

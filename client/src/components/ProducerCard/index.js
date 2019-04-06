@@ -6,7 +6,7 @@ import "./index.css";
 const Producercard = (props) => {
   return (
     <Link to={"/producerdetails/" + props.id}>
-<Card className="card" style={{margin:"10px"}}>
+<Card className="prodcard" style={{height: '100px', margin:"10px"}}>
     <Card.Content>
       <Card.Header>{props.producer} {props.header}</Card.Header>
       <Card.Meta>
@@ -14,10 +14,6 @@ const Producercard = (props) => {
       </Card.Meta>
       <Card.Description> 
       {props.producer.country}
-        
-          {/* <Button basic color='red' floated='right' className="seeAllWinesBtn" size='small'>
-        View Producer
-          </Button> */}
         
       </Card.Description>
     </Card.Content>

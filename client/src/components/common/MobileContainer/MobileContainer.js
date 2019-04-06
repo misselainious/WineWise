@@ -34,7 +34,7 @@ class MobileContainer extends React.Component {
             {/* Wine Wise */}
           </Menu.Item>
           <Link to="/"><Menu.Item className={pathname === "/" ? "nav-link active" : "nav-link"}>
-            <p className="sideBarText">Wine Wise</p></Menu.Item></Link>
+            <p className="sideBarText">WineWise</p></Menu.Item></Link>
             <Link to="/allwines"><Menu.Item className={pathname === "/allwines" ? "nav-link active" : "nav-link"}>
               <p className="sideBarText">All Wines</p></Menu.Item></Link>
             <Link to="/producers"><Menu.Item className={pathname === "/producers" ? "nav-link active" : "nav-link"}>

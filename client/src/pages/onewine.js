@@ -39,7 +39,7 @@ render() {
     // }
 
     return (
-<Grid celled>
+<Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
  <Grid.Row>
 
   <Grid.Column width={3}>
@@ -51,7 +51,8 @@ render() {
               <Image src={`https://gdurl.com${this.state.wine.URL}`}/>
             } 
   </Image>
-{/* If the wine is Organic, puts a cute green leaf label */}
+
+{/* If the wine is Organic, puts a green leaf label */}
   { (this.state.wine.Farming_practices === "Organic") || (this.state.wine.Farming_practices === "Certified Organic" ) ?<Label as='a' color={'olive'}>
 <Icon name='leaf' />Organic
 </Label>
@@ -59,7 +60,8 @@ render() {
             // Else Renders empty
             <div></div>
             }
-{/* If the wine is Bio-dynamic, puts a cute blue moon label */}
+
+{/* If the wine is Bio-dynamic, puts a blue moon label */}
   { (this.state.wine.Farming_practices === "Bio-dynamic") || (this.state.wine.Farming_practices === "Certified Bio-dynamic" ) ?<Label as='a' color={'blue'}>
 <Icon name='moon' />Bio-dynamic
 </Label>
@@ -67,14 +69,27 @@ render() {
             // Else Renders empty
             <div></div>
             }
+
+  {/* If the wine is Organic, puts a pink female label */}
+  { (this.state.wine.Female_Winemaker === "Yes" ) ?<Label as='a' color={'pink'}>
+<Icon name='venus' />Winemaker
+</Label>
+            :
+            // Else Renders empty
+            <div></div>
+            }
+      
   </Grid.Column>
 
   <Grid.Column width={6}>
-            <Header as='h2' attached='top'>
+            <Header style={{backgroundColor:'#dfdfbf'}} as='h2' attached='top'>
             {this.state.wine.Producer}
             </Header>
             <Segment attached>
             {this.state.wine.Wine}
+            </Segment>
+            <Segment className='WWNotes' attached>
+            {this.state.wine.WineWise_Notes}
             </Segment>
   </Grid.Column>
 
@@ -93,7 +108,6 @@ render() {
     <Table.Header>
       <Table.Row>
         <Table.HeaderCell colSpan="2">{this.state.wine.Wine}</Table.HeaderCell>
-        {/* <Table.HeaderCell>Header</Table.HeaderCell> */}
       </Table.Row>
     </Table.Header>
 

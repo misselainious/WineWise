@@ -70,7 +70,7 @@ class App extends Component {
           <ResponsiveContainer>
             <OtherHeading />
             <PageSwitch/>
-            <Footer />
+            {/* <Footer /> */}
           </ResponsiveContainer>
         </Router>
     );
