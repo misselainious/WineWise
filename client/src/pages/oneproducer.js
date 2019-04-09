@@ -37,14 +37,22 @@ render() {
     // let returnWines = producerWines.filter(this.state.producer.Producer === this.state.wines.Producer)
 
     return (
-     <Grid celled>
+     <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px"}}>
+
+<Grid.Row>
+      <Grid.Column>
+        <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
+      {this.state.producer.Producer}
+    </Header>
+    </Grid.Column>
+    </Grid.Row>
 
        <Grid.Row>
          <Grid.Column width={8}>
         <Table celled>
             <Table.Header>
                 <Table.Row>
-                <Table.HeaderCell colSpan="2">{this.state.producer.Producer}</Table.HeaderCell>
+                <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
                 </Table.Row>
             </Table.Header>
         <Table.Body>
@@ -73,7 +81,7 @@ render() {
                 <Grid >
                   <Grid.Row columns={3}>
                     {producerWines.map(wine => (
-                      <Winecard header={wine.Wine} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                      <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
                     ))}
                   </Grid.Row>
                 </Grid>

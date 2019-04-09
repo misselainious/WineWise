@@ -14,7 +14,7 @@ import AuthService from './components/login/AuthService';
 
 import DesktopContainer from "./components/common/DesktopContainer/DesktopContainer";
 import MobileContainer from "./components/common/MobileContainer/MobileContainer";
-import Footer from "./components/common/Footer/Footer";
+import Footer from "./components/common/Footer/foot2";
 import OneWine from "./pages/onewine";
 import OneProducer from "./pages/oneproducer";
 import OtherHeading from "./components/Homepage/HomeHeading/OtherHeading";
@@ -70,7 +70,7 @@ class App extends Component {
           <ResponsiveContainer>
             <OtherHeading />
             <PageSwitch/>
-            {/* <Footer /> */}
+            <Footer />
           </ResponsiveContainer>
         </Router>
     );

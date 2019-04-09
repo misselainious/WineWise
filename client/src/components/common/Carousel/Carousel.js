@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HomeHeading from "../../Homepage/HomeHeading/HomeHeading";
-import {  Segment } from "semantic-ui-react";
+import {  Segment, Transition } from "semantic-ui-react";
 
 
 class imageScrolling extends Component {
@@ -17,7 +17,7 @@ class imageScrolling extends Component {
       else {
         this.setState({ currentImageIndex: this.state.currentImageIndex + 1 })
       }
-    }, 3000)
+    }, 5000)
 
   }
 

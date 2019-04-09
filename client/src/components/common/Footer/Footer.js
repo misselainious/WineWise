@@ -4,9 +4,9 @@ import "./Footer.css"
 const Footer = props => {
     const fixed = props.fixed;
     const footerStyle = {
-        // position: "fixed",
-        // bottom: "0px",
-        // width:"100%",
+        position: "fixed",
+        bottom: "0px",
+        width:"100%",
         padding: "3.1em 0em"
 
 }

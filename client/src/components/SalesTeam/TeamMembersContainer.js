@@ -30,8 +30,8 @@ function TeamMembersContainer(props) {
                         as='h2'
                         className='header'
                         horizontal
-                        style={{ margin: '1em 0em', textTransform: 'uppercase' }}>
-                        <a href=''>SALES TEAM</a>
+                        style={{ color: '#962d2d',margin: '1em 0em', textTransform: 'uppercase' }}>
+                        TEAM MEMBERS
                     </Divider>
 
                 </Grid.Column>

@@ -39,8 +39,8 @@ class AboutUs extends React.Component {
                         as='h2'
                         className='header'
                         horizontal
-                        style={{ margin: '1em 0em', textTransform: 'uppercase' }}>
-                        <a href=''>FOUNDERS</a>
+                        style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase' }}>
+                        FOUNDERS
                     </Divider>
                     <Grid container stackable verticalAlign='middle'>
                         <Grid.Row>
