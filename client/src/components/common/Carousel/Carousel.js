@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import HomeHeading from "../../Homepage/HomeHeading/HomeHeading";
-import {  Segment, Transition } from "semantic-ui-react";
+import {  Segment, Responsive } from "semantic-ui-react";
 
 
 class imageScrolling extends Component {
@@ -24,16 +24,16 @@ class imageScrolling extends Component {
   render() {
     let image = this.state.imageArray[this.state.currentImageIndex]
     return (
+      <Segment.Group>
+      <Responsive as= {Segment} minWidth={992}
       
-      <Segment
-      inverted
       textAlign='center'
       style={{ minHeight: 700, padding: '1em 0em', backgroundImage: `url("./images/${image}")` }}
       vertical
     >
     <HomeHeading />
-    </Segment>
-              
+    </Responsive>
+    </Segment.Group>
     );
   }
 }

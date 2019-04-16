@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from 'prop-types';
-import { Container, Menu, Segment, Responsive, Sidebar, Icon, Button } from "semantic-ui-react";
+import { Container, Menu, Segment, Responsive, Sidebar, Icon, Button, Image, Header } from "semantic-ui-react";
 
 import { Link } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ class MobileContainer extends React.Component {
             {/* Wine Wise */}
           </Menu.Item>
           <Link to="/"><Menu.Item className={pathname === "/" ? "nav-link active" : "nav-link"}>
-            <p className="sideBarText">WineWise</p></Menu.Item></Link>
+            <p className="sideBarText">Wine Wise</p></Menu.Item></Link>
             <Link to="/allwines"><Menu.Item className={pathname === "/allwines" ? "nav-link active" : "nav-link"}>
               <p className="sideBarText">All Wines</p></Menu.Item></Link>
             <Link to="/producers"><Menu.Item className={pathname === "/producers" ? "nav-link active" : "nav-link"}>
@@ -55,10 +55,16 @@ class MobileContainer extends React.Component {
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name='sidebar' />
                 </Menu.Item>
+                <Menu.Item>
+                <Header as='h1' inverted color = 'red'>
+                WineWise 
+                </Header>
+                </Menu.Item>
                 <Menu.Item position='right'>
-                    <Button className="registerBtn"  style={{ marginLeft: '0.5em' }}>
+                    {/* <Button className="registerBtn"  style={{ marginLeft: '0.5em' }}>
                         <p className="registerBtnText">For The Trade</p>
-                    </Button>
+                    </Button> */}
+                    <Image size='tiny' src='./images/winewisehead.png' />
                 </Menu.Item>
               </Menu>
             </Container>

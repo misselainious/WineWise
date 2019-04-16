@@ -69,7 +69,7 @@ class App extends Component {
         <Router>
           <ResponsiveContainer>
             <OtherHeading />
-            <PageSwitch/>
+            <PageSwitch />
             <Footer />
           </ResponsiveContainer>
         </Router>

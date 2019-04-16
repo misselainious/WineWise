@@ -6,7 +6,7 @@ const HomeHeading = ({ mobile }) => (
   <Container text>
     <Header
       as='h1'
-      content='Wine Wise'
+      content='WineWise'
       inverted
       style={{
         fontSize: mobile ? '2em' : '4em',
@@ -21,7 +21,7 @@ const HomeHeading = ({ mobile }) => (
     />
     <img src="../images/winewiselogo.png"
       className={'ui centered small image'} />
-    <h2>Imported wines. Local people.</h2>
+    <Header as='h2' inverted color = 'grey'>Imported wines. Local people.</Header>
 
   </Container>
 )
