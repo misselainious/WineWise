@@ -1,11 +1,10 @@
 import React, { Component, Fragment } from "react";
+import PDF from './inventory.pdf'
 import {
-  Grid
+  Grid,
+  Button,
+  Image
 } from 'semantic-ui-react';
-import { Document, Page, pdfjs } from "react-pdf";
- pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
-
-
 
 
 const options = [
@@ -69,15 +68,13 @@ class Admin extends Component {
     const { value } = this.state
     const { pageNumber, numPages } = this.state;
     return (
-      <Grid style={{ marginTop: '100px', marginBottom: '100px', marginLeft: '100px'}}>
+      <Grid centered columns={1} style={{ marginTop: '100px', marginBottom: '100px', marginLeft: '100px'}}>
         <Grid.Row>
-       <Document 
-          file="./images/inventory.pdf"
-          onLoadSuccess={this.onDocumentLoadSuccess}
-        >
-          <Page pageNumber={pageNumber} />
-        </Document>
-        <p>Page {pageNumber} of {numPages}</p>
+        <a href = {PDF} target = "_blank">
+          <Button target="_blank" src="./images/inventory.pdf">
+            View Price List
+          </Button>
+          </a>
         </Grid.Row>
       </Grid>
     )
