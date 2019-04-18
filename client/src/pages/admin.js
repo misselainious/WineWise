@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
-import API from "../utils/API";
 import {
-  Button,
-  Form,
-  Segment,
+  Grid
 } from 'semantic-ui-react';
+import { Document, Page, pdfjs } from "react-pdf";
+ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
+
+
 
 
 const options = [
@@ -24,6 +25,8 @@ const countryOptions = [
 
 class Admin extends Component {
   state = {
+    numPages: null,
+    pageNumber: 1,
     producer: "",
     wine: "",
     region: "",
@@ -32,80 +35,51 @@ class Admin extends Component {
     description: ""
   };
 
-  handleInputChange = (event, { value }) => {
-    //this will capture form input
-    this.setState({ [event.target.name]: event.target.value });
+  onDocumentLoadSuccess = ({ numPages }) => {
+    this.setState({ numPages });
   }
-  // separate onChange methods to assign state for Select form values
-  handleSelectCountryChange = ({ value }) => this.setState({ country: value })
-  handleSelectColorChange = ({ value }) => this.setState({ color: value })
 
-  handleFormSubmit = event => {
-    // console.log(this);
-    event.preventDefault();
-    if (this.state.producer) {
-      API.saveWine({
-        producer: this.state.producer,
-        wine: this.state.wine,
-        color: this.state.color,
-        country: this.state.country,
-        code: this.state.code,
-        region: this.state.region,
-        subregion: this.state.subregion,
-        description: this.state.description
-      })
-        // .then(res => this.loadBooks())
-        .catch(err => console.log(err));
-    }
-  };
+  // handleInputChange = (event, { value }) => {
+  //   //this will capture form input
+  //   this.setState({ [event.target.name]: event.target.value });
+  // }
+  // // separate onChange methods to assign state for Select form values
+  // handleSelectCountryChange = ({ value }) => this.setState({ country: value })
+  // handleSelectColorChange = ({ value }) => this.setState({ color: value })
+
+  // handleFormSubmit = event => {
+  //   // console.log(this);
+  //   event.preventDefault();
+  //   if (this.state.producer) {
+  //     API.saveWine({
+  //       producer: this.state.producer,
+  //       wine: this.state.wine,
+  //       color: this.state.color,
+  //       country: this.state.country,
+  //       code: this.state.code,
+  //       region: this.state.region,
+  //       subregion: this.state.subregion,
+  //       description: this.state.description
+  //     })
+  //       // .then(res => this.loadBooks())
+  //       .catch(err => console.log(err));
+  //   }
+  // };
   render() {
     const { value } = this.state
+    const { pageNumber, numPages } = this.state;
     return (
-      <Fragment>
-        <Segment>
-          <Form style={{ height: '650px' }} onSubmit={this.handleFormSubmit}>
-            <Form.Group widths='equal'>
-              <Form.Input fluid label='Producer' name='producer' placeholder='Producer' value={this.state.producer} onChange={this.handleInputChange} />
-              <Form.Input fluid label='Wine' name='wine' placeholder='Wine' value={this.state.wine} onChange={this.handleInputChange} />
-              <Form.Select
-                fluid
-                label='Color'
-                name='color'
-                options={options}
-                placeholder='Color'
-                // this should be value prop to capture form select instead of state
-                value={value}
-                onChange={this.handleSelectColorChange}
-              />
-            </Form.Group>
-            <Form.Group widths='equal'>
-              <Form.Input fluid label='Code' name='code' placeholder='Code' value={this.state.code} onChange={this.handleInputChange} />
-              <Form.Select
-                fluid
-                label='Country'
-                // name='country'
-                options={countryOptions}
-                placeholder='Country'
-                // this should be value prop to capture form select instead of state
-                value={value}
-                onChange={this.handleSelectCountryChange}
-              />
-              <Form.Input fluid label='Region' name='region' placeholder='Region' value={this.state.region} onChange={this.handleInputChange} />
-              <Form.Input fluid label='Subregion' name='subregion' placeholder='Subregion' value={this.state.subregion} onChange={this.handleInputChange} />
-            </Form.Group>
-            <Form.TextArea style={{ height: '300px' }} label='Description' name='description' placeholder='Tell us more about you...' value={this.state.description} onChange={this.handleInputChange} />
-            <Button
-              floated='right'
-              disabled={!(this.state.producer && this.state.code)}
-              style={{ textAlign: "center" }}
-              onClick={this.handleFormSubmit}
-              size='small'
-              className="seeAllWinesBtn">
-              <p className="seeAllWinesText">
-                Submit</p></Button>
-          </Form>
-        </Segment>
-      </Fragment>
+      <Grid style={{ marginTop: '100px', marginBottom: '100px', marginLeft: '100px'}}>
+        <Grid.Row>
+       <Document 
+          file="./images/inventory.pdf"
+          onLoadSuccess={this.onDocumentLoadSuccess}
+        >
+          <Page pageNumber={pageNumber} />
+        </Document>
+        <p>Page {pageNumber} of {numPages}</p>
+        </Grid.Row>
+      </Grid>
     )
   }
 }

@@ -9,7 +9,8 @@ import Winecard from "../components/WineCard"
 
 class OneWine extends Component {
   state = {
-    wine: {}
+    wine: {},
+    wines: {}
   };
   removeUnderscores(myString){
     return myString.split("_").join(" ")
@@ -18,6 +19,14 @@ class OneWine extends Component {
     API.getWine(this.props.match.params.id)
       .then(res => this.setState({ wine: res.data }))
       .catch(err => console.log(err));
+  }
+  componentDidUpdate(prevProps) {
+    if (this.props.userID !== prevProps.userID){
+      API.getProducerWines(this.state.wine.Producer)
+      .then(res => this.setState( {wines: res.data}))
+      .then(console.log(this.state.wines))
+      .catch(err => console.log(err));
+    }
   }
 
 render() {

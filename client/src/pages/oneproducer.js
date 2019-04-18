@@ -37,7 +37,7 @@ render() {
     // let returnWines = producerWines.filter(this.state.producer.Producer === this.state.wines.Producer)
 
     return (
-     <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px"}}>
+     <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
 
 <Grid.Row>
       <Grid.Column>

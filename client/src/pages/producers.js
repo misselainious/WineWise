@@ -64,7 +64,7 @@ render() {
           
             <Card.Group itemsPerRow={4}>
           {this.state.Producers.map(producer => (
-              <Producercard id={producer._id} producer={producer.Producer} country={producer.Country} subregion={producer.Subregion} region={producer.Region} key={producer._id}/>            
+              <Producercard id={producer._id} producer={producer.Producer} country={producer.Country} subregion={producer.Subregion} region={producer.Region} key={producer.Producer}/>            
           ))}
         </Card.Group>
             ) : (

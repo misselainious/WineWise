@@ -10,8 +10,8 @@ module.exports = {
     let users = [
       {
           id: 1,
-          username: 'test',
-          password: 'asdf123'
+          username: 'test'
+          
       },
       {
           id: 2,
@@ -24,7 +24,7 @@ module.exports = {
     // Use your DB ORM logic here to find user and compare password
     
     // Finds first username and password match in users array (assumes usernames are unique)
-    var user = users.find(u => username == u.username && password == u.password);
+    var user = users.find(u => username == u.username );
     if (user) { // User credentials matched (are valid)
         let token = jwt.sign({ id: user.id, username: user.username }, 'keyboard cat 4 ever', { expiresIn: 129600 }); // Sigining the token
         res.json({

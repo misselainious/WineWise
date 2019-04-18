@@ -24,8 +24,8 @@ class Login extends Component {
                     </Header>
                         <Form size='large' onSubmit={this.handleFormSubmit}>
                             <Segment stacked>
-                                <Form.Input fluid icon='user' name="username" iconPosition='left' placeholder='E-mail address' onChange={this.handleChange} />
-                                <Form.Input
+                                <Form.Input fluid icon='lock' name="Password" iconPosition='left' placeholder='password' onChange={this.handleChange} />
+                                {/* <Form.Input
                                     fluid
                                     name="password"
                                     icon='lock'
@@ -33,7 +33,7 @@ class Login extends Component {
                                     placeholder='Password'
                                     type='password'
                                     onChange={this.handleChange}
-                                />
+                                /> */}
 
                                 <Button className="seeAllWinesBtn" size='small'>
                                     <p className="seeAllWinesText" fluid size='large'>
