@@ -10,7 +10,7 @@ module.exports = {
     let users = [
       {
           id: 1,
-          username: 'test'
+          username: 'wholesale'
           
       },
       {

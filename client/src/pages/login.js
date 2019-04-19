@@ -20,11 +20,11 @@ class Login extends Component {
                     <Grid.Column style={{ maxWidth: 450 }}>
                         <Header as='h2' textAlign='center'>
                             {/* <Image src='/logo.png' />  */}
-                            Log-in to Your Account
+                            Please enter the password to view this content.
                     </Header>
                         <Form size='large' onSubmit={this.handleFormSubmit}>
                             <Segment stacked>
-                                <Form.Input fluid icon='lock' name="Password" iconPosition='left' placeholder='password' onChange={this.handleChange} />
+                                <Form.Input fluid icon='lock' type='password' name="username" iconPosition='left' placeholder='password' onChange={this.handleChange} />
                                 {/* <Form.Input
                                     fluid
                                     name="password"
