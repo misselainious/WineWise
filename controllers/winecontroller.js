@@ -20,6 +20,17 @@ module.exports = {
       res.sendStatus(400);
     });
   },
+  findSome: (req,res) => {
+    db.Wine
+    .find({ Just_In: "Yes" })
+    .then( wine => {
+      res.json(wine)
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+  },
   findById: function(req, res) {
     db.Wine
       .findById(req.params.id)

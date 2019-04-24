@@ -1,11 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Card, Grid, Image, Button } from 'semantic-ui-react'
-import "./Winecard.css";
+import "./justin.css";
 
 const img = '/images/StockRED.png'
 
-const Winecard = (props) => (
+const Justin = (props) => (
 
   <Link to={"/details/" + props.wineid}>
     <Card className="card" >
@@ -29,6 +29,4 @@ const Winecard = (props) => (
  
 )
 
-export default Winecard
-
-
+export default Justin

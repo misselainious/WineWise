@@ -16,14 +16,14 @@ class Login extends Component {
 
         return (
             <Fragment>
-                <Grid textAlign='center' style={{ height: '475px' }} verticalAlign='middle'>
-                    <Grid.Column style={{ maxWidth: 450 }}>
-                        <Header as='h2' textAlign='center'>
+                <Grid textAlign='center' style={{ height: '475px', marginBottom: '200px' }} verticalAlign='middle'>
+                    <Grid.Column style={{ maxWidth: 450}}>
+                        <Header as='h3' textAlign='center' style={{ marginBottom: '30px', marginTop: '190px'}}>
                             {/* <Image src='/logo.png' />  */}
                             Please enter the password to view this content.
-                    </Header>
+                        </Header>
                         <Form size='large' onSubmit={this.handleFormSubmit}>
-                            <Segment stacked>
+                            <Segment raised>
                                 <Form.Input fluid icon='lock' type='password' name="username" iconPosition='left' placeholder='password' onChange={this.handleChange} />
                                 {/* <Form.Input
                                     fluid
@@ -41,6 +41,9 @@ class Login extends Component {
                             </p></Button>
                             </Segment>
                         </Form>
+                        <Header as='h5' textAlign='center' style={{ marginTop: '50px', marginBottom: '200px'}}>
+                            This section is for clients only. To gain access, contact your sales rep or the order desk at orders@winewise.biz.
+                        </Header>
                     </Grid.Column>
                 </Grid>
             </Fragment>

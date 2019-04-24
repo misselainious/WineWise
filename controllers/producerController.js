@@ -9,7 +9,7 @@ module.exports = {
   },
   findOne: (req,res) => {
     db.Producer
-    .findOne({ _id: req.params.id })
+    .findOne({ producer: req.params.id })
     .then( producer => {
       res.json(producer)
     })
@@ -20,7 +20,7 @@ module.exports = {
   },
   findById: function(req, res) {
     db.Producer
-      .findById(req.params.id)
+      .findOne({Producer: req.params.id})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },

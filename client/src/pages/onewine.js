@@ -1,10 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { List, ListItem } from "../components/List";
-import { DataWine} from "../components/DataWineTable";
-import { Link } from "react-router-dom";
 import { Grid, Table, Segment, Image, Header, Label, Icon, Button} from "semantic-ui-react";
-import Winecard from "../components/WineCard"
 
 
 class OneWine extends Component {
@@ -16,16 +12,18 @@ class OneWine extends Component {
     return myString.split("_").join(" ")
   }
   componentDidMount() {
+    window.scrollTo(0,0);
     API.getWine(this.props.match.params.id)
       .then(res => this.setState({ wine: res.data }))
       .catch(err => console.log(err));
+    API.getProducerWines(this.state.wine.Producer)
+    .then(res => this.setState( {wines: res.data}))
+    .then(console.log(this.state.wines))
+    .catch(err => console.log(err));
   }
   componentDidUpdate(prevProps) {
     if (this.props.userID !== prevProps.userID){
-      API.getProducerWines(this.state.wine.Producer)
-      .then(res => this.setState( {wines: res.data}))
-      .then(console.log(this.state.wines))
-      .catch(err => console.log(err));
+
     }
   }
 
@@ -56,8 +54,11 @@ render() {
   <Image >
             { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
             :
-            // Else Renders specific wine image
+            // Else Renders specific wine image from url:
               <Image src={`https://gdurl.com${this.state.wine.URL}`}/>
+
+              //For when image is in individual folder:
+              // <Image src={`/images/individual/${this.state.wine.Code}.png`}/>
             } 
   </Image>
 
@@ -123,7 +124,7 @@ render() {
     <Table.Body>
         {
             wineObjKeys.map(key => 
-                    wine[key] !== '' && key !== 'WineWise_Notes' && <Table.Row key={key}>
+                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{wine[key]}</Table.Cell>
                     </Table.Row>

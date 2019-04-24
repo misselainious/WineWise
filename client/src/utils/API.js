@@ -6,6 +6,10 @@ export default {
     // console.log("GETTING WINES")
     return axios.get("/api/wines");
   },
+  newWines: function() {
+    // console.log("GETTING WINES")
+    return axios.get("/api/wines/new");
+  },
   getProducerWines: function(producer) {
     return axios.get("/api/wines/" + producer);
   },

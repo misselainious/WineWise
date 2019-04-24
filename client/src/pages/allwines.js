@@ -9,8 +9,6 @@ import { Grid } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
 
-
-
 class Wines extends Component {
   state = {
     wines: [],
@@ -29,6 +27,7 @@ class Wines extends Component {
 
 
   componentDidMount() {
+    
     this.loadWines();
     this.loadProducers();
   }
@@ -95,6 +94,7 @@ class Wines extends Component {
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
+  
     //
     const filterElements = [{
       filterType: "countries",
@@ -150,7 +150,7 @@ class Wines extends Component {
                 <Grid >
                   <Grid.Row columns={4}>
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                      <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
                     ))}
                   </Grid.Row>
                 </Grid>

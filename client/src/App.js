@@ -66,7 +66,7 @@ class App extends Component {
   render() {
     // console.log('is logged in', authService.loggedIn());
     return (
-        <Router>
+        <Router >
           <ResponsiveContainer>
             <OtherHeading />
             <PageSwitch />

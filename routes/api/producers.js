@@ -8,7 +8,7 @@ router.route("/")
 router
   .route("/:id")
   .get(producerController.findById)
-  .put(producerController.update)
-  .delete(producerController.remove);
+  // .put(producerController.update)
+  // .delete(producerController.remove);
 
 module.exports = router;

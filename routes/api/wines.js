@@ -1,14 +1,15 @@
 const router = require("express").Router();
 const wineController = require("../../controllers/winecontroller");
 
-// Matches with "/api/books"
+// Matches with "/api/wines"
 router.route("/")
   .get(wineController.findAll)
-  .post(wineController.create);
+  .post(wineController.create)
 
-// router.route("/wines")
-//   .post(wineController.create)
-// Matches with "/api/books/:id"
+
+router.route("/new")
+  .get(wineController.findSome)
+  
 router
   .route("/:id")
   .get(wineController.findById)

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, List, Header, Button, Icon, Label} from "semantic-ui-react";
+import { Grid, Table, List, Header, Button, Icon, Label, Segment} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import OneProdBtn from "../components/AllProducersBtn/index"
 
@@ -14,6 +14,7 @@ class OneProducer extends Component {
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0);
     API.getProducer(this.props.match.params.id)
       .then(res => this.setState({ producer: res.data }))
       .catch(err => console.log(err))
@@ -38,7 +39,6 @@ render() {
 
     return (
      <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
-
 <Grid.Row>
       <Grid.Column>
         <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
@@ -46,6 +46,14 @@ render() {
     </Header>
     </Grid.Column>
     </Grid.Row>
+
+    <Grid.Row centered>
+      <Grid.Column width={10}>
+  <Segment padded='very' style={{backgroundColor: "#e6eae5"}}>
+            {this.state.producer.List_Notes}
+  </Segment>
+  </Grid.Column>
+</Grid.Row>
 
        <Grid.Row>
          <Grid.Column width={8}>
@@ -58,7 +66,7 @@ render() {
         <Table.Body>
         {
             producerObjKeys.map(key => 
-                    producer[key] && <Table.Row key={key}>
+                    producer[key] && key !== 'List_Notes' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{producer[key]}</Table.Cell>
                     </Table.Row>
