@@ -1,32 +1,62 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { Card, Grid, Image, Button } from 'semantic-ui-react'
-import "./justin.css";
+import React, { Component } from "react";
+import API from "../../utils/API";
+import Winecard from "../WineCard/index.js"
 
-const img = '/images/StockRED.png'
+import {
+  Button,
+  Container,
+  Divider,
+  Grid,
+  Header,
+  Image,
+  Segment,
+} from 'semantic-ui-react';
+import { createCipher } from "crypto";
 
-const Justin = (props) => (
 
-  <Link to={"/details/" + props.wineid}>
-    <Card className="card" >
-      {(props.url === "") ? <Image className="cardImage"src='/images/StockRED.png' />
-        :
-        // Else Renders row with image from url:
-        <Image className="cardImage" src={`https://gdurl.com${props.url}`} />
+class Justin extends Component {
+  state = {
+    wines: []
+  };
+  //onload we get all the wine and producer data
 
-        //For rendering image from individual folder:
-        // <Image className="cardImage" src={`/images/individual/${props.Code}.png`}/>
+
+  componentDidMount() {
+    
+    this.loadWines();
+  }
+  loadWines = () => {
+    API.newWines()
+      .then(res => {
+        this.setState({ wines: res.data })
       }
+      )
+      .catch(err => console.log(err));
+  };
 
-      <Card.Content style={{textAlign: "center"}}>
-        <Card.Header className='cardHeader'>{props.producer} {props.header}</Card.Header>
-        <Card.Meta className='cardData'>
-          <span>{props.region}, {props.country}</span>
-        </Card.Meta>
-      </Card.Content>
-    </Card>
-    </Link> 
- 
-)
+  render() {
+    return (
+     
 
-export default Justin
+
+<Grid doubling columns={4}>
+
+        <Grid.Row>
+        <Header as='h2'>Just Arrived!</Header>
+      </Grid.Row>
+
+      <Grid.Row>
+
+      
+                    {this.state.wines.map(wine => (
+                      <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
+                    ))}
+                  </Grid.Row>
+                  </Grid>
+
+
+    );
+  }
+}
+
+export default Justin;

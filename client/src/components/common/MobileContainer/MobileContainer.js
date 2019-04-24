@@ -41,6 +41,13 @@ class MobileContainer extends React.Component {
               <p className="sideBarText">Producers</p></Menu.Item></Link>
             <Link to="/aboutus" ><Menu.Item className={pathname === "/aboutus" ? "nav-link active" : "nav-link"}>
               <p className="sideBarText">About Us</p></Menu.Item></Link>
+            <Link to="/admin" ><Menu.Item className={pathname === "/admin" ? "nav-link active" : "nav-link"}>
+              <p className="sideBarText"><i class="dolly icon"></i> For the Trade</p></Menu.Item>
+  
+        
+      
+          </Link>
+         
         </Sidebar>
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
@@ -55,11 +62,7 @@ class MobileContainer extends React.Component {
                 <Menu.Item onClick={this.handleToggle}>
                   <Icon name='sidebar' />
                 </Menu.Item>
-                <Menu.Item>
-                <Header as='h1' inverted color = 'red'>
-                WineWise 
-                </Header>
-                </Menu.Item>
+                
                 <Menu.Item position='right'>
                     {/* <Button className="registerBtn"  style={{ marginLeft: '0.5em' }}>
                         <p className="registerBtnText">For The Trade</p>

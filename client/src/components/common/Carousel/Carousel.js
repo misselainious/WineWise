@@ -25,20 +25,14 @@ class imageScrolling extends Component {
   render() {
     let image = this.state.imageArray[this.state.currentImageIndex]
     return (
-      <Responsive minWidth={992}>
+      <Responsive minWidth={768}>
       <Segment >
       <Image className="frontImage" src={`./images/${image}`} />
       </Segment>
       </Responsive>
-    //   <Segment.Group >
-    //   <Responsive className="carousel" as= {Segment} minWidth={992}
-    //   textAlign='center'
-    //   style={{ width: '80%', height: 'auto', minHeight: 700, padding: '1em 0em', backgroundImage: `url("./images/${image}")` }}
-    //   vertical
-    // >
+
     // <HomeHeading />
-    // </Responsive>
-    // </Segment.Group>
+ 
     );
   }
 }

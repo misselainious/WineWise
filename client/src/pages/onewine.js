@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import API from "../utils/API";
 import { Grid, Table, Segment, Image, Header, Label, Icon, Button} from "semantic-ui-react";
-
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 class OneWine extends Component {
   state = {
@@ -26,6 +27,18 @@ class OneWine extends Component {
 
     }
   }
+  printDocument() {
+    const input = document.getElementById('divToPrint');
+    html2canvas(input)
+      .then((canvas) => {
+        const imgData = canvas.toDataURL('image/png');
+        const pdf = new jsPDF();
+        pdf.addImage(imgData, 'JPEG', 0, 0);
+        // pdf.output('dataurlnewwindow');
+        pdf.save("download.pdf");
+      })
+    ;
+  }
 
 render() {
 
@@ -33,20 +46,9 @@ render() {
     delete wine._id
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
 
-    // let wineList = wine
-    // const FieldAdjuster = { "Alcohol_by_volume": "ABV", "Residual_Sugar": "Residual Sugar", "Years_in_Blend": "Years in Blend" }
-    // // filter by each keyword if the filter is selected
-    // for (let keyword of ["Years_in_Blend", "Alcohol_by_volume", "Residual_Sugar"]) {
-    //   wineList = wineList.filter(wine => {
-    //     return (
-    //       (this.state.filters[keyword].length === 0) ||
-    //       this.state.filters[keyword].includes(wine[FieldAdjuster[keyword]])
-    //     )
-    //   })
-    // }
 
     return (
-<Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
+<Grid  id="divToPrint" style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
  <Grid.Row>
 
   <Grid.Column width={3}>
@@ -101,18 +103,13 @@ render() {
             <Segment className='WWNotes' attached>
             {this.state.wine.WineWise_Notes}
             </Segment>
+            <Button onClick={this.printDocument}>Download Tech Sheet</Button>
   </Grid.Column>
-
-{/* TO DO: Need API call to get producer page */}
-  {/* <Grid.Column width={2}>
-   <Link to={"/producerdetails/" + this.state.wine._id}>
-    <Button basic color='olive'>View Producer</Button>
-   </Link>
-  </Grid.Column> */}
 
  </Grid.Row>
 
  <Grid.Row>
+
   <Grid.Column width={8}>
    <Table celled>
     <Table.Header>
