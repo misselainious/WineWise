@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Label, Icon, Button} from "semantic-ui-react";
+import { Grid, Table, Segment, Image, Header, Label, Icon, Button, List} from "semantic-ui-react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import Winecard from '../components/WineCard/index'
 
 class OneWine extends Component {
   state = {
     wine: {},
-    wines: {}
+    wines: {},
+    producer: {}
   };
   removeUnderscores(myString){
     return myString.split("_").join(" ")
@@ -16,11 +18,19 @@ class OneWine extends Component {
     window.scrollTo(0,0);
     API.getWine(this.props.match.params.id)
       .then(res => this.setState({ wine: res.data }))
+      .then(
+        API.getWines()
+        .then(res => {
+          let data = res.data
+          data = data.filter((item) => item.Producer == this.state.wine.Producer)
+          data = data.filter((item) => item.Code !== this.state.wine.Code)
+          this.setState({ wines: data })
+        }))
       .catch(err => console.log(err));
-    API.getProducerWines(this.state.wine.Producer)
-    .then(res => this.setState( {wines: res.data}))
-    .then(console.log(this.state.wines))
-    .catch(err => console.log(err));
+
+
+
+
   }
   componentDidUpdate(prevProps) {
     if (this.props.userID !== prevProps.userID){
@@ -35,7 +45,7 @@ class OneWine extends Component {
         const pdf = new jsPDF();
         pdf.addImage(imgData, 'JPEG', 0, 0);
         // pdf.output('dataurlnewwindow');
-        pdf.save("download.pdf");
+        pdf.save("WineWise.pdf");
       })
     ;
   }
@@ -45,10 +55,11 @@ render() {
     const { wine } = this.state;
     delete wine._id
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
-
+    let producerWines = this.state.wines
 
     return (
-<Grid  id="divToPrint" style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
+      <div id="divToPrint">
+<Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
  <Grid.Row>
 
   <Grid.Column width={3}>
@@ -131,7 +142,37 @@ render() {
    </Table>
   </Grid.Column>
  </Grid.Row>
+
+ <Grid.Column width={8}>
+<Header as='h3'>{this.state.wine.Producer}'s Other Wines</Header>
+       
+        <Grid.Row>
+          
+
+          <Grid.Column width={8}>
+          
+            {producerWines.length ? (
+              <List >
+                <Grid >
+                  <Grid.Row columns={3}>
+                    {producerWines.map(wine => (
+                      <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                    ))}
+                  </Grid.Row>
+                </Grid>
+              </List>
+            ) : (
+                <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
+              )}
+
+
+          </Grid.Column>
+        </Grid.Row>
+        </Grid.Column>
+
+
 </Grid>
+</div>
  
     );
   }
