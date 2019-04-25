@@ -20,7 +20,8 @@ class Wines extends Component {
       countries: [],
       colors: [],
       regions: [],
-      producers: []
+      producers: [],
+      female: []
     }
   };
   //onload we get all the wine and producer data
@@ -92,6 +93,7 @@ class Wines extends Component {
     const mainStyle = { marginLeft: "250px" }
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
+    const female = ["Yes"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
   
@@ -108,15 +110,18 @@ class Wines extends Component {
     }, {
       filterType: "producers",
       elements: producers
+    }, {
+      filterType: "female",
+      elements: female
     }]
     //TODO Make the footer less wonky
     let wineList = this.state.wines
     // console.log("preWinelist", wineList)
     //this is a hacky way to access the wine data field given that each word is
     //slightly different than the actual keyword
-    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "producers": "Producer", "colors": "Color" }
+    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "producers": "Producer", "colors": "Color", "female": "Female_Winemaker" }
     // filter by each keyword if the filter is selected
-    for (let keyword of ["producers", "countries", "colors", "regions"]) {
+    for (let keyword of ["producers", "countries", "colors", "regions", "female"]) {
       wineList = wineList.filter(wine => {
         return (
           (this.state.filters[keyword].length === 0) ||

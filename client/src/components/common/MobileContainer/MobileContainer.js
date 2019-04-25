@@ -25,7 +25,7 @@ class MobileContainer extends React.Component {
         <Sidebar
           as={Menu}
           animation='push'
-          inverted
+          
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
@@ -52,18 +52,18 @@ class MobileContainer extends React.Component {
 
         <Sidebar.Pusher dimmed={sidebarOpened}>
           <Segment
-            inverted
+            
             textAlign='center'
             style={{ minHeight: 140, padding: '1em 0em' }}
             vertical
           >
             <Container>
-              <Menu inverted pointing secondary size='large'>
-                <Menu.Item onClick={this.handleToggle}>
+              <Menu  pointing secondary size='large'>
+                <Menu.Item inverted onClick={this.handleToggle}>
                   <Icon name='sidebar' />
                 </Menu.Item>
                 
-                <Menu.Item position='right'>
+                <Menu.Item inverted position='right'>
                     {/* <Button className="registerBtn"  style={{ marginLeft: '0.5em' }}>
                         <p className="registerBtnText">For The Trade</p>
                     </Button> */}

@@ -1,15 +1,14 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Label, Icon, Button, List} from "semantic-ui-react";
+import { Grid, Table, Segment, Image, Header, Label, Icon, Button, Dimmer, Loader} from "semantic-ui-react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
-import Winecard from '../components/WineCard/index'
+import Winecard from '../components/WineCard'
 
 class OneWine extends Component {
   state = {
     wine: {},
-    wines: {},
-    producer: {}
+    wines: []
   };
   removeUnderscores(myString){
     return myString.split("_").join(" ")
@@ -60,6 +59,7 @@ render() {
     return (
       <div id="divToPrint">
 <Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
+
  <Grid.Row>
 
   <Grid.Column width={3}>
@@ -114,7 +114,7 @@ render() {
             <Segment className='WWNotes' attached>
             {this.state.wine.WineWise_Notes}
             </Segment>
-            <Button onClick={this.printDocument}>Download Tech Sheet</Button>
+            <Button onClick={this.printDocument && this.handleOnClick}>Download Tech Sheet</Button>
   </Grid.Column>
 
  </Grid.Row>
@@ -143,7 +143,10 @@ render() {
   </Grid.Column>
  </Grid.Row>
 
- <Grid.Column width={8}>
+
+{/* Producer's Other Wines */}
+ <Grid.Row>
+ <Grid.Column width={12}>
 <Header as='h3'>{this.state.wine.Producer}'s Other Wines</Header>
        
         <Grid.Row>
@@ -151,24 +154,22 @@ render() {
 
           <Grid.Column width={8}>
           
-            {producerWines.length ? (
-              <List >
+           
+           
                 <Grid >
-                  <Grid.Row columns={3}>
+                  <Grid.Row columns={12}>
                     {producerWines.map(wine => (
-                      <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+     <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
                     ))}
                   </Grid.Row>
                 </Grid>
-              </List>
-            ) : (
-                <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
-              )}
+      
 
 
           </Grid.Column>
         </Grid.Row>
         </Grid.Column>
+        </Grid.Row>
 
 
 </Grid>

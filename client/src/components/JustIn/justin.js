@@ -3,13 +3,10 @@ import API from "../../utils/API";
 import Winecard from "../WineCard/index.js"
 
 import {
-  Button,
-  Container,
-  Divider,
+
   Grid,
-  Header,
-  Image,
-  Segment,
+  Header
+
 } from 'semantic-ui-react';
 import { createCipher } from "crypto";
 
