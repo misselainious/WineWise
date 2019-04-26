@@ -4,6 +4,7 @@ import { Grid, Table, Segment, Image, Header, Label, Icon, Button, Dimmer, Loade
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Winecard from '../components/WineCard'
+import { Link } from "react-router-dom";
 
 class OneWine extends Component {
   state = {
@@ -105,16 +106,18 @@ render() {
   </Grid.Column>
 
   <Grid.Column width={6}>
+          <Link to={"/producerdetails/" + this.state.wine.Producer}>
             <Header style={{backgroundColor:'#dfdfbf'}} as='h2' attached='top'>
             {this.state.wine.Producer}
             </Header>
+          </Link>
             <Segment attached>
             {this.state.wine.Wine}
             </Segment>
             <Segment className='WWNotes' attached>
             {this.state.wine.WineWise_Notes}
             </Segment>
-            <Button onClick={this.printDocument && this.handleOnClick}>Download Tech Sheet</Button>
+            {/* <Button onClick={this.printDocument && this.handleOnClick}>Download Tech Sheet</Button> */}
   </Grid.Column>
 
  </Grid.Row>
@@ -145,6 +148,8 @@ render() {
 
 
 {/* Producer's Other Wines */}
+{(this.state.wines.length === 0)? <div></div>:
+
  <Grid.Row>
  <Grid.Column width={12}>
 <Header as='h3'>{this.state.wine.Producer}'s Other Wines</Header>
@@ -170,7 +175,7 @@ render() {
         </Grid.Row>
         </Grid.Column>
         </Grid.Row>
-
+}
 
 </Grid>
 </div>

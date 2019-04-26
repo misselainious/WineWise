@@ -30,7 +30,7 @@ const Home = () => (
  </Grid.Row>
 </Responsive>
 
-<Grid centered style={{marginTop: '60px'}}>
+<Grid centered style={{marginTop: '20px'}}>
 {/* Shows On Desktop */}
  <Grid.Row>
  <Carousel />
@@ -38,10 +38,12 @@ const Home = () => (
 
     {/* <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container verticalAlign='middle'> */}
-        <Grid.Row relaxed columns={2} >
-          <Grid.Column textAlign='center' width={6} style={{ padding: '60px'}}>
+      <Responsive>
+        <Grid columns='equal'>
+        <Grid.Row >
 
-            <Header as='h3' style={{ fontSize: '3em' }}>
+          <Grid.Column width={8} style={{marginLeft: '20px'}} >
+            <Header as='h3' style={{ textAlign: 'center', fontSize: '3em' }}>
               WineWise
             </Header>
             <p textAlign='justified' style={{ fontSize: '1.1em' }}>
@@ -52,12 +54,15 @@ const Home = () => (
               <p className="seeAllWinesText">See All Wines</p>
             </Button>
             </Link>
+          </Grid.Column>
 
+          <Grid.Column >
+            <Image bordered rounded size='medium' src='/images/vineyard.jpg' />
           </Grid.Column>
-          <Grid.Column minWidth={768} width={5} style={{ padding: '60px'}}>
-            <Image bordered rounded size='large' src='/images/vineyard.jpg' />
-          </Grid.Column>
+
         </Grid.Row>
+        </Grid>
+        </Responsive>
 {/* 
       </Grid>
     </Segment> */}

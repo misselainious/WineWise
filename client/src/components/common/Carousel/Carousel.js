@@ -7,7 +7,7 @@ import "./carousel.css";
 class imageScrolling extends Component {
 
   state = {
-    imageArray: ["group/SBF.png", "group/FEB.png", "group/PAP.png", "group/FCF.png", "group/SVA.png", "group/SIJ3.png", "group/GCS.png", "group/KLB.png", "group/Landereau.png", "group/KLR.png"],
+    imageArray: ["group/LinkedIn.png", "group/SBF.png", "group/FEB.png", "group/PAP.png", "group/FCF.png", "group/SVA.png", "group/SIJ3.png", "group/GCS.png", "group/KLB.png", "group/Landereau.png", "group/KLR.png"],
     currentImageIndex: 0
   }
   componentDidMount() {
@@ -26,9 +26,9 @@ class imageScrolling extends Component {
     let image = this.state.imageArray[this.state.currentImageIndex]
     return (
       <Responsive minWidth={768}>
-      <Segment >
+  
       <Image className="frontImage" src={`./images/${image}`} />
-      </Segment>
+  
       </Responsive>
 
     // <HomeHeading />

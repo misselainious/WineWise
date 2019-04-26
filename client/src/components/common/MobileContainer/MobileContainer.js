@@ -32,7 +32,7 @@ class MobileContainer extends React.Component {
         <Header as='h3' style={{textAlign:'center', fontSize: "1.6em", paddingTop: "20px", color: '#510409'}}>WineWise</Header>
       
         <Link to="/"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/" ? "nav-link active" : "nav-link"}>
-        <p >Home</p></Menu.Item></Link>
+        <p ><i class="home icon"></i>Home</p></Menu.Item></Link>
         <Link to="/allwines"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/allwines" ? "nav-link active" : "nav-link"}>
           <p >All Wines</p></Menu.Item></Link>
         <Link to="/producers"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/producers" ? "nav-link active" : "nav-link"}>
@@ -45,16 +45,16 @@ class MobileContainer extends React.Component {
          
       </Sidebar>
 
-        <Sidebar.Pusher dimmed={sidebarOpened}>
-          <Segment
-            textAlign='center'
-            style={{ minHeight: 140, padding: '1em 0em' }}
-            vertical
-          >
-            <Container>
-              <Menu  pointing secondary size='large'>
-                <Menu.Item inverted onClick={this.handleToggle}>
-                  <Icon name='sidebar' />
+        <Sidebar.Pusher 
+        dimmed={sidebarOpened}
+        textAlign='center'
+        style={{ minHeight: 140, padding: '1em 0em' }}
+        vertical
+        >
+            <Container >
+              <Menu  pointing secondary size='huge'>
+                <Menu.Item  onClick={this.handleToggle}>
+                  <Icon name='bars' size='large'/>
                 </Menu.Item>
                 
                 <Menu.Item position='right'>
@@ -62,9 +62,7 @@ class MobileContainer extends React.Component {
                 </Menu.Item>
               </Menu>
             </Container>
-          
-          </Segment>
-
+        
           {children}
         </Sidebar.Pusher>
       </Responsive>

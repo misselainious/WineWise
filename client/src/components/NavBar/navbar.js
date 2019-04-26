@@ -17,15 +17,15 @@ const FixedMenuLayout = () => (
     <Menu fixed='top'>
       
       <Link to="/" onClick={scrollToTop}>
-        <Menu.Item as='a' header>
+        <Menu.Item as='a' as='h3' header style={{color: '#510409'}}>
           <Image size='mini' src='./images/owl.png' style={{ marginRight: '1.5em' }} />
           WineWise
         </Menu.Item>
         </Link>
         
-
+{/* Future Dropdown with Countries */}
       
-        <Dropdown item simple text='Countries'>
+        {/* <Dropdown item simple text='Countries'>
           <Dropdown.Menu>
             <Dropdown.Item>Austria</Dropdown.Item>
             <Dropdown.Item>France</Dropdown.Item>
@@ -45,14 +45,14 @@ const FixedMenuLayout = () => (
             </Dropdown.Item>
             <Dropdown.Item>List Item</Dropdown.Item>
           </Dropdown.Menu>
-        </Dropdown>
+        </Dropdown> */}
 
-        <Menu.Item as='a'><Link to="/producers" onClick={scrollToTop}>All Producers  </Link></Menu.Item>
-        <Menu.Item as='a'><Link to="/allwines" onClick={scrollToTop}>All Wines  </Link></Menu.Item>
+        <Menu.Item as='a'><Link to="/producers" onClick={scrollToTop}>Producers  </Link></Menu.Item>
+        <Menu.Item as='a'><Link to="/allwines" onClick={scrollToTop}>Wines  </Link></Menu.Item>
         <Menu.Item as='a'><Link to="/aboutus" onClick={scrollToTop}>About Us  </Link></Menu.Item>
         
         {/* Trade Button */}
-        <Menu.Item position='right' >
+        <Menu.Item position='right' style={{marginRight:'10px'}} >
         <Link to="/admin" onClick={scrollToTop}>
         <Button>
         <i class="dolly icon"></i> For the Trade
