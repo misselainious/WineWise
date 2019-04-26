@@ -36,7 +36,7 @@ class Justin extends Component {
      
 
 
-<Grid doubling columns={4}>
+<Grid doubling centered columns={4}>
 
         <Grid.Row>
         <Header as='h2'>Just Arrived!</Header>

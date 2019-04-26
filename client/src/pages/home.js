@@ -20,19 +20,21 @@ import { createCipher } from "crypto";
 
 const Home = () => (
   
-<Grid centered style={{marginTop: '60px'}}>
+<div>
 
-{/* Only shows WineWise header if on mobile */}
+{/* Only shows if on mobile */}
 <Responsive maxWidth={768} >
- <Grid.Row dividing style={{backgroundColor: '#f2efef'}}>
+<Image src="../images/group/LinkedIn.png" />
+ <Grid.Row dividing>
  <Header as='h1'style={{ fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
  </Grid.Row>
 </Responsive>
 
+<Grid centered style={{marginTop: '60px'}}>
+{/* Shows On Desktop */}
  <Grid.Row>
  <Carousel />
  </Grid.Row>
-
 
     {/* <Segment style={{ padding: '8em 0em' }} vertical>
       <Grid container verticalAlign='middle'> */}
@@ -52,7 +54,7 @@ const Home = () => (
             </Link>
 
           </Grid.Column>
-          <Grid.Column width={5} style={{ padding: '60px'}}>
+          <Grid.Column minWidth={768} width={5} style={{ padding: '60px'}}>
             <Image bordered rounded size='large' src='/images/vineyard.jpg' />
           </Grid.Column>
         </Grid.Row>
@@ -111,6 +113,6 @@ citrus, salt – and its prodigious length on the palate. It is dosed at 9 gm.. 
     <Justin />
     </Grid.Row>
     </Grid>
- 
+    </div>
 )
 export default Home;

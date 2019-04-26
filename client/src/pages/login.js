@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
+
 
 import AuthService from '../components/login/AuthService';
 
@@ -16,7 +18,7 @@ class Login extends Component {
 
         return (
             <Fragment>
-                <Grid textAlign='center' style={{ height: '475px', marginBottom: '200px' }} verticalAlign='middle'>
+                <Grid textAlign='center' style={{ height: '475px', marginBottom: '300px' }} verticalAlign='middle'>
                     <Grid.Column style={{ maxWidth: 450}}>
                         <Header as='h3' textAlign='center' style={{ marginBottom: '30px', marginTop: '190px'}}>
                             {/* <Image src='/logo.png' />  */}
@@ -41,9 +43,13 @@ class Login extends Component {
                             </p></Button>
                             </Segment>
                         </Form>
-                        <Header as='h5' textAlign='center' style={{ marginTop: '50px', marginBottom: '200px'}}>
+                        <Header as='h5' textAlign='center' style={{ marginTop: '50px', marginBottom: '100px'}}>
                             This section is for clients only. To gain access, contact your sales rep or the order desk at orders@winewise.biz.
                         </Header>
+                        <Link to='/'>
+                        <Button> Back to Home
+                            </Button>
+                            </Link>
                     </Grid.Column>
                 </Grid>
             </Fragment>
