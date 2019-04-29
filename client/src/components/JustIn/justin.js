@@ -5,7 +5,8 @@ import Winecard from "../WineCard/index.js"
 import {
 
   Grid,
-  Header
+  Header,
+  Divider
 
 } from 'semantic-ui-react';
 import { createCipher } from "crypto";
@@ -39,7 +40,13 @@ class Justin extends Component {
 <Grid doubling centered columns={4}>
 
         <Grid.Row>
-        <Header as='h2'>Just Arrived!</Header>
+        <Divider
+                        as='h2'
+                        className='header'
+                        horizontal
+                        style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase' }}>
+                     JUST ARRIVED!
+                    </Divider>
       </Grid.Row>
 
       <Grid.Row>

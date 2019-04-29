@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, List, Header, Button, Icon, Label, Segment} from "semantic-ui-react";
+import { Grid, Table, List, Header, Responsive, Segment} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import OneProdBtn from "../components/AllProducersBtn/index"
 
@@ -38,32 +38,36 @@ render() {
     // let returnWines = producerWines.filter(this.state.producer.Producer === this.state.wines.Producer)
 
     return (
-     <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
-<Grid.Row>
-      <Grid.Column>
-        <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
+<div>
+{/* FOR MOBILE: */}
+
+<Responsive maxWidth={768}>
+ <Grid centered>
+   <Grid.Row>
+   <Grid.Column>
+      <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "10px", paddingBottom: "10px"}} >
       {this.state.producer.Producer}
-    </Header>
+      </Header>
     </Grid.Column>
-    </Grid.Row>
+   </Grid.Row>
 
-    <Grid.Row centered>
-      <Grid.Column width={10}>
-  <Segment padded='very' style={{backgroundColor: "#e6eae5"}}>
+   <Grid.Row centered>
+    <Grid.Column width={14}>
+     <Segment padded style={{backgroundColor: "#e6eae5"}}>
             {this.state.producer.List_Notes}
-  </Segment>
-  </Grid.Column>
-</Grid.Row>
+     </Segment>
+    </Grid.Column>
+   </Grid.Row>
 
-       <Grid.Row>
-         <Grid.Column width={8}>
-        <Table celled>
-            <Table.Header>
-                <Table.Row>
-                <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
-                </Table.Row>
-            </Table.Header>
-        <Table.Body>
+   <Grid.Row>
+    <Grid.Column width={13}>
+      <Table celled>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+         <Table.Body>
         {
             producerObjKeys.map(key => 
                     producer[key] && key !== 'List_Notes' && <Table.Row key={key}>
@@ -72,48 +76,110 @@ render() {
                     </Table.Row>
             )
         }
-        </Table.Body>
-        </Table>
-        </Grid.Column>
+         </Table.Body>
+       </Table>
+    </Grid.Column>
 
-<Grid.Column width={8}>
-<Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
-       
-        <Grid.Row>
-          
-
-          <Grid.Column width={8}>
-          
-            {producerWines.length ? (
-              <List >
-                <Grid >
-                  <Grid.Row columns={3}>
-                    {producerWines.map(wine => (
-                      <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
-                    ))}
-                  </Grid.Row>
-                </Grid>
-              </List>
+ <Grid.Column width={10}>
+    <Header as='h3' style={{marginTop:'20px'}}>{this.state.producer.Producer}'s Wines</Header>
+  <Grid.Row>
+   <Grid.Column width={8}>
+        {producerWines.length ? (
+            <List >
+              <Grid >
+                <Grid.Row columns={3}>
+                  {producerWines.map(wine => (
+                    <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                  ))}
+                </Grid.Row>
+              </Grid>
+            </List>
             ) : (
                 <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
               )}
 
+  </Grid.Column>
+  </Grid.Row>
+ </Grid.Column>
 
-          </Grid.Column>
-        </Grid.Row>
-        </Grid.Column>
+</Grid.Row>
 
-         </Grid.Row>
+ </Grid>
+</Responsive>
+
+{/* FOR DESKTOP: */}
+<Responsive minWidth={768}>
+  <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
+   <Grid.Row>
+    <Grid.Column>
+      <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
+      {this.state.producer.Producer}
+      </Header>
+    </Grid.Column>
+   </Grid.Row>
+
+   <Grid.Row centered>
+    <Grid.Column width={10}>
+     <Segment padded='very' style={{backgroundColor: "#e6eae5"}}>
+            {this.state.producer.List_Notes}
+     </Segment>
+    </Grid.Column>
+   </Grid.Row>
+
+   <Grid.Row>
+    <Grid.Column width={8}>
+      <Table celled>
+        <Table.Header>
+          <Table.Row>
+            <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
+          </Table.Row>
+        </Table.Header>
+         <Table.Body>
+        {
+            producerObjKeys.map(key => 
+                    producer[key] && key !== 'List_Notes' && <Table.Row key={key}>
+                        <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
+                        <Table.Cell>{producer[key]}</Table.Cell>
+                    </Table.Row>
+            )
+        }
+         </Table.Body>
+       </Table>
+    </Grid.Column>
+
+ <Grid.Column width={8}>
+    <Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
+  <Grid.Row>
+   <Grid.Column width={8}>
+        {producerWines.length ? (
+            <List >
+              <Grid >
+                <Grid.Row columns={3}>
+                  {producerWines.map(wine => (
+                    <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                  ))}
+                </Grid.Row>
+              </Grid>
+            </List>
+            ) : (
+                <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
+              )}
+
+  </Grid.Column>
+  </Grid.Row>
+ </Grid.Column>
+
+</Grid.Row>
          
-         
-
 <OneProdBtn />
 
 
 
 
     </Grid>
- 
+    </Responsive>   
+
+</div>
     );
   }
 }

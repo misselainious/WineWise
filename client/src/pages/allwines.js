@@ -5,7 +5,7 @@ import API from "../utils/API";
 import { List } from "../components/List";
 import { DataWine } from "../components/DataWineTable";
 // import { Link } from "react-router-dom";
-import { Grid } from "semantic-ui-react";
+import { Grid, Responsive } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
 
@@ -22,7 +22,8 @@ class Wines extends Component {
       regions: [],
       producers: [],
       female: []
-    }
+    },
+    visable: false
   };
   //onload we get all the wine and producer data
 
@@ -93,10 +94,10 @@ class Wines extends Component {
     const mainStyle = { marginLeft: "250px" }
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
-    const female = ["Yes"]
+    const female = ["Female Winemaker"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
-  
+    const { visable } = this.state;
     //
     const filterElements = [{
       filterType: "countries",
@@ -131,44 +132,32 @@ class Wines extends Component {
     }
 
     return (
-
-      <Grid style={{marginTop: "50px"}}>
-        {/*CheckboxSidebar renders with a double layered array*/}
-
-        <Grid.Row>
-          <Grid.Column width={3} >
-
-            <Grid.Row>
-              <SearchWines />
-            </Grid.Row>
-
-            <Grid.Row>
-              <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
-            </Grid.Row>
-           
-          </Grid.Column>
-  
-
-          <Grid.Column width={12}>
-            {wineList.length ? (
-              // <List >
-                <Grid >
-                  <Grid.Row columns={4}>
+      <Grid style={{marginTop: '30px'}} columns={2}>
+        <Grid.Column width={3} style={{marginTop: '40px'}}>
+        <SearchWines />
+        <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+        </Grid.Column>
+   <Grid.Column width={12}>
+      <Grid centered style={{marginTop: '80px'}}>
+        
+        {wineList.length ? (
+           <Grid.Row >
+       
+                
+                 
                     {wineList.map(wine => (
                       <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
                     ))}
-                  </Grid.Row>
-                </Grid>
-              // </List>
+                  
+              
+                </Grid.Row>
             ) : (
                 <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
               )}
 
-
-          </Grid.Column>
-        </Grid.Row>
       </Grid>
-
+      </Grid.Column>
+      </Grid>
 
   )
             }

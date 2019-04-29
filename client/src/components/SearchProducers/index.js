@@ -1,5 +1,4 @@
 import _ from "lodash";
-// import faker from "faker";
 import React, { Component } from "react";
 import { Search, Grid, Header, Segment } from "semantic-ui-react";
 import API from '../../utils/API'
@@ -51,23 +50,17 @@ export default class SearchBar extends Component {
     
     const { isLoading, value, producers } = this.state;
 
-    const resRender = ({ Producer, _id }) => (
-      <Link to={"/producerdetails/" + _id}>
-        <span key="name">
+    const resRender = ({ Producer }) => (
+      <Link to={"/producerdetails/" + Producer}>
+        <div key="name">
         {Producer}
-        </span>
+        </div>
       </Link>
     );
 
 
     return (
-      // <Grid style={{marginLeft: "auto", marginRight: "auto"}}>
-      //   <Grid.Row>
-      //     <Header>
-      //       <h5 style={{marginLeft: 20}}>Search Our Producers</h5>
-      //     </Header>
-      //   </Grid.Row>
-      //   <Grid.Column width={6}>
+
           <Search className="search"
             placeholder="Search producers..."
             loading={isLoading}
@@ -79,9 +72,7 @@ export default class SearchBar extends Component {
             value={value}
             resultRenderer={resRender}
           />
-      //   </Grid.Column>
 
-      // </Grid>
     );
   }
 }

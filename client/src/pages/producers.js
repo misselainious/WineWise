@@ -44,7 +44,7 @@ contextRef = createRef()
   
 render() {
     return (
-        <Grid style={{marginTop: "40px", marginBottom: "40px"}}>
+        <Grid centered style={{marginTop: "40px", marginBottom: "40px"}}>
         <Grid.Row>
       <Grid.Column>
         <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
@@ -52,13 +52,17 @@ render() {
     </Header>
     </Grid.Column>
         </Grid.Row>
-    
     <Grid.Row>
-            <Grid.Column width={3}>
+    <center>
+              <SearchProducers />         
+            </center>
+    </Grid.Row>
+    <Grid.Row>
+            {/* <Grid.Column width={3}>
             <center>
               <SearchProducers />         
             </center>
-            </Grid.Column>
+            </Grid.Column> */}
 
 <Grid.Column width={12}>
         {this.state.Producers.length ? (

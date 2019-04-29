@@ -83,7 +83,7 @@ const PageSwitch = props => {
       <Route exact path="/" component={Home} />
       <Route path="/allwines" component={AllWines} />
       <PrivateRoute path="/admin" component={Admin} />
-      <Route path="/details/:id" component={OneWine} />
+      <Route path="/details/:id" key={window.location.pathname} component={OneWine} />
       <Route path="/producers" component={Producers} />
       <Route path="/producerdetails/:id" component={OneProducer} />
       <Route path="/aboutus" component={AboutUs} />

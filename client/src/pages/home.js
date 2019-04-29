@@ -14,7 +14,9 @@ import {
   Header,
   Image,
   Segment,
-  Responsive
+  Responsive,
+  Embed,
+  Feed
 } from 'semantic-ui-react';
 import { createCipher } from "crypto";
 
@@ -26,27 +28,33 @@ const Home = () => (
 <Responsive maxWidth={768} >
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>
- <Header as='h1'style={{ fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
+ <Header as='h1'style={{ textAlign: 'center', fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
  </Grid.Row>
 </Responsive>
 
+
+<Responsive minWidth={768}>
 <Grid centered style={{marginTop: '20px'}}>
-{/* Shows On Desktop */}
+{/* Only Shows On Desktop */}
  <Grid.Row>
  <Carousel />
  </Grid.Row>
 
-    {/* <Segment style={{ padding: '8em 0em' }} vertical>
-      <Grid container verticalAlign='middle'> */}
-      <Responsive>
-        <Grid columns='equal'>
-        <Grid.Row >
 
-          <Grid.Column width={8} style={{marginLeft: '20px'}} >
-            <Header as='h3' style={{ textAlign: 'center', fontSize: '3em' }}>
-              WineWise
-            </Header>
-            <p textAlign='justified' style={{ fontSize: '1.1em' }}>
+
+<Grid.Row columns={2} divided >
+
+      <Grid.Column width={8} >
+
+      <Divider
+                        as='h2'
+                        className='header'
+                        horizontal
+                        style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase' }}>
+                        Our mission
+                    </Divider>
+          <Image src="../images/vineyard.jpg" size='large' centered/>
+            <p textAlign='justified' style={{ padding:'20px',fontSize: '1.2em' }}>
               Since 1989, Wine Wise has been importing some of the finest estate-grown wines from France, Germany, Austria, Spain, Portugal and Greece. Our speciality is small family firms that offer over-performing wines and exceptional value. Grower Champagnes and other sparkling wines are a particular area of emphasis for Wine Wise.
             </p>
             <Link to="/allwines">
@@ -54,34 +62,11 @@ const Home = () => (
               <p className="seeAllWinesText">See All Wines</p>
             </Button>
             </Link>
-          </Grid.Column>
 
-          <Grid.Column >
-            <Image bordered rounded size='medium' src='/images/vineyard.jpg' />
-          </Grid.Column>
+      
+        </Grid.Column>
 
-        </Grid.Row>
-        </Grid>
-        </Responsive>
-{/* 
-      </Grid>
-    </Segment> */}
-
-
-    <Segment style={{ padding: '8em 0em' }} vertical>
-      <Container text>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Our Mission
-        </Header>
-        <p style={{ fontSize: '1em' }}>
-          The philosophy of Wine Wise is straightforward: we seek wines of character from people we like and places which are not always well-known or popular. We are not averse to the classics, but we are not scared of the obscure. Our wines do not have to meet any ideological litmus test, but we do have to like them. If they are grown organically it does not hurt, but we don’t insist on it. While we have a number of sought-after and expensive wines in our portfolio, our animating force is the acquisition of great wines that almost anyone can afford to drink – a rather more exacting discipline than the converse. Above all, we like people. Our growers tend to be interesting and often amusing people, sometimes with a spiritual bent, sometimes unrepentantly earthy. We have watched with pleasure as the sons and daughters we knew as babies and children have grown up to be the proprietors of their parents’ estates. We like to think of ourselves as the link between these friends and the people drinking their wines in restaurants or at home. We have developed from an essentially one-man band into a team with a dozen or so sales representatives spanning virtually the entire state of California and a small phalanx of impossibly clever people handling the many functions that lie beyond the principals’ capabilities. We are very lucky people!
-        </p>
-        <Link to='/aboutus'>
-        <Button className="seeAllWinesBtn" size='small'>
-          <p className="seeAllWinesText">Read More</p>
-        </Button>
-        </Link>
-
+        <Grid.Column width={4}>
         <Divider
                         as='h2'
                         className='header'
@@ -109,15 +94,17 @@ citrus, salt – and its prodigious length on the palate. It is dosed at 9 gm.. 
         </Link>
         </Grid.Column>
         <br />
+        </Grid.Column>
 
+        </Grid.Row>
 
+  
 
-      </Container>
-    </Segment>
 <Grid.Row>
     <Justin />
     </Grid.Row>
     </Grid>
+    </Responsive>
     </div>
 )
 export default Home;

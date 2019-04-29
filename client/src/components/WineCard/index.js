@@ -7,7 +7,8 @@ const img = '/images/StockRED.png'
 
 const Winecard = (props) => (
 
-  <Link to={"/details/" + props.wineid}>
+  <Link to={"/details/" + props.wineid} >
+    <div ></div>
     <Card className="card" >
       {(props.url === "") ? <Image className="cardImage"src='/images/StockRED.png' />
         :

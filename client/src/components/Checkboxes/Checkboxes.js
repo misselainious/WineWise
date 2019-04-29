@@ -7,14 +7,17 @@ const Checkboxes = props =>{
     const checkboxArray = props.checkables
         .map( (checkable,i )=> (
             <Grid.Row key={i.toString()}>
+    
                 <input type="checkbox" value ={checkable} data-filter={props.filterType} onChange={props.handleFilterChange}  /> {checkable}
+            
                 {/* <Checkbox type="checkbox" value={checkable} data-filter={props.filterType} onChange={props.handleFilterChange}  /> {checkable} */}
+               
             </Grid.Row>
         ))
     return (
-        <Grid.Row className="checkboxContainer">
+        <div className="checkboxContainer">
             {checkboxArray}
-        </Grid.Row>
+        </div>
     )
 }
 

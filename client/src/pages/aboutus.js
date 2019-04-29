@@ -33,8 +33,29 @@ class AboutUs extends React.Component {
         const { modal, currentMember } = this.state;
         return (
             <React.Fragment>
-                    
-                <Segment style={{ padding: '8em 0em' }} vertical>
+      
+        <div style={{backgroundColor: '#f2efef'}}>
+        <Divider
+                        as='h2'
+                        className='header'
+                        horizontal
+                        style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase', paddingTop: '3.5em' }}>
+                        our philosophy
+                    </Divider>
+               
+                <Grid centered container stackable verticalAlign='middle'>
+                        <Grid.Row>
+                            <Grid.Column width={12}>
+                <p style={{ fontSize: '1.25em' }}>
+          The philosophy of Wine Wise is straightforward: we seek wines of character from people we like and places which are not always well-known or popular. We are not averse to the classics, but we are not scared of the obscure. Our wines do not have to meet any ideological litmus test, but we do have to like them. If they are grown organically it does not hurt, but we don’t insist on it. While we have a number of sought-after and expensive wines in our portfolio, our animating force is the acquisition of great wines that almost anyone can afford to drink – a rather more exacting discipline than the converse. Above all, we like people. Our growers tend to be interesting and often amusing people, sometimes with a spiritual bent, sometimes unrepentantly earthy. We have watched with pleasure as the sons and daughters we knew as babies and children have grown up to be the proprietors of their parents’ estates. We like to think of ourselves as the link between these friends and the people drinking their wines in restaurants or at home. We have developed from an essentially one-man band into a team with a dozen or so sales representatives spanning virtually the entire state of California and a small phalanx of impossibly clever people handling the many functions that lie beyond the principals’ capabilities. We are very lucky people!
+        </p>
+                                </Grid.Column>
+                                </Grid.Row>
+                                </Grid>
+
+                                </div>
+                                {/* </Segment>     */}
+                <Segment style={{ padding: '2em 0em' }} vertical>
                 <Divider
                         as='h2'
                         className='header'
@@ -64,13 +85,6 @@ class AboutUs extends React.Component {
 
                     </Grid>
 
-                    <Divider
-                        as='h2'
-                        className='header'
-                        horizontal
-                        style={{ margin: '1em 0em', textTransform: 'uppercase' }}>
-                        <a href=''></a>
-                    </Divider>
 
                     <Segment style={{ padding: '2em 0em' }} vertical>
                         <Grid container stackable verticalAlign='middle'>
@@ -98,7 +112,7 @@ class AboutUs extends React.Component {
                     </Segment>
 
 
-                    <Segment style={{ padding: '0em' }} vertical>
+                    {/* <Segment style={{ padding: '0em' }} vertical>
                         <Grid celled='internally' columns='equal' stackable>
                             <Grid.Row textAlign='center'>
                                 <Grid.Column style={{ paddingBottom: '5em', paddingTop: '5em' }}>
@@ -115,7 +129,7 @@ class AboutUs extends React.Component {
                                         Order Desk
                 </Header>
                                     <p style={{ fontSize: '1.33em' }}>
-                                        {/* <Image avatar src='./images/winecorks.jpg' /> */}
+                                     
                                         orders@winewise.biz • 510.473.5482
                                     <br />
                                         <Image avatar src='./images/winecorks.jpg' />
@@ -123,7 +137,7 @@ class AboutUs extends React.Component {
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>
-                    </Segment>
+                    </Segment> */}
 
 
                     <TeamMembersContainer handleOpenModal={this.handleOpenModal} />
