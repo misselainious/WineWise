@@ -291,7 +291,7 @@ render() {
                 <Grid >
                   <Grid.Row columns={12}>
                     {producerWines.map(wine => (
-     <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
+     <Winecard header={wine.Wine} justIn={wine.Just_In} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
                     ))}
                   </Grid.Row>
                 </Grid>
