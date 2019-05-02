@@ -61,7 +61,7 @@ export default class SearchBar extends Component {
 
     return (
 
-          <Search className="search"
+          <Search 
             placeholder="Search wines..."
             loading={isLoading}
             onResultSelect={this.handleResultSelect}

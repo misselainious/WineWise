@@ -31,6 +31,10 @@ export default {
   getProducer: function(id) {
     // console.log("GET PRODUCER")
     return axios.get("/api/producers/" + id);
+  },
+  getProducerByCountry: function(country) {
+    // console.log("GET PRODUCER")
+    return axios.get("/api/producers/" + country);
   }
   // saveWine: function(producerData) {
   //   return axios.post("/api/producers", producerData);

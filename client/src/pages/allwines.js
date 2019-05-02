@@ -21,6 +21,7 @@ class Wines extends Component {
       colors: [],
       regions: [],
       producers: [],
+      farming: [],
       female: []
     },
     visable: false
@@ -97,6 +98,7 @@ class Wines extends Component {
     const female = ["Female Winemaker"]
     const regions = this.state.regionNames;
     const producers = this.state.producerNames;
+    const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic"];
     const { visable } = this.state;
     //
     const filterElements = [{
@@ -112,6 +114,9 @@ class Wines extends Component {
       filterType: "producers",
       elements: producers
     }, {
+      filterType: "farming",
+      elements: farming
+    }, {
       filterType: "female",
       elements: female
     }]
@@ -120,9 +125,9 @@ class Wines extends Component {
     // console.log("preWinelist", wineList)
     //this is a hacky way to access the wine data field given that each word is
     //slightly different than the actual keyword
-    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "producers": "Producer", "colors": "Color", "female": "Female_Winemaker" }
+    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "producers": "Producer", "colors": "Color", "farming": "Farming_practices", "female": "Female_Winemaker" }
     // filter by each keyword if the filter is selected
-    for (let keyword of ["producers", "countries", "colors", "regions", "female"]) {
+    for (let keyword of ["producers", "countries", "colors", "regions", "farming", "female"]) {
       wineList = wineList.filter(wine => {
         return (
           (this.state.filters[keyword].length === 0) ||

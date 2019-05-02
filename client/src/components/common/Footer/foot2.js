@@ -24,10 +24,11 @@ const Footer = () => (
             </span>
             </Grid.Row>
       </Grid.Column>
-      <Grid.Column>
-          <Header className="WWFoot" as="h2">
+      <Grid.Column align='center' >
+          {/* <Header className="WWFoot" as="h2">
             WineWise
-          </Header>
+          </Header> */}
+           <Image size='tiny' src='./images/ww.png' />
       </Grid.Column>
       <Grid.Column>
       <Button className="social" target="_blank" href='https://www.facebook.com/winewiseimports'size='tiny'style={{marginBottom:'5px', marginTop: '5px'}}>

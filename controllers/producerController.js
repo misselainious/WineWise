@@ -24,6 +24,12 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
+  findByCountry: function(req, res) {
+    db.Producer
+      .find({Country: req.query})
+      .then(dbModel => res.json(dbModel))
+      .catch(err => res.status(422).json(err));
+  },
   create: function(req, res) {
     db.Producer
       .create(req.body)
