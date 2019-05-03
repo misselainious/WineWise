@@ -2,7 +2,7 @@ import React, { Component, createRef } from "react";
 // import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
 import { List } from "../components/List";
-import { Grid, Card, Sticky, Rail, Ref, Header, Segment, CommentAction } from "semantic-ui-react";
+import { Grid, Card, Sticky, Rail, Ref, Header, Button, Segment, CommentAction, Menu, Dropdown } from "semantic-ui-react";
 import Producercard from "../components/ProducerCard"
 import SearchProducers from "../components/SearchProducers"
 import { createReadStream } from "fs";
@@ -56,12 +56,43 @@ contextRef = createRef()
   // };
   
 render() {
-  const france = this.state.Producers.filter(p => p.Country === "France");
-  const spain = this.state.Producers.filter(p => p.Country === "Spain");
-  const portugal = this.state.Producers.filter(p => p.Country === "Portugal");
-  const greece = this.state.Producers.filter(p => p.Country === "Greece");
-  const germany = this.state.Producers.filter(p => p.Country === "Germany");
-  const austria = this.state.Producers.filter(p => p.Country === "Austria");
+ let france = this.state.Producers.filter(p => p.Country === "France");
+ let spain = this.state.Producers.filter(p => p.Country === "Spain");
+ let portugal = this.state.Producers.filter(p => p.Country === "Portugal");
+ let greece = this.state.Producers.filter(p => p.Country === "Greece");
+ let germany = this.state.Producers.filter(p => p.Country === "Germany");
+ let austria = this.state.Producers.filter(p => p.Country === "Austria");
+
+ // Function sorts each country by the 'Order' Column, because it is not necessarily alphabetical.
+ function compare(a,b){
+   const numA = a.Order;
+   const numB = b.Order;
+
+   let comparison = 0;
+   if(numA > numB){
+     comparison = 1;
+   } else if (numA < numB){
+     comparison = -1
+   }
+   return comparison
+ }
+
+ france = france.sort(compare);
+ spain = spain.sort(compare);
+ portugal = portugal.sort(compare);
+ greece = greece.sort(compare);
+ germany = germany.sort(compare);
+ austria = austria.sort(compare);
+
+ 
+const choices = [
+  {key: 1, text: "France", value: 1},
+  {key: 2, text: "Spain", value: 2},
+  {key: 3, text: "Portugal", value: 3},
+  {key: 4, text: "Greece", value: 4},
+  {key: 5, text: "Germany", value: 5},
+  {key: 6, text: "Austria", value: 6},
+]
 
     return (
         <Grid centered style={{marginTop: "40px", marginBottom: "40px"}}>
@@ -79,11 +110,36 @@ render() {
 
 
       </p>
-              {/* <SearchProducers />          */}
+              {/* <SearchProducers /> */}
             </center>
             </Grid.Column>
+            
     </Grid.Row>
 
+    <Grid.Row>
+    <Dropdown text='File'>
+    <Dropdown.Menu>
+      <Dropdown.Item text='New' />
+      <Dropdown.Item text='Open...' />
+      <Dropdown.Item text='Save as...' description='ctrl + s' />
+      <Dropdown.Item text='Rename' description='ctrl + r' />
+      <Dropdown.Item text='Make a copy' />
+      <Dropdown.Item icon='folder' text='Move to folder' />
+      <Dropdown.Item icon='trash' text='Move to trash' />
+      <Dropdown.Divider />
+      <Dropdown.Item text='Download As...' />
+      <Dropdown.Item text='Publish To Web' />
+      <Dropdown.Item text='E-mail Collaborators' />
+    </Dropdown.Menu>
+  </Dropdown>
+    </Grid.Row>
+
+
+<Grid.Row>
+<Menu compact>
+ <Dropdown text="Jump to Country" onClick={window.location} options={choices} simple item />
+</Menu>
+</Grid.Row>
 {/* FRANCE */}
 <Grid.Row>
   <Grid.Column>
@@ -138,7 +194,7 @@ render() {
 
 
 {/* PORTUGAL */}
-<Grid.Row>
+<Grid.Row id='id'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Portugal
@@ -153,6 +209,32 @@ render() {
           
             <Card.Group itemsPerRow={4}>
           {portugal.map(producer => (
+              <Producercard id={producer.Producer} producer={producer.Producer} country={producer.Country} subregion={producer.Subregion} region={producer.Region} key={producer._id}/>            
+          ))}
+        </Card.Group>
+            ) : (
+              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+            )}
+            </Grid.Column>
+          
+            </Grid.Row>
+
+{/* GREECE */}
+<Grid.Row>
+  <Grid.Column>
+<Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
+      Greece
+    </Header>
+    </Grid.Column>
+</Grid.Row>
+
+    <Grid.Row>
+
+<Grid.Column width={12}>
+        {greece.length ? (
+          
+            <Card.Group itemsPerRow={4}>
+          {greece.map(producer => (
               <Producercard id={producer.Producer} producer={producer.Producer} country={producer.Country} subregion={producer.Subregion} region={producer.Region} key={producer._id}/>            
           ))}
         </Card.Group>

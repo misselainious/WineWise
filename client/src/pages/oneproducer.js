@@ -67,10 +67,12 @@ render() {
             <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-         <Table.Body>
+         <Table.Body>\
+
+       
         {
             producerObjKeys.map(key => 
-                    producer[key] && key !== 'List_Notes' && <Table.Row key={key}>
+                    producer[key] && key !== 'List_Notes' && key !== 'Order' &&<Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{producer[key]}</Table.Cell>
                     </Table.Row>
@@ -137,7 +139,7 @@ render() {
          <Table.Body>
         {
             producerObjKeys.map(key => 
-                    producer[key] && key !== 'List_Notes' && <Table.Row key={key}>
+                    producer[key] && key !== 'List_Notes' && key !== 'Order' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{producer[key]}</Table.Cell>
                     </Table.Row>

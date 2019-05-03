@@ -2,6 +2,7 @@
     {
       "id": 1,
       "name": "Meliza Mokrani",
+      "first": "Meliza",
       "image": "/images/MelizaMokrani1.jpg",
       "region": "San Francisco",
       "email": "meliza@winewise.biz",
@@ -11,6 +12,7 @@
     {
       "id": 2,
       "name": "Ben Herod",
+      "first": "Ben",
       "image": "",
       "region": "San Francisco",
       "email": "ben@winewise.biz",
@@ -20,6 +22,7 @@
     {
       "id": 3,
       "name": "Elizabeth Darden",
+      "first": "Elizabeth",
       "image": "/images/ElizabethDarden3.jpg",
       "region": "Marin County and Sonoma County",
       "email": "elizabethd@winewise.biz",
@@ -29,6 +32,7 @@
     {
       "id": 4,
       "name": "Marc West-Texeira",
+      "first": "Marc",
       "image": "",
       "region": "East Bay, Contra Costa County, Napa County",
       "email": "marc@winewise.biz",
@@ -38,6 +42,7 @@
     {
       "id": 5,
       "name": "Brian Cook",
+      "first": "Brian",
       "image": "/images/BrianCook5.jpg",
       "region": "Peninsula, San Francisco",
       "email": "bcook@winewise.biz",
@@ -47,6 +52,7 @@
     {
       "id": 6,
       "name": "Hugh Weiler",
+      "first": "Hugh",
       "image": "",
       "region": "Sacramento, Central Valley, Tahoe",
       "email": "hugh@winewise.biz",
@@ -56,6 +62,7 @@
     {
       "id": 7,
       "name": "Matt Peterson",
+      "first": "Matt",
       "image": "",
       "region": "Santa Cruz, Monterey, Big Sur",
       "email": "matt@winewise.biz",
@@ -65,6 +72,7 @@
     {
       "id": 8,
       "name": "Allyson Buist",
+      "first": "Allyson",
       "image": "",
       "region": "San Luis Obispo, Paso Robles, Santa Ynez, Santa Barbara",
       "email": "allyson@winewise.biz",
@@ -74,6 +82,7 @@
     {
       "id": 9,
       "name": "John Bauccio",
+      "first": "John",
       "image": "/images/JohnBauccio9.jpg",
       "region": "Los Angeles",
       "email": "john@winewise.biz",
@@ -83,6 +92,7 @@
     {
       "id": 10,
       "name": "Tami Wong",
+      "first": "Tami",
       "image": "",
       "region": "Orange County, Long Beach, San Diego",
       "email": "tami@winewise.biz",
@@ -92,6 +102,7 @@
     {
       "id": 11,
       "name": "Mark Johnson",
+      "first": "Mark",
       "image": "/images/MarkJohnson11.jpg",
       "region": "Mendocino County, Humboldt County",
       "email": "markdj@winewise.biz",
@@ -101,6 +112,7 @@
     {
       "id": 12,
       "name": "Nicole (Puncochar) Frazier",
+      "first": "Nicole",
       "image": "/images/NicoleFrazier12.jpg",
       "region": "Orange County",
       "email": "nicole@winewise.biz",
@@ -110,6 +122,7 @@
     {
         "id": 13,
         "name": "Elaine Cadman",
+        "first": "Elaine",
         "image": "/images/Elaine13.jpg",
         "region": "Order Desk, Web Development",
         "email": "elaine@winewise.biz",
