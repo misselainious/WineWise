@@ -21,7 +21,9 @@ contextRef = createRef()
       window.scrollTo(0, 0)
       this.loadProducers();
     }
-  
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
 
     loadProducers = () => {
 
@@ -33,7 +35,9 @@ contextRef = createRef()
         .catch(err => console.log(err));
     }
 
-
+handleScroll = () => {
+  document.getElementById('germany').scrollIntoView();
+}
 
   // loadProducers = () => {
   //   this.setState({
@@ -85,14 +89,15 @@ render() {
  austria = austria.sort(compare);
 
  
-const choices = [
-  {key: 1, text: "France", value: 1},
-  {key: 2, text: "Spain", value: 2},
-  {key: 3, text: "Portugal", value: 3},
-  {key: 4, text: "Greece", value: 4},
-  {key: 5, text: "Germany", value: 5},
-  {key: 6, text: "Austria", value: 6},
+ const choices = [
+  {key: 1, text: "France", value: 1, position: "franceDiv"},
+  {key: 2, text: "Spain", value: 2, position: "spainDiv"},
+  {key: 3, text: "Portugal", value: 3, position: "portugalDiv"},
+  {key: 4, text: "Greece", value: 4, position: "greeceDiv"},
+  {key: 5, text: "Germany", value: 5, position: "germanyDiv"},
+  {key: 6, text: "Austria", value: 6, position: "austriaDiv"},
 ]
+
 
     return (
         <Grid centered style={{marginTop: "40px", marginBottom: "40px"}}>
@@ -117,31 +122,26 @@ const choices = [
     </Grid.Row>
 
     <Grid.Row>
-    <Dropdown text='File'>
+    <Dropdown text='Jump to Country'>
     <Dropdown.Menu>
-      <Dropdown.Item text='New' />
-      <Dropdown.Item text='Open...' />
-      <Dropdown.Item text='Save as...' description='ctrl + s' />
-      <Dropdown.Item text='Rename' description='ctrl + r' />
-      <Dropdown.Item text='Make a copy' />
-      <Dropdown.Item icon='folder' text='Move to folder' />
-      <Dropdown.Item icon='trash' text='Move to trash' />
-      <Dropdown.Divider />
-      <Dropdown.Item text='Download As...' />
-      <Dropdown.Item text='Publish To Web' />
-      <Dropdown.Item text='E-mail Collaborators' />
+      <Dropdown.Item flag='fr' text='France' />
+      <Dropdown.Item flag='es' text='Spain' />
+      <Dropdown.Item flag='pt' text='Portugal' />
+      <Dropdown.Item flag='gr' text='Greece' />
+      <Dropdown.Item flag='de' text='Germany' onClick={() => this.handleScroll()}/>
+      <Dropdown.Item flag='at' text='Austria' />
     </Dropdown.Menu>
   </Dropdown>
     </Grid.Row>
 
 
-<Grid.Row>
+{/* <Grid.Row>
 <Menu compact>
- <Dropdown text="Jump to Country" onClick={window.location} options={choices} simple item />
+ <Dropdown text="Jump to Country2" onClick={() => this.handleScroll()} options={choices} simple item />
 </Menu>
-</Grid.Row>
+</Grid.Row> */}
 {/* FRANCE */}
-<Grid.Row>
+<Grid.Row id='france'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       France
@@ -167,7 +167,7 @@ const choices = [
             </Grid.Row>
 
 {/* SPAIN */}
-<Grid.Row>
+<Grid.Row id='spain'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Spain
@@ -194,7 +194,7 @@ const choices = [
 
 
 {/* PORTUGAL */}
-<Grid.Row id='id'>
+<Grid.Row id='portugal'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Portugal
@@ -220,7 +220,7 @@ const choices = [
             </Grid.Row>
 
 {/* GREECE */}
-<Grid.Row>
+<Grid.Row id='greece'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Greece
@@ -246,9 +246,9 @@ const choices = [
             </Grid.Row>
 
 {/* Germany */}
-<Grid.Row>
+<Grid.Row id='germany'>
   <Grid.Column>
-<Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
+<Header ref={node => this.node = node} as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Germany
     </Header>
     </Grid.Column>
@@ -272,7 +272,7 @@ const choices = [
             </Grid.Row>
 
             {/* AUSTRIA */}
-<Grid.Row>
+<Grid.Row id='austria'>
   <Grid.Column>
 <Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Austria

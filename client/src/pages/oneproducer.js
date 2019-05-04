@@ -67,7 +67,7 @@ render() {
             <Table.HeaderCell colSpan="2">About the Estate</Table.HeaderCell>
           </Table.Row>
         </Table.Header>
-         <Table.Body>\
+         <Table.Body>
 
        
         {
@@ -82,6 +82,7 @@ render() {
        </Table>
     </Grid.Column>
 
+{(producerWines.length === 0) ? <div></div> : 
  <Grid.Column width={10}>
     <Header as='h3' style={{marginTop:'20px'}}>{this.state.producer.Producer}'s Wines</Header>
   <Grid.Row>
@@ -103,7 +104,7 @@ render() {
   </Grid.Column>
   </Grid.Row>
  </Grid.Column>
-
+}
 </Grid.Row>
 
  </Grid>
@@ -149,6 +150,8 @@ render() {
        </Table>
     </Grid.Column>
 
+{(producerWines.length === 0) ? <div></div> : 
+
  <Grid.Column width={8}>
     <Header as='h3'>{this.state.producer.Producer}'s Wines</Header>
   <Grid.Row>
@@ -170,6 +173,8 @@ render() {
   </Grid.Column>
   </Grid.Row>
  </Grid.Column>
+
+}
 
 </Grid.Row>
          
