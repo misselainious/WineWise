@@ -29,7 +29,7 @@ class MobileContainer extends React.Component {
           vertical
           visible={sidebarOpened}
         >
-        <Header as='h3' style={{textAlign:'center', fontSize: "1.6em", paddingTop: "20px", color: '#510409'}}>WineWise</Header>
+        <Header as='h3' style={{textAlign:'center', fontSize: "1.6em", paddingTop: "20px", color: '#510409'}}> <Image size='mini' src='./images/winewisehead.png' /> WineWise</Header>
       
         <Link to="/"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/" ? "nav-link active" : "nav-link"}>
         <p ><i class="home icon"></i>Home</p></Menu.Item></Link>
@@ -58,7 +58,7 @@ class MobileContainer extends React.Component {
                 </Menu.Item>
                 
                 <Menu.Item position='right'>
-                    <Image size='tiny' src='./images/owl.png' />
+                    <Image size='mini' src='./images/winewisehead.png' />
                 </Menu.Item>
               </Menu>
             </Container>

@@ -3,7 +3,8 @@ import React, { Component, createRef } from "react";
 import API from "../utils/API";
 import { List } from "../components/List";
 import { Grid, Card, Sticky, Rail, Ref, Header, Button, Segment, CommentAction, Menu, Dropdown } from "semantic-ui-react";
-import Producercard from "../components/ProducerCard"
+import Producercard from "../components/ProducerCard";
+import CountryDropdown from "../components/CountryDropdown/countryDropdown";
 import SearchProducers from "../components/SearchProducers"
 import { createReadStream } from "fs";
 import { createRequireFromPath } from "module";
@@ -111,7 +112,7 @@ render() {
     <Grid.Row>
       <Grid.Column width={11}>
     <center>
-      <p style={{fontSize: '1.1em'}}>Our producers are the best producers. Wine is often served with dinner. Be not offended when your ex drinks wine. Cheese is a perennial pair with chardonnay, sauvignon blanc, don't get started on the pinks and reds. Oak imparts vanilla, toast, caramel and coffee. The aftertaste, or "finish," is the primary factor in judging the quality and character of wine. Wines that are named for a region are always capitalized – Bordeaux, Burgundy, Champagne, Rioja, Chianti, Lambrusco, etc. Swine and wine pair well.
+      <p style={{fontSize: '1.1em'}}>Our producers are the best producers. No one has better producers than we do. We choose only the finest producer from the finest countries. Once, when we were visiting a producer, who shall remain nameless, we came upon a cloud so ominous that we knew this producer was a force to be reckoned with. From then on we always turned to the clouds for judgement. If only all things in life worked this way we would all be much more fulfilled.
 
 
       </p>
@@ -120,18 +121,9 @@ render() {
             </Grid.Column>
             
     </Grid.Row>
-
-    <Grid.Row>
-    <Dropdown text='Jump to Country'>
-    <Dropdown.Menu>
-      <Dropdown.Item flag='fr' text='France' />
-      <Dropdown.Item flag='es' text='Spain' />
-      <Dropdown.Item flag='pt' text='Portugal' />
-      <Dropdown.Item flag='gr' text='Greece' />
-      <Dropdown.Item flag='de' text='Germany' onClick={() => this.handleScroll()}/>
-      <Dropdown.Item flag='at' text='Austria' />
-    </Dropdown.Menu>
-  </Dropdown>
+      <CountryDropdown />
+    <Grid.Row style={{marginTop: '20px'}}>
+  
     </Grid.Row>
 
 
