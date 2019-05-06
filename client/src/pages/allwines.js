@@ -93,6 +93,7 @@ class Wines extends Component {
 
   render() {
     const mainStyle = { marginLeft: "250px" }
+    const wineAreaStyle= {minHeight:"100vh"};
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
     const female = ["Female Winemaker"]
@@ -142,7 +143,7 @@ class Wines extends Component {
         <SearchWines />
         <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
         </Grid.Column>
-   <Grid.Column width={12}>
+   <Grid.Column width={12} style={wineAreaStyle}>
       <Grid centered style={{marginTop: '80px'}}>
         
         {wineList.length ? (

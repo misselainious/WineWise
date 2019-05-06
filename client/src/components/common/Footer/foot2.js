@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import "./Footer.css";
 
 const Footer = () => (
+  
   <Segment>
     <Container textAlign="center">
     <Grid verticalAlign='middle' relaxed columns={3}>
@@ -45,6 +46,7 @@ const Footer = () => (
     
     </Container>
   </Segment>
+
 );
 
 export default Footer;
