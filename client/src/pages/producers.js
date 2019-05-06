@@ -36,9 +36,7 @@ contextRef = createRef()
         .catch(err => console.log(err));
     }
 
-handleScroll = () => {
-  document.getElementById('germany').scrollIntoView();
-}
+
 
   // loadProducers = () => {
   //   this.setState({
@@ -90,14 +88,7 @@ render() {
  austria = austria.sort(compare);
 
  
- const choices = [
-  {key: 1, text: "France", value: 1, position: "franceDiv"},
-  {key: 2, text: "Spain", value: 2, position: "spainDiv"},
-  {key: 3, text: "Portugal", value: 3, position: "portugalDiv"},
-  {key: 4, text: "Greece", value: 4, position: "greeceDiv"},
-  {key: 5, text: "Germany", value: 5, position: "germanyDiv"},
-  {key: 6, text: "Austria", value: 6, position: "austriaDiv"},
-]
+
 
 
     return (
@@ -127,11 +118,6 @@ render() {
     </Grid.Row>
 
 
-{/* <Grid.Row>
-<Menu compact>
- <Dropdown text="Jump to Country2" onClick={() => this.handleScroll()} options={choices} simple item />
-</Menu>
-</Grid.Row> */}
 {/* FRANCE */}
 <Grid.Row id='france'>
   <Grid.Column>
