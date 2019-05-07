@@ -121,7 +121,7 @@ citrus, salt – and its prodigious length on the palate. It is dosed at 9 gm.. 
 
      <Grid.Column centered floated='right' width={6}>
       <Image style={{marginLeft:'auto', marginRight:'auto' }} bordered rounded size='medium' src={`https://gdurl.com/iI84`} />
-       <Link to='/details/5cc5e7f115cc7a2225ee134c'>
+       <Link to='/details/5cd0d754aeefdf1f7846622d'>
         <Button className="seeAllWinesBtn" style={{ display: 'block', marginRight: 'auto', marginLeft: 'auto', color: '#962d2d', marginTop:'15px' }} size='small'>
         <p className="seeAllWinesText">View Wine</p>
         </Button>
