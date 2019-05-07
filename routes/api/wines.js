@@ -9,7 +9,10 @@ router.route("/")
 
 router.route("/new")
   .get(wineController.findSome)
-  
+
+  router.route("/feature")
+  .get(wineController.findFeature)
+ 
 router
   .route("/:id")
   .get(wineController.findById)

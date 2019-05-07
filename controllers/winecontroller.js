@@ -31,6 +31,17 @@ module.exports = {
       res.sendStatus(400);
     });
   },
+  findFeature: (req,res) => {
+    db.Wine
+    .find({ Just_In: "Feature" })
+    .then( wine => {
+      res.json(wine)
+    })
+    .catch(err => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+  },
   findById: function(req, res) {
     db.Wine
       .findById(req.params.id)

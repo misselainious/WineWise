@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import API from "../utils/API";
 import Winecard from "../components/WineCard"
 import Justin from "../components/JustIn/justin";
+import Feature from "../components/FeaturedWine/feature"
 
 import {
   Button,
@@ -99,38 +100,7 @@ const Home = () => (
   
    </Grid.Column>
 
-   <Grid.Column width={4}>
-    <Divider
-      as='h2'
-      className='header'
-      horizontal
-      style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase' }}>
-      FEATURED WINE
-    </Divider>
-    
-      <Header as='h3' style={{ fontSize: '1.5em' }}>
-      Labruyere (2013) “Page Blanche” Blanc de Blancs Grand Cru Brut
-      </Header>
-      <p style={{ fontSize: '1em' }}>
-      This new iteration of the wine formally known as “Op. No.12” draws heavily on the arcane varieties planted in
-the Clos du Mont Dorin, a small vineyard situated right at the winery. As such, it is impossible to dismiss
-comparisons with Aubry. But it stands on its own feet by dint of its seething mass of flavours - white fruits,
-citrus, salt – and its prodigious length on the palate. It is dosed at 9 gm.. It is a blend of 48% 2014 and 52%
-2013, vintages that imbue the wine with uncommon nervosity and cut. 
-      </p>
-
-     <Grid.Column centered floated='right' width={6}>
-      <Image style={{marginLeft:'auto', marginRight:'auto' }} bordered rounded size='medium' src={`https://gdurl.com/iI84`} />
-       <Link to='/details/5cd0d754aeefdf1f7846622d'>
-        <Button className="seeAllWinesBtn" style={{ display: 'block', marginRight: 'auto', marginLeft: 'auto', color: '#962d2d', marginTop:'15px' }} size='small'>
-        <p className="seeAllWinesText">View Wine</p>
-        </Button>
-       </Link>
-     </Grid.Column>
-    
-    <br />
-
-    </Grid.Column>
+ <Feature />
 
  </Grid.Row>
 
