@@ -14,7 +14,7 @@ import {
   Grid,
   Header,
   Image,
-  Segment,
+  Message,
   Responsive,
   Label
 } from 'semantic-ui-react';
@@ -26,6 +26,7 @@ const Home = () => (
 
 {/* Only shows if on mobile */}
 <Responsive maxWidth={768} >
+
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>
  <Header as='h1'style={{ textAlign: 'center', fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
@@ -72,7 +73,6 @@ const Home = () => (
   <Grid.Row>
    <Carousel />
   </Grid.Row>
-
 
 
   <Grid.Row columns={2} divided >

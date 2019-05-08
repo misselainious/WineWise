@@ -3,7 +3,8 @@ import PDF from './inventory.pdf'
 import {
   Grid,
   Button,
-  Image
+  Message,
+  Icon
 } from 'semantic-ui-react';
 
 
@@ -68,8 +69,21 @@ class Admin extends Component {
     const { value } = this.state
     const { pageNumber, numPages } = this.state;
     return (
-      <Grid centered columns={1} style={{ marginTop: '100px', marginBottom: '100px', marginLeft: '100px'}}>
-        <Grid.Row>
+      <Grid centered style={{ marginTop: '100px', marginBottom: '100px'}}>
+
+      <Grid.Row>
+      <Message color='brown'>
+        <Message.Header> 
+          <i class="box icon"></i>
+          Welcome to the Trade section of WineWise
+        </Message.Header>
+        <p style={{fontSize: '1em'}}>
+          Please click on an item below to view pricing.
+        </p>
+      </Message>
+      </Grid.Row>
+
+        <Grid.Row centered>
         <a href = {PDF} target = "_blank">
           <Button target="_blank" src="./images/inventory.pdf">
             View Price List

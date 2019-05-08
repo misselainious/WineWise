@@ -1,18 +1,16 @@
 import React, { Component } from "react";
-// import Container from "../components/Container";
 import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
-import { List } from "../components/List";
-import { DataWine } from "../components/DataWineTable";
-// import { Link } from "react-router-dom";
-import { Grid, Responsive } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
+import AllWinesFilter from "../components/AllWinesFilter/AllWinesFilter";
 
 class Wines extends Component {
   state = {
+    activeIndex: 0,
     wines: [],
-    producerNames: [],
+    
     regionNames: [],
     isLoading: false,
 
@@ -20,7 +18,7 @@ class Wines extends Component {
       countries: [],
       colors: [],
       regions: [],
-      producers: [],
+    
       farming: [],
       female: []
     },
@@ -28,11 +26,10 @@ class Wines extends Component {
   };
   //onload we get all the wine and producer data
 
-
   componentDidMount() {
     
     this.loadWines();
-    this.loadProducers();
+    // this.loadProducers();
   }
   loadWines = () => {
     this.setState({
@@ -52,19 +49,19 @@ class Wines extends Component {
       )
       .catch(err => console.log(err));
   };
-  loadProducers = () => {
-    API.getProducers()
-      .then(res => {
-        let producerNames = [];
-        res.data.map(producer => {
-          producerNames.push(producer.Producer)
-        })
-        this.setState({ producerNames })
+  // loadProducers = () => {
+  //   API.getProducers()
+  //     .then(res => {
+  //       let producerNames = [];
+  //       res.data.map(producer => {
+  //         producerNames.push(producer.Producer)
+  //       })
+  //       this.setState({ producerNames })
 
-      }
-      )
-      .catch(err => console.log(err));
-  };
+  //     }
+  //     )
+  //     .catch(err => console.log(err));
+  // };
 
   handleFilterChange = event => {
     // console.log('event.target', event.target);
@@ -91,6 +88,14 @@ class Wines extends Component {
     }
   }
 
+  handleClick = (e, titleProps) => {
+    const { index } = titleProps
+    const { activeIndex } = this.state
+    const newIndex = activeIndex === index ? -1 : index
+
+    this.setState({ activeIndex: newIndex })
+  }
+
   render() {
     const mainStyle = { marginLeft: "250px" }
     const wineAreaStyle= {minHeight:"100vh"};
@@ -98,7 +103,7 @@ class Wines extends Component {
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
     const female = ["Female Winemaker"]
     const regions = this.state.regionNames;
-    const producers = this.state.producerNames;
+    // const producers = this.state.producerNames;
     const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic"];
     const { visable } = this.state;
     //
@@ -111,10 +116,12 @@ class Wines extends Component {
     }, {
       filterType: "regions",
       elements: regions
-    }, {
-      filterType: "producers",
-      elements: producers
-    }, {
+    }, 
+    // {
+    //   filterType: "producers",
+    //   elements: producers
+    // }, 
+    {
       filterType: "farming",
       elements: farming
     }, {
@@ -126,9 +133,9 @@ class Wines extends Component {
     // console.log("preWinelist", wineList)
     //this is a hacky way to access the wine data field given that each word is
     //slightly different than the actual keyword
-    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "producers": "Producer", "colors": "Color", "farming": "Farming_practices", "female": "Female_Winemaker" }
+    const wineFieldAdjuster = { "countries": "Country", "regions": "Region", "colors": "Color", "farming": "Farming_practices", "female": "Female_Winemaker" }
     // filter by each keyword if the filter is selected
-    for (let keyword of ["producers", "countries", "colors", "regions", "farming", "female"]) {
+    for (let keyword of ["countries", "colors", "regions", "farming", "female"]) {
       wineList = wineList.filter(wine => {
         return (
           (this.state.filters[keyword].length === 0) ||
@@ -142,6 +149,7 @@ class Wines extends Component {
         <Grid.Column width={3} style={{marginTop: '40px'}}>
         <SearchWines />
         <CheckboxSidebar checkableArrays={filterElements} handleFilterChange={this.handleFilterChange} />
+
         </Grid.Column>
    <Grid.Column width={12} style={wineAreaStyle}>
       <Grid centered style={{marginTop: '80px'}}>
@@ -152,7 +160,7 @@ class Wines extends Component {
                 
                  
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
+                      <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
                     ))}
                   
               
