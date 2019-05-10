@@ -115,8 +115,8 @@ render() {
             <div></div>
             }
 
-  {/* If the wine is Organic, puts a pink female label */}
-  { (this.state.wine.Female_Winemaker === "Yes" ) ?<Label color={'pink'}>
+  {/* If the winemaker is female, puts a pink female label */}
+  { (this.state.wine.Female_Winemaker === "Female Winemaker" ) ?<Label color={'pink'}>
 <Icon name='venus' />Winemaker
 </Label>
             :
@@ -147,7 +147,7 @@ render() {
    </Table>
    </Grid.Column>
   </Grid.Row>
-
+  <i class="venus icon"></i>
   {(this.state.wines.length === 0)? <div></div>:
 
 <Grid.Row>
