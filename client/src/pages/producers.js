@@ -103,9 +103,8 @@ render() {
     <Grid.Row>
       <Grid.Column width={11}>
     <center>
-      <p style={{fontSize: '1.1em'}}>Our producers are the best producers. No one has better producers than we do. We choose only the finest producer from the finest countries. Once, when we were visiting a producer, who shall remain nameless, we came upon a cloud so ominous that we knew this producer was a force to be reckoned with. From then on we always turned to the clouds for judgement. If only all things in life worked this way we would all be much more fulfilled.
-
-
+      <p style={{fontSize: '1.1em'}}>
+      We seek wines of character from people we like and places which are not always well-known or popular. We are not averse to the classics, but we are not scared of the obscure. Our wines do not have to meet any ideological litmus test, but we do have to like them. If they are grown organically it does not hurt, but we don’t insist on it. While we have a number of sought-after and expensive wines in our portfolio, our animating force is the acquisition of great wines that almost anyone can afford to drink – a rather more exacting discipline than the converse. Above all, we like people. Our growers tend to be interesting and often amusing people, sometimes with a spiritual bent, sometimes unrepentantly earthy. We have watched with pleasure as the sons and daughters we knew as babies and children have grown up to be the proprietors of their parents’ estates. We like to think of ourselves as the link between these friends and the people drinking their wines in restaurants or at home.
       </p>
               {/* <SearchProducers /> */}
             </center>

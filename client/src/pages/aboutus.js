@@ -90,7 +90,7 @@ class AboutUs extends React.Component {
                         <Grid container stackable verticalAlign='middle'>
                             <Grid.Row>
                                 <Grid.Column floated='left' width={6}>
-                                    <Image className="modalImageSize" bordered rounded size='medium' src='/images/BrianGreenWood.jpg' />
+                                    <Image className="modalImageSize" bordered rounded size='medium' src='/images/BrianGreenwood.jpg' />
                                 </Grid.Column>
 
                                 <Grid.Column floated='right' width={8}>
