@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
-import { Grid } from "semantic-ui-react";
+import { Grid, Header } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
 import AllWinesFilter from "../components/AllWinesFilter/AllWinesFilter";
@@ -44,7 +44,9 @@ class Wines extends Component {
             regionNames.push(wine.Region)
           }
         })
-        this.setState({ regionNames })
+        this.setState({ 
+          regionNames,
+        isLoading: false })
       }
       )
       .catch(err => console.log(err));
@@ -153,7 +155,7 @@ class Wines extends Component {
         </Grid.Column>
    <Grid.Column width={12} style={wineAreaStyle}>
       <Grid centered style={{marginTop: '80px'}}>
-        
+        {/* { (wineList.length === 0) ? <h3>No results to display</h3> :(<h3>yes results</h3>)} */}
         {wineList.length ? (
            <Grid.Row >
        
@@ -166,7 +168,7 @@ class Wines extends Component {
               
                 </Grid.Row>
             ) : (
-                <h3>{this.state.isLoading ? "loading..." : "No results to display"}</h3>
+                <Header as='h3'>{this.state.isLoading ? "loading..." : "No results to display"}</Header>
               )}
 
       </Grid>
