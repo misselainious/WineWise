@@ -62,7 +62,7 @@ render() {
       <div id="divToPrint">
 
       {/* Mobile */}
-<Responsive maxWidth={768}>
+<Responsive maxWidth={767}>
 <Grid centered>
 
 <Grid.Row style={{marginTop:'25px'}}>

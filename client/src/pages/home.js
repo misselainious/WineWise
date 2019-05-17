@@ -25,7 +25,7 @@ const Home = () => (
 <div>
 
 {/* Only shows if on mobile */}
-<Responsive maxWidth={768} >
+<Responsive maxWidth={767} >
 
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>

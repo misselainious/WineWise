@@ -41,7 +41,7 @@ render() {
 <div>
 {/* FOR MOBILE: */}
 
-<Responsive maxWidth={768}>
+<Responsive maxWidth={767}>
  <Grid centered>
    <Grid.Row>
    <Grid.Column>
