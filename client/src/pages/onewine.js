@@ -1,16 +1,27 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Label, Icon, Responsive, Button, Dimmer, Loader} from "semantic-ui-react";
+import { Grid, Table, Segment, Image, Header, Label, Icon, Responsive, Portal} from "semantic-ui-react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Winecard from '../components/WineCard'
 import { Link } from "react-router-dom";
+import {Moon, Female, Leaf, Sun} from '../components/Labels/Labels'
 
 class OneWine extends Component {
   state = {
     wine: {},
-    wines: []
+    wines: [],
+    open: false
   };
+
+
+  handleOpen = () => {
+    this.setState({ open: true })
+  }
+
+  handleClose = () => {
+    this.setState({ open: false })
+  }
   removeUnderscores(myString){
     return myString.split("_").join(" ")
   }
@@ -28,9 +39,6 @@ class OneWine extends Component {
           this.setState({ wines: data })
         }))
       .catch(err => console.log(err));
-
-
-
 
   }
   componentDidUpdate(prevProps) {
@@ -52,11 +60,12 @@ class OneWine extends Component {
   }
 
 render() {
-
+  const { open } = this.state
     const { wine } = this.state;
     delete wine._id
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
     let producerWines = this.state.wines
+    const farming = this.state.wine.Farming_practices;
 
     return (
       <div id="divToPrint">
@@ -86,44 +95,35 @@ render() {
             </Grid.Column>
 </Grid.Row>
 
-  <Grid.Row>
+  <Grid.Row style={{margin:"50px"}}>
   <Image >
             { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
             :
             // Else Renders specific wine image from url:
-              <Image src={`https://gdurl.com${this.state.wine.URL}`}/>
+              <Image src={`https://gdurl.com${this.state.wine.URL}`} />
 
               //For when image is in individual folder:
               // <Image src={`/images/individual/${this.state.wine.Code}.png`}/>
             } 
   </Image>
+
   {/* If the wine is Organic, puts a green leaf label */}
-  { (this.state.wine.Farming_practices === "Organic") || (this.state.wine.Farming_practices === "Certified Organic" ) ?<Label color={'olive'}>
-<Icon name='leaf' />Organic
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+  { (farming === "Organic") || (farming === "Certified Organic" ) && <Leaf /> }
 
 {/* If the wine is Bio-dynamic, puts a blue moon label */}
-  { (this.state.wine.Farming_practices === "Bio-dynamic") || (this.state.wine.Farming_practices === "Certified Bio-dynamic" ) ?<Label color={'blue'}>
-<Icon name='moon' />Bio-dynamic
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+  { (farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" ) && <Moon />}
+  
+ {/* If the wine is HEV, puts a yellow Sun label */}
+ { (farming === "HEV") && <Sun />}
 
-  {/* If the winemaker is female, puts a pink female label */}
-  { (this.state.wine.Female_Winemaker === "Female Winemaker" ) ?<Label color={'pink'}>
-<Icon name='venus' />Winemaker
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+ {/* If the winemaker is female, puts a pink female label */}
+ { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
+
+
+
+
   </Grid.Row>
+
 
   <Grid.Row>
     <Grid.Column width={14}>
@@ -147,7 +147,7 @@ render() {
    </Table>
    </Grid.Column>
   </Grid.Row>
-  <i class="venus icon"></i>
+  
   {(this.state.wines.length === 0)? <div></div>:
 
 <Grid.Row>
@@ -192,7 +192,7 @@ render() {
             { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
             :
             // Else Renders specific wine image from url:
-              <Image src={`https://gdurl.com${this.state.wine.URL}`}/>
+              <Image src={`https://gdurl.com${this.state.wine.URL}`} />
 
               //For when image is in individual folder:
               // <Image src={`/images/individual/${this.state.wine.Code}.png`}/>
@@ -200,31 +200,17 @@ render() {
   </Image>
 
 {/* If the wine is Organic, puts a green leaf label */}
-  { (this.state.wine.Farming_practices === "Organic") || (this.state.wine.Farming_practices === "Certified Organic" ) ?<Label color={'olive'}>
-<Icon name='leaf' />Organic
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+  { (farming === "Organic") || (farming === "Certified Organic" ) && <Leaf /> }
 
 {/* If the wine is Bio-dynamic, puts a blue moon label */}
-  { (this.state.wine.Farming_practices === "Bio-dynamic") || (this.state.wine.Farming_practices === "Certified Bio-dynamic" ) ?<Label color={'blue'}>
-<Icon name='moon' />Bio-dynamic
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+  { (farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" ) && <Moon />}
+  
+ {/* If the wine is HEV, puts a yellow Sun label */}
+ { (farming === "HEV") && <Sun />}
 
-  {/* If the wine is Organic, puts a pink female label */}
-  { (this.state.wine.Female_Winemaker === "Yes" ) ?<Label color={'pink'}>
-<Icon name='venus' />Winemaker
-</Label>
-            :
-            // Else Renders empty
-            <div></div>
-            }
+ {/* If the winemaker is female, puts a pink female label */}
+ { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
+  
       
   </Grid.Column>
 
