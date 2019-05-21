@@ -95,7 +95,7 @@ render() {
             </Grid.Column>
 </Grid.Row>
 
-  <Grid.Row style={{margin:"50px"}}>
+  <Grid.Row style={{margin: '20px'}}>
   <Image >
             { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
             :
@@ -107,20 +107,18 @@ render() {
             } 
   </Image>
 
-  {/* If the wine is Organic, puts a green leaf label */}
-  { (farming === "Organic") || (farming === "Certified Organic" ) && <Leaf /> }
+{/* CORNER LABELS */}
+{/* If the wine is Organic, puts a green leaf label */}
+  { ((farming === "Organic") || (farming === "Certified Organic" )) && <Leaf />}
 
 {/* If the wine is Bio-dynamic, puts a blue moon label */}
-  { (farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" ) && <Moon />}
-  
- {/* If the wine is HEV, puts a yellow Sun label */}
- { (farming === "HEV") && <Sun />}
+  { ((farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" )) && <Moon />}
 
- {/* If the winemaker is female, puts a pink female label */}
- { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
+{/* If the wine is HEV, puts a yellow Sun label */}
+  { farming === "HVE" && <Sun />}
 
-
-
+{/* If the winemaker is female, puts a pink female label */}
+  { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
 
   </Grid.Row>
 
@@ -147,7 +145,7 @@ render() {
    </Table>
    </Grid.Column>
   </Grid.Row>
-  
+  <i class="venus icon"></i>
   {(this.state.wines.length === 0)? <div></div>:
 
 <Grid.Row>
@@ -199,17 +197,18 @@ render() {
             } 
   </Image>
 
+{/* CORNER LABELS */}
 {/* If the wine is Organic, puts a green leaf label */}
-  { (farming === "Organic") || (farming === "Certified Organic" ) && <Leaf /> }
+  { ((farming === "Organic") || (farming === "Certified Organic" )) && <Leaf />}
 
 {/* If the wine is Bio-dynamic, puts a blue moon label */}
-  { (farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" ) && <Moon />}
-  
- {/* If the wine is HEV, puts a yellow Sun label */}
- { (farming === "HEV") && <Sun />}
+  { ((farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" )) && <Moon />}
 
- {/* If the winemaker is female, puts a pink female label */}
- { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
+{/* If the wine is HEV, puts a yellow Sun label */}
+  { farming === "HVE" && <Sun />}
+
+{/* If the winemaker is female, puts a pink female label */}
+  { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
   
       
   </Grid.Column>
