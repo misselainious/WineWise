@@ -19,7 +19,7 @@ const HomeHeading = ({ mobile }) => (
         textShadowRadius: 10
       }}
     />
-    <img src="../images/winewiselogo.png"
+    <img src="../images/winewiselogo.png" alt="WineWise Logo"
       className={'ui centered small image'} />
     <Header as='h2' inverted color = 'grey'>Imported wines. Local people.</Header>
 

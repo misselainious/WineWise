@@ -1,13 +1,10 @@
 import React, { Component, createRef } from "react";
 // import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
-import { List } from "../components/List";
-import { Grid, Card, Sticky, Rail, Ref, Header, Button, Segment, CommentAction, Menu, Dropdown } from "semantic-ui-react";
+import { Grid, Card, Header } from "semantic-ui-react";
 import Producercard from "../components/ProducerCard";
 import CountryDropdown from "../components/CountryDropdown/countryDropdown";
-import SearchProducers from "../components/SearchProducers"
-import { createReadStream } from "fs";
-import { createRequireFromPath } from "module";
+
 
 class Producers extends Component {
 

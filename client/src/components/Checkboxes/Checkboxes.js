@@ -1,5 +1,5 @@
 import React from "react"
-import { Grid, Checkbox } from 'semantic-ui-react';
+import { Grid } from 'semantic-ui-react';
 import "./Checkboxes.css"
 
 // it should take in an array of attributes and an onlick fuction 

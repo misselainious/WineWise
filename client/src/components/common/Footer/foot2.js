@@ -1,6 +1,5 @@
 import React from "react";
-import { Segment, Container, Icon, Grid, Button, Header, Image } from "semantic-ui-react";
-import { Link } from 'react-router-dom';
+import { Segment, Container, Icon, Grid, Button, Image } from "semantic-ui-react";
 import "./Footer.css";
 
 const Footer = () => (

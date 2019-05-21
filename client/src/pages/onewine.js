@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Label, Icon, Responsive, Portal} from "semantic-ui-react";
+import { Grid, Table, Segment, Image, Header, Responsive} from "semantic-ui-react";
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import Winecard from '../components/WineCard'
@@ -34,7 +34,7 @@ class OneWine extends Component {
         API.getWines()
         .then(res => {
           let data = res.data
-          data = data.filter((item) => item.Producer == this.state.wine.Producer)
+          data = data.filter((item) => item.Producer === this.state.wine.Producer)
           data = data.filter((item) => item.Code !== this.state.wine.Code)
           this.setState({ wines: data })
         }))
@@ -115,7 +115,7 @@ render() {
   { ((farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" )) && <Moon />}
 
 {/* If the wine is HEV, puts a yellow Sun label */}
-  { farming === "HVE" && <Sun />}
+  { farming === "HEV" && <Sun />}
 
 {/* If the winemaker is female, puts a pink female label */}
   { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
@@ -162,7 +162,7 @@ render() {
                <Grid >
                  <Grid.Row columns={12}>
                    {producerWines.map(wine => (
-    <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
+    <Winecard header={wine.Wine} region={wine.Region} producer={wine.Producer} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code}/>
                    ))}
                  </Grid.Row>
                </Grid>
@@ -205,7 +205,7 @@ render() {
   { ((farming === "Bio-dynamic") || (farming === "Certified Bio-dynamic" )) && <Moon />}
 
 {/* If the wine is HEV, puts a yellow Sun label */}
-  { farming === "HVE" && <Sun />}
+  { farming === "HEV" && <Sun />}
 
 {/* If the winemaker is female, puts a pink female label */}
   { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}

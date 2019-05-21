@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import HomeHeading from "../../Homepage/HomeHeading/HomeHeading";
-import {  Segment, Responsive, Image } from "semantic-ui-react";
+import { Responsive, Image } from "semantic-ui-react";
 import "./carousel.css";
 
 
@@ -11,7 +10,7 @@ class imageScrolling extends Component {
     currentImageIndex: 0
   }
   componentDidMount() {
-    const timer = setInterval(() => {
+    setInterval(() => {
       if (this.state.currentImageIndex === this.state.imageArray.length - 1) {
         this.setState({ currentImageIndex: 0 })
       }

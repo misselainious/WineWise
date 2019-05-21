@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Label, Icon, Portal, Segment, Header} from "semantic-ui-react";
+import { Label, Portal, Segment, Header} from "semantic-ui-react";
 
 class Moon extends Component {
     state = {

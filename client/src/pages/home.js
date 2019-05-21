@@ -1,24 +1,18 @@
-import React, { Component } from "react";
-import HomeHeading from "../components/Homepage/HomeHeading/HomeHeading";
+import React from "react";
 import Carousel from "../components/common/Carousel/Carousel";
 import { Link } from "react-router-dom";
-import API from "../utils/API";
-import Winecard from "../components/WineCard"
 import Justin from "../components/JustIn/justin";
 import Feature from "../components/FeaturedWine/feature"
 
 import {
   Button,
-  Container,
   Divider,
   Grid,
   Header,
   Image,
-  Message,
-  Responsive,
-  Label
+  Responsive
 } from 'semantic-ui-react';
-import { createCipher } from "crypto";
+// import { createCipher } from "crypto";
 
 const Home = () => (
   
@@ -29,7 +23,7 @@ const Home = () => (
 
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>
- <Header as='h1'style={{ textAlign: 'center', fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
+ <Header as='h1'style={{ fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
  </Grid.Row>
 
 <Grid centered>
@@ -44,7 +38,7 @@ const Home = () => (
       </Divider>
 
      
-        <p textAlign='justified' style={{ padding:'20px',fontSize: '1.2em' }}>
+        <p  style={{ padding:'20px',fontSize: '1.2em' }}>
           Since 1989, Wine Wise has been importing some of the finest estate-grown wines from France, Germany, Austria, Spain, Portugal and Greece. Our speciality is small family firms that offer over-performing wines and exceptional value. Grower Champagnes and other sparkling wines are a particular area of emphasis for Wine Wise.
         </p>
             
@@ -88,7 +82,7 @@ const Home = () => (
     </Divider>
 
     <Image src="../images/vineyard.jpg" size='large' centered/>
-      <p textAlign='justified' style={{ padding:'20px',fontSize: '1.2em' }}>
+      <p style={{ padding:'20px',fontSize: '1.2em' }}>
         Since 1989, Wine Wise has been importing some of the finest estate-grown wines from France, Germany, Austria, Spain, Portugal and Greece. Our speciality is small family firms that offer over-performing wines and exceptional value. Grower Champagnes and other sparkling wines are a particular area of emphasis for Wine Wise.
       </p>
           

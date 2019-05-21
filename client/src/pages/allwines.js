@@ -106,7 +106,7 @@ class Wines extends Component {
     const female = ["Female Winemaker"]
     const regions = this.state.regionNames;
     // const producers = this.state.producerNames;
-    const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic"];
+    const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic", "HEV"];
     const { visable } = this.state;
     //
     const filterElements = [{
@@ -162,13 +162,13 @@ class Wines extends Component {
                 
                  
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} />
+                      <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code}  farming={wine.Farming_practices} female={wine.Female_Winemaker}/>
                     ))}
                   
               
                 </Grid.Row>
             ) : (
-                <Header as='h3'>{this.state.isLoading ? "loading..." : "No results to display"}</Header>
+                <Header as='h3'>{this.state.isLoading ? "loading..." : "No wines meet your criteria"}</Header>
               )}
 
       </Grid>

@@ -22,7 +22,7 @@ class OneProducer extends Component {
       API.getWines()
       .then(res => {
         let data = res.data
-        data = data.filter((item) => item.Producer == this.state.producer.Producer)
+        data = data.filter((item) => item.Producer === this.state.producer.Producer)
         this.setState({ wines: data })
       })
       .catch(err => console.log(err));

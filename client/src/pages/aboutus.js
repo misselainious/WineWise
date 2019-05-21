@@ -1,6 +1,4 @@
 import React from "react";
-import HomeHeading from "../components/Homepage/HomeHeading/HomeHeading";
-import Modal from "../components/SalesTeam/Modal/Modal";
 import { Link } from 'react-router-dom';
 
 import {
@@ -12,7 +10,6 @@ import {
     Divider
 } from 'semantic-ui-react';
 import SalesTeamModal from "../components/SalesTeam/Modal/Modal";
-import TeamMemberCard from '../components/SalesTeam/TeamMemberCard'
 import TeamMembersContainer from '../components/SalesTeam/TeamMembersContainer';
 
 class AboutUs extends React.Component {

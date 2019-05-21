@@ -1,20 +1,15 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
-import Winecard from "../WineCard/index.js"
 import { Link } from "react-router-dom";
 import {
     Button,
-    Container,
     Divider,
     Grid,
     Header,
-    Image,
-    Segment,
-    Responsive,
-    Label
+    Image
 
 } from 'semantic-ui-react';
-import { createCipher } from "crypto";
+// import { createCipher } from "crypto";
 
 
 class Feature extends Component {
@@ -70,7 +65,7 @@ class Feature extends Component {
           {description}
           </p>
     
-         <Grid.Column centered floated='right' width={6}>
+         <Grid.Column floated='right' width={6}>
           <Image style={{marginLeft:'auto', marginRight:'auto' }} bordered rounded size='medium' src={`https://gdurl.com${url}`} />
           <Link to={"/details/" + pageLink} >
             <Button className="seeAllWinesBtn" style={{ display: 'block', marginRight: 'auto', marginLeft: 'auto', color: '#962d2d', marginTop:'15px' }} size='small'>

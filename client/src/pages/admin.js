@@ -1,26 +1,25 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PDF from './inventory.pdf'
 import {
   Grid,
   Button,
-  Message,
-  Icon
+  Message
 } from 'semantic-ui-react';
 
 
-const options = [
-  { key: 'r', text: 'Red', value: 'Red' },
-  { key: 'w', text: 'White', value: 'White' },
-  { key: 's', text: 'Sparkling', value: 'Sparkling' },
-  { key: 'ro', text: 'Rose', value: 'Rose' },
-  { key: 'd', text: 'Dessert', value: 'Dessert' },
-]
-const countryOptions = [
-  { key: 'f', text: 'France', value: 'France' },
-  { key: 'g', text: 'Greece', value: 'Greece' },
-  { key: 's', text: 'Spain', value: 'Spain' },
-  { key: 'p', text: 'Portugal', value: 'Portugal' },
-]
+// const options = [
+//   { key: 'r', text: 'Red', value: 'Red' },
+//   { key: 'w', text: 'White', value: 'White' },
+//   { key: 's', text: 'Sparkling', value: 'Sparkling' },
+//   { key: 'ro', text: 'Rose', value: 'Rose' },
+//   { key: 'd', text: 'Dessert', value: 'Dessert' },
+// ]
+// const countryOptions = [
+//   { key: 'f', text: 'France', value: 'France' },
+//   { key: 'g', text: 'Greece', value: 'Greece' },
+//   { key: 's', text: 'Spain', value: 'Spain' },
+//   { key: 'p', text: 'Portugal', value: 'Portugal' },
+// ]
 
 
 class Admin extends Component {
@@ -66,8 +65,8 @@ class Admin extends Component {
   //   }
   // };
   render() {
-    const { value } = this.state
-    const { pageNumber, numPages } = this.state;
+    // const { value } = this.state
+    // const { pageNumber, numPages } = this.state;
     return (
       <Grid centered style={{ marginTop: '100px', marginBottom: '100px'}}>
 

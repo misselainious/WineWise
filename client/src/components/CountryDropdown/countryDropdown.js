@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Responsive, Dropdown } from "semantic-ui-react";
+import { Dropdown } from "semantic-ui-react";
 
 
 

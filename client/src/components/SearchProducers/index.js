@@ -1,6 +1,6 @@
 import _ from "lodash";
 import React, { Component } from "react";
-import { Search, Grid, Header, Segment } from "semantic-ui-react";
+import { Search } from "semantic-ui-react";
 import API from '../../utils/API'
 import { Link } from "react-router-dom"
 import "./prodSearch.css"

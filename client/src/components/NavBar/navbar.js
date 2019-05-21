@@ -1,11 +1,8 @@
 import React from 'react'
 import {
-  Container,
-  Dropdown,
   Image,
   Menu,
-  Button,
-  Icon
+  Button
 } from 'semantic-ui-react'
 
 import { Link } from 'react-router-dom';
@@ -17,7 +14,7 @@ const FixedMenuLayout = () => (
     <Menu fixed='top'>
       
       <Link to="/" onClick={scrollToTop}>
-        <Menu.Item as='a' as='h3' header style={{color: '#510409'}}>
+        <Menu.Item as='a' header style={{color: '#510409'}}>
           <Image size='mini' src='./images/owl.png' style={{ marginRight: '1.5em' }} />
           WineWise
         </Menu.Item>
@@ -55,7 +52,7 @@ const FixedMenuLayout = () => (
         <Menu.Item position='right' style={{marginRight:'10px'}} >
         <Link to="/admin" onClick={scrollToTop}>
         <Button>
-        <i class="dolly icon"></i> For the Trade
+        <i className="dolly icon"></i> For the Trade
           </Button> 
           </Link>
           </Menu.Item>

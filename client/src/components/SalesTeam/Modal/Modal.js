@@ -9,7 +9,6 @@ const SalesTeamModal = props => {
   const phone = props.member ? props.member.phone : "";
   const bio = props.member ? props.member.bio : "";
   const image = props.member ? props.member.image : "";
-  console.log(props.member);
 
   return (
 

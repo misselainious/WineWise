@@ -1,5 +1,4 @@
 import React from "react";
-import HomeHeading from "../components/Homepage/HomeHeading/HomeHeading";
 
 import {
     Grid,
