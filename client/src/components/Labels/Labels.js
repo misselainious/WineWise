@@ -30,7 +30,7 @@ class Moon extends Component {
         onClose={this.handleClose}
         >
 
-<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px'}}>
+<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#d7dae5'}}>
               <Header>This wine is Bio-dynamic</Header>
               <p style={{fontSize: '1em'}}>This winemaker uses organic farming methods (e.g. employing compost as fertilizer and avoiding most pesticides) while also employing soil supplements prepared according to Rudolf Steiner's formulas, following a planting calendar that depends upon astronomical configurations, and treating the earth as "a living and receptive organism.</p>
             </Segment>
@@ -68,7 +68,7 @@ class Leaf extends Component {
         onClose={this.handleClose}
         >
 
-<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px'}}>
+<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#dfe5d7'}}>
               <Header>This wine is Organic</Header>
               <p style={{fontSize: '1em'}}>Organic winemaking excludes the use of artificial chemical fertilizers, pesticides, fungicides and herbicides.</p>
             </Segment>
@@ -105,7 +105,7 @@ class Sun extends Component {
         onClose={this.handleClose}
         >
 
-<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px'}}>
+<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#efefcb'}}>
               <Header>This wine is HEV</Header>
               <p style={{fontSize: '1em'}}>HEV stands for 'High Environmental Value' and certification guarantees that the pressure applied to the environment bby farming practices (on air, water, soil, climate, biodiversity and landscape) is kept to a minimum.</p>
             </Segment>
@@ -143,7 +143,7 @@ class Female extends Component {
         onClose={this.handleClose}
         >
 
-<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px'}}>
+<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: "#e5d7e3"}}>
               <Header>This wine is made by a lady</Header>
               <p style={{fontSize: '1em'}}>We feel that empowering women makes the world stronger and are proud to work with a number of female winemakers.</p>
             </Segment>
