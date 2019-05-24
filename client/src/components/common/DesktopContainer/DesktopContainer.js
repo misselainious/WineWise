@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from 'prop-types';
 import { Responsive, Visibility } from "semantic-ui-react";
-
-import Navbar from "../Navbar/Navbar";
 import FixedMenuLayout from "../../NavBar/navbar";
 
 class DesktopContainer extends Component {
@@ -13,7 +11,7 @@ class DesktopContainer extends Component {
 
   render() {
     const { children } = this.props
-    const { fixed } = this.state
+    // const { fixed } = this.state
 
     return (
       <Responsive getWidth={this.props.getWidth} minWidth={Responsive.onlyTablet.minWidth}>

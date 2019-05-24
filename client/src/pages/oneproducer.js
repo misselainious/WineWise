@@ -29,6 +29,7 @@ class OneProducer extends Component {
 
   }
 
+
 render() {
     const { producer } = this.state;
     delete producer._id
@@ -45,7 +46,7 @@ render() {
  <Grid centered>
    <Grid.Row>
    <Grid.Column>
-      <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "10px", paddingBottom: "10px"}} >
+      <Header as='h1' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "10px", paddingBottom: "10px"}} >
       {this.state.producer.Producer}
       </Header>
     </Grid.Column>
@@ -115,7 +116,7 @@ render() {
   <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
    <Grid.Row>
     <Grid.Column>
-      <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
+      <Header as='h1' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
       {this.state.producer.Producer}
       </Header>
     </Grid.Column>

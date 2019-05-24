@@ -32,7 +32,7 @@ class Moon extends Component {
 
 <Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#d7dae5'}}>
               <Header>This wine is Bio-dynamic</Header>
-              <p style={{fontSize: '1em'}}>This winemaker uses organic farming methods (e.g. employing compost as fertilizer and avoiding most pesticides) while also employing soil supplements prepared according to Rudolf Steiner's formulas, following a planting calendar that depends upon astronomical configurations, and treating the earth as "a living and receptive organism.</p>
+              <p style={{fontSize: '1em'}}>This winemaker uses organic farming methods (e.g. employing compost as fertilizer and avoiding most pesticides) while also employing soil supplements prepared according to Rudolf Steiner's formulas, following a planting calendar that depends upon astronomical configurations, and treating the earth as "a living and receptive organism."</p>
             </Segment>
           </Portal>
     );

@@ -1,9 +1,11 @@
 import React, { Component } from "react";
-import PDF from './inventory.pdf'
+import Inv from './inventory.pdf'
+import Desc from './WineWise_priceList.pdf'
 import {
   Grid,
   Button,
-  Message
+  Message,
+  Header
 } from 'semantic-ui-react';
 
 
@@ -77,17 +79,42 @@ class Admin extends Component {
           Welcome to the Trade section of WineWise
         </Message.Header>
         <p style={{fontSize: '1em'}}>
-          Please click on an item below to view pricing.
+          Please click on an item below to view.
         </p>
       </Message>
       </Grid.Row>
 
-        <Grid.Row centered>
-        <a href = {PDF} target = "_blank">
-          <Button target="_blank" src="./images/inventory.pdf">
-            View Price List
+      <div class="ui divider"></div>
+
+
+
+
+
+        <Grid.Row  centered columns={3} >
+          <Grid.Column textAlign='right'>
+        <a href = {Inv} target = "_blank" rel="noopener noreferrer">
+          <Button color = "brown" target="_blank" rel="noopener noreferrer">
+            Price List
           </Button>
           </a>
+          </Grid.Column>
+          <Grid.Column textAlign='left' width={7}>
+          <p style={{fontSize: '1em'}}>Weekly updated list of available inventory.</p>
+        </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row centered columns={3} >
+        <Grid.Column textAlign='right'>
+        <a href = {Desc} target = "_blank" rel="noopener noreferrer">
+          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+            Item Descrptions
+          </Button>
+          </a>
+          </Grid.Column>
+          <Grid.Column textAlign='left' width={7}>
+          <p style={{fontSize: '1em'}}>Detailed desciptions of all of our wines.</p>
+        </Grid.Column>
+          
         </Grid.Row>
       </Grid>
     )

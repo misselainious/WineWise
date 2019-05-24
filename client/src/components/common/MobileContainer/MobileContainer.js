@@ -13,7 +13,7 @@ class MobileContainer extends React.Component {
   render() {
     const { children } = this.props
     const { sidebarOpened } = this.state
-    const {pathname} = window.location;
+    // const {pathname} = window.location;
 
     return (
     <Responsive
@@ -30,15 +30,15 @@ class MobileContainer extends React.Component {
         >
         <Header as='h3' style={{textAlign:'center', fontSize: "1.6em", paddingTop: "20px", color: '#510409'}}> <Image size='mini' src='./images/owl.png' /> WineWise</Header>
       
-        <Link to="/"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/" ? "nav-link active" : "nav-link"}>
+        <Link to="/"><Menu.Item onClick={this.handleSidebarHide} >
         <p ><i className="home icon"></i>Home</p></Menu.Item></Link>
-        <Link to="/allwines"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/allwines" ? "nav-link active" : "nav-link"}>
+        <Link to="/allwines"><Menu.Item onClick={this.handleSidebarHide} >
           <p >All Wines</p></Menu.Item></Link>
-        <Link to="/producers"><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/producers" ? "nav-link active" : "nav-link"}>
+        <Link to="/producers"><Menu.Item onClick={this.handleSidebarHide} >
           <p >Producers</p></Menu.Item></Link>
-        <Link to="/aboutus" ><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/aboutus" ? "nav-link active" : "nav-link"}>
+        <Link to="/aboutus" ><Menu.Item onClick={this.handleSidebarHide} >
           <p >About Us</p></Menu.Item></Link>
-        <Link to="/admin" ><Menu.Item onClick={this.handleSidebarHide} className={pathname === "/admin" ? "nav-link active" : "nav-link"}>
+        <Link to="/admin" ><Menu.Item onClick={this.handleSidebarHide} >
           <p ><i className="dolly icon"></i> For the Trade</p></Menu.Item>
         </Link>
          

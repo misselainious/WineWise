@@ -22,6 +22,11 @@ class OneWine extends Component {
   handleClose = () => {
     this.setState({ open: false })
   }
+
+  handleHover = () => {
+    console.log("hover yo")
+  }
+
   removeUnderscores(myString){
     return myString.split("_").join(" ")
   }
@@ -60,7 +65,7 @@ class OneWine extends Component {
   }
 
 render() {
-  const { open } = this.state
+  // const { open } = this.state
     const { wine } = this.state;
     delete wine._id
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
@@ -77,7 +82,7 @@ render() {
 <Grid.Row style={{marginTop:'25px'}}>
   <Grid.Column width={15}>
 <Link to={"/producerdetails/" + this.state.wine.Producer}>
-            <Header style={{backgroundColor:'#dfdfbf'}} as='h2' attached='top'>
+            <Header onMouseOver={this.handleHover} style={{backgroundColor:'#dfdfbf'}} as='h2' attached='top'>
             {this.state.wine.Producer}
             </Header>
           </Link>
@@ -154,11 +159,8 @@ render() {
       
        <Grid.Row>
          
-
          <Grid.Column width={8}>
-         
-          
-          
+                  
                <Grid >
                  <Grid.Row columns={12}>
                    {producerWines.map(wine => (
@@ -166,8 +168,6 @@ render() {
                    ))}
                  </Grid.Row>
                </Grid>
-     
-
 
          </Grid.Column>
        </Grid.Row>
@@ -266,13 +266,10 @@ render() {
  <Grid.Column width={12}>
 <Header as='h3'>{this.state.wine.Producer}'s Other Wines</Header>
        
-        <Grid.Row>
-          
+        <Grid.Row>  
 
           <Grid.Column width={8}>
-          
-           
-           
+  
                 <Grid >
                   <Grid.Row columns={12}>
                     {producerWines.map(wine => (
@@ -280,8 +277,6 @@ render() {
                     ))}
                   </Grid.Row>
                 </Grid>
-      
-
 
           </Grid.Column>
         </Grid.Row>

@@ -8,10 +8,6 @@ import Producers from "./pages/producers";
 import AboutUs from "./pages/aboutus";
 import Login from "./pages/login";
 import AuthService from './components/login/AuthService';
-
-// import Onewine from "./pages/onewine";
-// import Wrapper from "./components/Wrapper";
-
 import DesktopContainer from "./components/common/DesktopContainer/DesktopContainer";
 import MobileContainer from "./components/common/MobileContainer/MobileContainer";
 import Footer from "./components/common/Footer/foot2";

@@ -1,10 +1,8 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import { Card, Image } from 'semantic-ui-react'
-import {Moon, Female, Leaf, Sun} from '../../components/Labels/Labels'
+// import {Moon, Female, Leaf, Sun} from '../../components/Labels/Labels'
 import "./Winecard.css";
-
-const img = '/images/StockRED.png'
 
 const Winecard = (props) => (
 

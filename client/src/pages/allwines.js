@@ -4,7 +4,6 @@ import API from "../utils/API";
 import { Grid, Header } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
-import AllWinesFilter from "../components/AllWinesFilter/AllWinesFilter";
 
 class Wines extends Component {
   state = {
@@ -21,8 +20,7 @@ class Wines extends Component {
     
       farming: [],
       female: []
-    },
-    visable: false
+    }
   };
   //onload we get all the wine and producer data
 
@@ -39,11 +37,7 @@ class Wines extends Component {
       .then(res => {
         this.setState({ wines: res.data })
         let regionNames = []
-        res.data.map(wine => {
-          if (!regionNames.includes(wine.Region)) {
-            regionNames.push(wine.Region)
-          }
-        })
+        res.data.map(wine => (!regionNames.includes(wine.Region)) && regionNames.push(wine.Region))
         this.setState({ 
           regionNames,
         isLoading: false })
@@ -99,7 +93,7 @@ class Wines extends Component {
   }
 
   render() {
-    const mainStyle = { marginLeft: "250px" }
+    // const mainStyle = { marginLeft: "250px" }
     const wineAreaStyle= {minHeight:"100vh"};
     const countries = ["Germany", "France", "Austria", "Spain", "Portugal", "Greece"]
     const colors = ["Rosé", "White", "Red", "Sparkling", "Dessert"]
@@ -107,8 +101,8 @@ class Wines extends Component {
     const regions = this.state.regionNames;
     // const producers = this.state.producerNames;
     const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic", "HEV"];
-    const { visable } = this.state;
-    //
+
+    
     const filterElements = [{
       filterType: "countries",
       elements: countries

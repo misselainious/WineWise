@@ -1,15 +1,8 @@
 import React, { Component } from "react";
 import API from "../../utils/API";
 import Winecard from "../WineCard/index.js"
-
-import {
-
-  Grid,
-  Header,
-  Divider
-
-} from 'semantic-ui-react';
-import { createCipher } from "crypto";
+import { Grid, Divider } from 'semantic-ui-react';
+// import { createCipher } from "crypto";
 
 
 class Justin extends Component {

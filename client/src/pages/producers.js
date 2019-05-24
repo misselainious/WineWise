@@ -222,7 +222,7 @@ render() {
 {/* Germany */}
 <Grid.Row id='germany'>
   <Grid.Column>
-<Header ref={node => this.node = node} as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
+<Header as='h1' textAlign='right' style={{color: '#221244', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "20px", paddingBottom: "20px"}} >
       Germany
     </Header>
     </Grid.Column>
