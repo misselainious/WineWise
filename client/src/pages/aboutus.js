@@ -95,7 +95,7 @@ class AboutUs extends React.Component {
                                         Brian Greenwood, Principal
                 </Header>
                                     <p style={{ fontSize: '1.25em' }}>
-                                        Brian keeps this company moving forward and catches all of Elaine's mistakes.
+                                        Brian helped WineWise grow organically into what it is today though his refreshing outlook on the industry. He keeps the company moving forward and always has great recommendations from his years of experience.
                                 </p>
                                 <Link to="/greenwood">
                                 <Button className="seeAllWinesBtn" size='small'>
