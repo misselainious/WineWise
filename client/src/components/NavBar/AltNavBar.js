@@ -1,24 +1,51 @@
-import React from 'react'
-import {
-  Image,
-  Menu,
-  Button
-} from 'semantic-ui-react'
 
+import React, {Component} from 'react'
+import { Image, Menu, Button} from 'semantic-ui-react'
 import { Link } from 'react-router-dom';
 
 const scrollToTop = () => { window.scroll(0,0)};
 
-const FixedMenuLayout = () => (
+class FixedMenuLayout extends Component{
+  state = {}
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name }).then(
+      this.setState({
+        activeItem : ""
+      })
+  )
+
+
+  
+  render(){
+    const { activeItem } = this.state
+  return(
   <div>
     <Menu fixed='top'>
-      
-      <Link to="/" onClick={scrollToTop}>
-        <Menu.Item as='a' header style={{color: '#510409'}}>
+
+        <Menu.Item  
+          as={Link} to='/' 
+          name='home'
+          active={activeItem === 'home'}
+          onClick={this.handleItemClick}style={{color: '#510409', fontSize: '1.3em'}}>
           <Image size='mini' src='./images/owl.png' style={{ marginRight: '1.5em' }} />
           WineWise
         </Menu.Item>
-        </Link>
+ 
+        <Menu.Item name='producers' as={Link} to='/producers' active={activeItem === 'producers'} onClick={this.handleItemClick}>Producers </Menu.Item>
+        <Menu.Item name='allwines' as={Link} to='/allwines' active={activeItem === 'allwines'} onClick={this.handleItemClick}>Wines </Menu.Item>
+        <Menu.Item name='about' as={Link} to='/aboutus' active={activeItem === 'about'} onClick={this.handleItemClick}>About Us </Menu.Item>
+        
+      
+      {/* OLD LINK */}
+      {/* <Link to="/" onClick={scrollToTop}>
+        <Menu.Item   name='home'
+          active={activeItem === 'home'}
+          onClick={this.handleItemClick}style={{color: '#510409'}}>
+          <Image size='mini' src='./images/owl.png' style={{ marginRight: '1.5em' }} />
+          WineWise
+        </Menu.Item>
+        </Link> */}
+
+
         
 {/* Future Dropdown with Countries */}
       
@@ -44,10 +71,7 @@ const FixedMenuLayout = () => (
           </Dropdown.Menu>
         </Dropdown> */}
 
-        <Menu.Item as='a'><Link to="/producers" onClick={scrollToTop}>Producers  </Link></Menu.Item>
-        <Menu.Item as='a'><Link to="/allwines" onClick={scrollToTop}>Wines  </Link></Menu.Item>
-        <Menu.Item as='a'><Link to="/aboutus" onClick={scrollToTop}>About Us  </Link></Menu.Item>
-        
+  
         {/* Trade Button */}
         <Menu.Item position='right' style={{marginRight:'10px'}} >
         <Link to="/admin" onClick={scrollToTop}>
@@ -62,9 +86,7 @@ const FixedMenuLayout = () => (
     </Menu>
 
   </div>
-)
+  )}
+      }
 
 export default FixedMenuLayout
-
-
-
