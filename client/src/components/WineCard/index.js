@@ -14,8 +14,9 @@ const Winecard = (props) => (
         :
         // Else Renders row with image from url:
         <Image className="cardImage" src={`https://gdurl.com${props.url}`} />
-        //For rendering image from individual folder:
-        // <Image className="cardImage" src={`/images/individual/${props.Code}.png`}/>
+
+        // For rendering image from individual folder:
+        // <Image className="cardImage" src={`/images/bottle/${props.Code}.png`}/>
       }
  {/* CORNER LABELS */}
 
