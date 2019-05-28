@@ -1,6 +1,8 @@
 import React, { Component } from "react";
-import Inv from './inventory.pdf'
-import Desc from './WineWise_priceList.pdf'
+import Inv from '../pdf_files/inventory.pdf'
+import Desc from '../pdf_files/WineWise_priceList.pdf'
+import German from  '../pdf_files/priceList_Germany.pdf'
+import Sparkling from  '../pdf_files/priceList_Sparkling.pdf'
 import {
   Grid,
   Button,
@@ -87,13 +89,10 @@ class Admin extends Component {
       <div class="ui divider"></div>
 
 
-
-
-
         <Grid.Row  centered columns={3} >
           <Grid.Column textAlign='right'>
         <a href = {Inv} target = "_blank" rel="noopener noreferrer">
-          <Button color = "brown" target="_blank" rel="noopener noreferrer">
+          <Button circular color = "brown" target="_blank" rel="noopener noreferrer">
             Price List
           </Button>
           </a>
@@ -106,7 +105,7 @@ class Admin extends Component {
         <Grid.Row centered columns={3} >
         <Grid.Column textAlign='right'>
         <a href = {Desc} target = "_blank" rel="noopener noreferrer">
-          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+          <Button circular color="brown" target="_blank" rel="noopener noreferrer">
             Item Descrptions
           </Button>
           </a>
@@ -114,8 +113,35 @@ class Admin extends Component {
           <Grid.Column textAlign='left' width={7}>
           <p style={{fontSize: '1em'}}>Detailed desciptions of all of our wines.</p>
         </Grid.Column>
-          
         </Grid.Row>
+
+        <Grid.Row  centered columns={3} >
+          <Grid.Column textAlign='right'>
+        <a href = {German} target = "_blank" rel="noopener noreferrer">
+          <Button circular color = "brown" target="_blank" rel="noopener noreferrer">
+            German
+          </Button>
+          </a>
+          </Grid.Column>
+          <Grid.Column textAlign='left' width={7}>
+          <p style={{fontSize: '1em'}}>List of German offerings only.</p>
+        </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row centered columns={3} >
+        <Grid.Column textAlign='right'>
+        <a href = {Sparkling} target = "_blank" rel="noopener noreferrer">
+          <Button circular color="brown" target="_blank" rel="noopener noreferrer">
+            Sparkling
+          </Button>
+          </a>
+          </Grid.Column>
+          <Grid.Column textAlign='left' width={7}>
+          <p style={{fontSize: '1em'}}>List of Sparkling offerings only.</p>
+        </Grid.Column>
+        </Grid.Row>
+
+
       </Grid>
     )
   }
