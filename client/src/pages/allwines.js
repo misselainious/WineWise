@@ -156,7 +156,7 @@ class Wines extends Component {
                 
                  
                     {wineList.map(wine => (
-                      <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code}  farming={wine.Farming_practices} female={wine.Female_Winemaker}/>
+                      <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} producer={wine.Producer}  farming={wine.Farming_practices} female={wine.Female_Winemaker}/>
                     ))}
                   
               

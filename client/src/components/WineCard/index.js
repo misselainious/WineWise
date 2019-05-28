@@ -13,10 +13,10 @@ const Winecard = (props) => (
       {(props.url === "") ? <Image className="cardImage"src='/images/StockRED.png' />
         :
         // Else Renders row with image from url:
-        <Image className="cardImage" src={`https://gdurl.com${props.url}`} />
+        // <Image className="cardImage" src={`https://gdurl.com${props.url}`} />
 
         // For rendering image from individual folder:
-        // <Image className="cardImage" src={`/images/bottle/${props.Code}.png`}/>
+        <Image className="cardImage" src={`/images/bottle/${props.Code}.png`}/>
       }
  {/* CORNER LABELS */}
 

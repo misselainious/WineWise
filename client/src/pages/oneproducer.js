@@ -93,7 +93,9 @@ render() {
               <Grid >
                 <Grid.Row columns={3}>
                   {producerWines.map(wine => (
-                    <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                    // <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                    <Winecard header={wine.Wine} region={wine.Region}  country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} Code={wine.Code} closure={wine.Closure} producer={wine.Producer}  farming={wine.Farming_practices} female={wine.Female_Winemaker}/>
+                  
                   ))}
                 </Grid.Row>
               </Grid>
@@ -162,7 +164,7 @@ render() {
               <Grid >
                 <Grid.Row columns={3}>
                   {producerWines.map(wine => (
-                    <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} key={wine._id} url={wine.URL} />
+                    <Winecard header={wine.Wine} producer={wine.Producer} region={wine.Region} country={wine.Country} wineid={wine._id} Code={wine.Code} key={wine._id} url={wine.URL} />
                   ))}
                 </Grid.Row>
               </Grid>
