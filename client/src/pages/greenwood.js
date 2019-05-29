@@ -16,7 +16,7 @@ const Greenwood = () => (
                 <Grid.Row>
                     <Grid.Column width={8}>
                         <Header as='h3' style={{ fontSize: '2em' }}>
-                            Greenwood Simon, Principal
+                            Brian Greenwood, Principal
                 </Header>
                         <p style={{ fontSize: '1em' }}>
                            Brian is writing about how his experience helps bring us the fantasic WineWise wines we know and love. Check back soon and he'll tell you all about it... 
