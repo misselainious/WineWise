@@ -7,7 +7,8 @@ import {
   Grid,
   Button,
   Message,
-  Header
+  Table,
+  Icon
 } from 'semantic-ui-react';
 
 
@@ -89,57 +90,71 @@ class Admin extends Component {
       <div class="ui divider"></div>
 
 
-        <Grid.Row  centered columns={3} >
-          <Grid.Column textAlign='right'>
+<Grid.Row>
+  <Grid.Column width='8'>
+
+<Table celled striped style={{marginTop: '8%'}}>
+    <Table.Header>
+      <Table.Row>
+        <Table.HeaderCell textAlign='center' colSpan='3' style={{fontSize: '1.3em'}}>PDF's available for download</Table.HeaderCell>
+      </Table.Row>
+    </Table.Header>
+
+    <Table.Body>
+      <Table.Row>
+        <Table.Cell textAlign='center'>
         <a href = {Inv} target = "_blank" rel="noopener noreferrer">
-          <Button circular color = "brown" target="_blank" rel="noopener noreferrer">
-            Price List
+          <Button basic color = "brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' />  Price List
           </Button>
           </a>
-          </Grid.Column>
-          <Grid.Column textAlign='left' width={7}>
-          <p style={{fontSize: '1em'}}>Weekly updated list of available inventory.</p>
-        </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row centered columns={3} >
-        <Grid.Column textAlign='right'>
+          
+        </Table.Cell>
+        <Table.Cell>Weekly updated list of available inventory.</Table.Cell>
+      
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell textAlign='center'> 
         <a href = {Desc} target = "_blank" rel="noopener noreferrer">
-          <Button circular color="brown" target="_blank" rel="noopener noreferrer">
-            Item Descrptions
+          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' /> Item Descriptions
           </Button>
           </a>
-          </Grid.Column>
-          <Grid.Column textAlign='left' width={7}>
-          <p style={{fontSize: '1em'}}>Detailed desciptions of all of our wines.</p>
-        </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row  centered columns={3} >
-          <Grid.Column textAlign='right'>
+         
+        </Table.Cell>
+        <Table.Cell>Detailed desciptions of all of our wines.</Table.Cell>
+    
+      </Table.Row>
+      <Table.Row>
+        <Table.Cell textAlign='center'>
         <a href = {German} target = "_blank" rel="noopener noreferrer">
-          <Button circular color = "brown" target="_blank" rel="noopener noreferrer">
-            German
+          <Button basic color = "brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' />German
           </Button>
           </a>
-          </Grid.Column>
-          <Grid.Column textAlign='left' width={7}>
-          <p style={{fontSize: '1em'}}>List of German offerings only.</p>
-        </Grid.Column>
-        </Grid.Row>
-
-        <Grid.Row centered columns={3} >
-        <Grid.Column textAlign='right'>
+          
+        </Table.Cell>
+        <Table.Cell>List of German offerings only.</Table.Cell>
+    
+      </Table.Row>
+      
+      <Table.Row>
+        <Table.Cell textAlign='center'>
         <a href = {Sparkling} target = "_blank" rel="noopener noreferrer">
-          <Button circular color="brown" target="_blank" rel="noopener noreferrer">
-            Sparkling
+          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' /> Sparkling
           </Button>
           </a>
-          </Grid.Column>
-          <Grid.Column textAlign='left' width={7}>
-          <p style={{fontSize: '1em'}}>List of Sparkling offerings only.</p>
-        </Grid.Column>
-        </Grid.Row>
+          
+        </Table.Cell>
+        <Table.Cell>List of Sparkling offerings only.</Table.Cell>
+    
+      </Table.Row>
+    </Table.Body>
+  </Table>
+
+  </Grid.Column>
+</Grid.Row>
 
 
       </Grid>
