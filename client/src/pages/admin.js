@@ -3,6 +3,8 @@ import Inv from '../pdf_files/inventory.pdf'
 import Desc from '../pdf_files/WineWise_priceList.pdf'
 import German from  '../pdf_files/priceList_Germany.pdf'
 import Sparkling from  '../pdf_files/priceList_Sparkling.pdf'
+import Austrian from '../pdf_files/austrianList.pdf'
+import Mags from  '../pdf_files/MagnumHalf.pdf'
 import {
   Grid,
   Button,
@@ -124,6 +126,7 @@ class Admin extends Component {
         </Table.Cell>
         <Table.Cell>Detailed desciptions of all of our wines.</Table.Cell>
     
+
       </Table.Row>
       <Table.Row>
         <Table.Cell textAlign='center'>
@@ -132,10 +135,21 @@ class Admin extends Component {
           <Icon name='folder' />German
           </Button>
           </a>
-          
         </Table.Cell>
         <Table.Cell>List of German offerings only.</Table.Cell>
-    
+      </Table.Row>
+
+
+   
+      <Table.Row>
+        <Table.Cell textAlign='center'>
+        <a href = {Austrian} target = "_blank" rel="noopener noreferrer">
+          <Button basic color = "brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' />Austrian
+          </Button>
+          </a>
+        </Table.Cell>
+        <Table.Cell>List of Austrian offerings only.</Table.Cell>
       </Table.Row>
       
       <Table.Row>
@@ -145,11 +159,22 @@ class Admin extends Component {
           <Icon name='folder' /> Sparkling
           </Button>
           </a>
-          
         </Table.Cell>
         <Table.Cell>List of Sparkling offerings only.</Table.Cell>
-    
       </Table.Row>
+
+      <Table.Row>
+        <Table.Cell textAlign='center'>
+        <a href = {Mags} target = "_blank" rel="noopener noreferrer">
+          <Button basic color = "brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' />Magnums &amp; Half Bottles
+          </Button>
+          </a>
+        </Table.Cell>
+        <Table.Cell>List of Magnums and Half bottles only.</Table.Cell>
+      </Table.Row>
+
+
     </Table.Body>
   </Table>
 
