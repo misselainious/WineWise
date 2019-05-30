@@ -140,7 +140,7 @@ render() {
     <Table.Body>
         {
             wineObjKeys.map(key => 
-                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && <Table.Row key={key}>
+                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{wine[key]}</Table.Cell>
                     </Table.Row>
@@ -247,7 +247,7 @@ render() {
     <Table.Body>
         {
             wineObjKeys.map(key => 
-                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && <Table.Row key={key}>
+                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{wine[key]}</Table.Cell>
                     </Table.Row>
