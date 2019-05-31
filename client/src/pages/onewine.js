@@ -190,10 +190,10 @@ render() {
             { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
             :
             // Else Renders specific wine image from url:
-              <Image src={`https://gdurl.com${this.state.wine.URL}`} />
+              // <Image src={`https://gdurl.com${this.state.wine.URL}`} />
 
-              //For when image is in individual folder:
-              // <Image src={`/images/individual/${this.state.wine.Code}.png`}/>
+              // For when image is in individual folder:
+              <Image src={`/images/bottle/${this.state.wine.Code}.png`}/>
             } 
   </Image>
 
