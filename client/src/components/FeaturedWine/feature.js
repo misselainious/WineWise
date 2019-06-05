@@ -32,17 +32,19 @@ class Feature extends Component {
       .catch(err => console.log(err));
   };
 
-  
+  defaultSrc(ev){
+    ev.target.src = '/images/StockRED.png'
+  }
 
   render() {
     let description;
     let wineName;
-    let url;
+    let code;
     let pageLink;
     if (this.state.wines.length > 0){
         description = this.state.wines[0].WineWise_Notes;
         wineName = this.state.wines[0].Wine;
-        url = this.state.wines[0].URL;
+        code = this.state.wines[0].Code;
         pageLink = this.state.wines[0]._id;
     }
     return (
@@ -66,7 +68,7 @@ class Feature extends Component {
           </p>
     
          <Grid.Column floated='right' width={6}>
-          <Image style={{marginLeft:'auto', marginRight:'auto' }} bordered rounded size='medium' src={`https://gdurl.com${url}`} />
+          <Image style={{marginLeft:'auto', marginRight:'auto' }} bordered rounded size='medium'onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${code}.png`} />
           <Link to={"/details/" + pageLink} >
             <Button className="seeAllWinesBtn" style={{ display: 'block', marginRight: 'auto', marginLeft: 'auto', color: '#962d2d', marginTop:'15px' }} size='small'>
             <p className="seeAllWinesText">View Wine</p>

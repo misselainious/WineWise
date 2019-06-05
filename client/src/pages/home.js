@@ -39,7 +39,7 @@ const Home = () => (
 
      
         <p  style={{ padding:'20px',fontSize: '1.2em' }}>
-          Since 1989, Wine Wise has been importing some of the finest estate-grown wines from France, Germany, Austria, Spain, Portugal and Greece. Our speciality is small family firms that offer over-performing wines and exceptional value. Grower Champagnes and other sparkling wines are a particular area of emphasis for Wine Wise.
+          Since 1989, WineWise has been importing some of the finest estate-grown wines from France, Germany, Austria, Spain, Portugal and Greece. Our speciality is small family firms that offer over-performing wines and exceptional value. Grower Champagnes and other sparkling wines are a particular area of emphasis for us.
         </p>
             
       <Link to="/allwines">
@@ -49,6 +49,10 @@ const Home = () => (
       </Link>
    </Grid.Column>
  </Grid.Row>
+
+ {/* <Grid.Row>
+  <Feature />
+ </Grid.Row> */}
 
  <Grid.Row>
   <Justin />
