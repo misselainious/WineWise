@@ -107,7 +107,7 @@ class Sun extends Component {
 
 <Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#efefcb'}}>
               <Header>This wine is HEV</Header>
-              <p style={{fontSize: '1em'}}>HEV stands for 'High Environmental Value' and certification guarantees that the pressure applied to the environment bby farming practices (on air, water, soil, climate, biodiversity and landscape) is kept to a minimum.</p>
+              <p style={{fontSize: '1em'}}>HEV stands for 'High Environmental Value' and certification guarantees that the pressure applied to the environment by farming practices (on air, water, soil, climate, biodiversity and landscape) is kept to a minimum.</p>
             </Segment>
           </Portal>
     );
