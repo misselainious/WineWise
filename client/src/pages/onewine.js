@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Responsive} from "semantic-ui-react";
-import jsPDF from 'jspdf';
-import html2canvas from 'html2canvas';
+import { Grid, Table, Segment, Image, Header, Responsive, Button, Icon} from "semantic-ui-react";
+// import jsPDF from 'jspdf';
+// import html2canvas from 'html2canvas';
 import Winecard from '../components/WineCard'
 import { Link } from "react-router-dom";
 import {Moon, Female, Leaf, Sun} from '../components/Labels/Labels'
+// import techTest from "../TechSheets/Tech_FAG-CHA17.pdf"
 
 class OneWine extends Component {
   state = {
     wine: {},
     wines: [],
-    open: false
+    open: false,
+    pdf: ""
   };
+
 
 
   handleOpen = () => {
@@ -23,9 +26,9 @@ class OneWine extends Component {
     this.setState({ open: false })
   }
 
-  handleHover = () => {
-    console.log("hover yo")
-  }
+  // handleHover = () => {
+  //   console.log("hover yo")
+  // }
 
   removeUnderscores(myString){
     return myString.split("_").join(" ")
@@ -51,18 +54,18 @@ class OneWine extends Component {
 
     }
   }
-  printDocument() {
-    const input = document.getElementById('divToPrint');
-    html2canvas(input)
-      .then((canvas) => {
-        const imgData = canvas.toDataURL('image/png');
-        const pdf = new jsPDF();
-        pdf.addImage(imgData, 'JPEG', 0, 0);
-        // pdf.output('dataurlnewwindow');
-        pdf.save("WineWise.pdf");
-      })
-    ;
-  }
+  // printDocument() {
+  //   const input = document.getElementById('divToPrint');
+  //   html2canvas(input)
+  //     .then((canvas) => {
+  //       const imgData = canvas.toDataURL('image/png');
+  //       const pdf = new jsPDF();
+  //       pdf.addImage(imgData, 'JPEG', 0, 0);
+  //       // pdf.output('dataurlnewwindow');
+  //       pdf.save("WineWise.pdf");
+  //     })
+  //   ;
+  // }
 
   defaultSrc(ev){
     ev.target.src = '/images/StockRED.png'
@@ -75,6 +78,9 @@ render() {
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
     let producerWines = this.state.wines
     const farming = this.state.wine.Farming_practices;
+    // let techSheet = `../TechSheets/Tech_${this.state.wine.Code}.pdf`;
+    // console.log("Code:",this.state.wine.Code)
+    // console.log("tech sheet is:",techSheet);
 
     return (
       <div id="divToPrint">
@@ -82,6 +88,12 @@ render() {
       {/* Mobile */}
 <Responsive maxWidth={767}>
 <Grid centered>
+
+{/* <a href = {Tech} target = "_blank" rel="noopener noreferrer">
+          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' /> Item Descriptions
+          </Button>
+          </a> */}
 
 <Grid.Row style={{marginTop:'25px'}}>
   <Grid.Column width={15}>
@@ -106,7 +118,7 @@ render() {
 
   <Grid.Row style={{margin: '20px'}}>
 
-  <Image onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${this.props.Code}.png`}/>
+  <Image onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${this.state.wine.Code}.png`} style={{height: '500px', width: 'auto'}}/>
 
 {/* CORNER LABELS */}
 {/* If the wine is Organic, puts a green leaf label */}
@@ -177,22 +189,17 @@ render() {
 {/* Desktop */}
 <Responsive minWidth={768}>
   <Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
-
+  {/* <a href = {techTest} target = "_blank" rel="noopener noreferrer">
+          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
+          <Icon name='folder' /> Item Descriptions
+          </Button>
+          </a> */}
 
 <Grid.Row>
 
  <Grid.Column width={3}>
 {/* Renders Photo of wine */}
- <Image >
-           { (this.state.wine.URL === "") ?<Image src='/images/StockRED.png'/>
-           :
-           // Else Renders specific wine image from url:
-             // <Image src={`https://gdurl.com${this.state.wine.URL}`} />
-
-             // For when image is in individual folder:
-             <Image src={`/images/bottle/${this.state.wine.Code}.png`}/>
-           } 
- </Image>
+  <Image onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${this.state.wine.Code}.png`}/>
 
 {/* CORNER LABELS */}
 {/* If the wine is Organic, puts a green leaf label */}
