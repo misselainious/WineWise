@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
-import { Grid, Header } from "semantic-ui-react";
+import { Grid, Header, Segment, Dimmer, Loader } from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import SearchWines from "../components/SearchWines"
 
@@ -162,7 +162,12 @@ class Wines extends Component {
               
                 </Grid.Row>
             ) : (
-                <Header as='h3'>{this.state.isLoading ? "loading..." : "No wines meet your criteria"}</Header>
+                <Header as='h3'>{this.state.isLoading ? 
+           
+                  <Dimmer active inverted>
+                    <Loader inverted>Loading... </Loader>
+                  </Dimmer>
+                : "No wines meet your criteria"}</Header>
               )}
 
       </Grid>

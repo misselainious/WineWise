@@ -1,22 +1,21 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, Segment, Image, Header, Responsive, Button, Icon} from "semantic-ui-react";
-// import jsPDF from 'jspdf';
-// import html2canvas from 'html2canvas';
+import { Grid, Table, Segment, Image, Header, Responsive, Dimmer, Loader, Button, Icon, Dropdown} from "semantic-ui-react";
 import Winecard from '../components/WineCard'
 import { Link } from "react-router-dom";
 import {Moon, Female, Leaf, Sun} from '../components/Labels/Labels'
-// import techTest from "../TechSheets/Tech_FAG-CHA17.pdf"
+const fs = require('fs')
 
 class OneWine extends Component {
+
+  
   state = {
     wine: {},
     wines: [],
     open: false,
-    pdf: ""
+    isLoaded: false,
+    pdfcode: ""
   };
-
-
 
   handleOpen = () => {
     this.setState({ open: true })
@@ -26,46 +25,38 @@ class OneWine extends Component {
     this.setState({ open: false })
   }
 
-  // handleHover = () => {
-  //   console.log("hover yo")
-  // }
-
   removeUnderscores(myString){
     return myString.split("_").join(" ")
   }
-  componentDidMount() {
+
+  componentWillMount() {
 
     window.scrollTo(0,0);
     API.getWine(this.props.match.params.id)
-      .then(res => this.setState({ wine: res.data }))
+      .then(res => this.setState({ wine: res.data}))
       .then(
         API.getWines()
         .then(res => {
           let data = res.data
           data = data.filter((item) => item.Producer === this.state.wine.Producer)
           data = data.filter((item) => item.Code !== this.state.wine.Code)
-          this.setState({ wines: data })
+          this.setState({ wines: data, isLoaded: true, pdfcode: this.state.wine.Code
+          }
+          )
+        },
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
         }))
-      .catch(err => console.log(err));
-
   }
-  componentDidUpdate(prevProps) {
-    if (this.props.userID !== prevProps.userID){
+  // componentDidUpdate(prevProps) {
+  //   if (this.props.userID !== prevProps.userID){
 
-    }
-  }
-  // printDocument() {
-  //   const input = document.getElementById('divToPrint');
-  //   html2canvas(input)
-  //     .then((canvas) => {
-  //       const imgData = canvas.toDataURL('image/png');
-  //       const pdf = new jsPDF();
-  //       pdf.addImage(imgData, 'JPEG', 0, 0);
-  //       // pdf.output('dataurlnewwindow');
-  //       pdf.save("WineWise.pdf");
-  //     })
-  //   ;
+  //   }
   // }
+
 
   defaultSrc(ev){
     ev.target.src = '/images/StockRED.png'
@@ -73,17 +64,34 @@ class OneWine extends Component {
 
 render() {
   // const { open } = this.state
-    const { wine } = this.state;
+    const { error, wine, isLoaded } = this.state;
     delete wine._id
     const wineObjKeys = Object.keys(wine).filter(key => key!=='URL');
     let producerWines = this.state.wines
     const farming = this.state.wine.Farming_practices;
-    // let techSheet = `../TechSheets/Tech_${this.state.wine.Code}.pdf`;
-    // console.log("Code:",this.state.wine.Code)
-    // console.log("tech sheet is:",techSheet);
+    let techSheet;
+    let validSheet= true;
 
+    if(isLoaded){
+      try{
+  techSheet = require(`../TechSheets/Tech_${this.state.pdfcode}.pdf`)
+      }
+      catch(err){
+        validSheet = false;
+      }
+    }
+
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return  (
+      <Dimmer active inverted>
+        <Loader inverted>Loading... </Loader>
+      </Dimmer>
+      )
+    } else {
     return (
-      <div id="divToPrint">
+      <div>
 
       {/* Mobile */}
 <Responsive maxWidth={767}>
@@ -117,9 +125,24 @@ render() {
 </Grid.Row>
 
   <Grid.Row style={{margin: '20px'}}>
+    <Grid.Column>
 
-  <Image onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${this.state.wine.Code}.png`} style={{height: '500px', width: 'auto'}}/>
+  <Image onError={this.defaultSrc} src={`/images/bottle/${this.state.wine.Code}.png`} size='large'/>
 
+{/* Tech Sheet */}
+{ validSheet &&
+  <Segment style={{ backgroundColor: '#b4bbc6', maxHeight: '60px'}}>
+  <Dropdown text='Tech Sheet'> 
+    <Dropdown.Menu >
+
+      <Dropdown.Item text='View in Browser' href={techSheet} target = "_blank" rel="noopener noreferrer" ><Icon name='file pdf outline icon' /> View in Browser</Dropdown.Item>
+
+      <Dropdown.Item text='Download' download href={techSheet}> <Icon name='download icon' /> Download</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown> 
+  </Segment>
+}
+   
 {/* CORNER LABELS */}
 {/* If the wine is Organic, puts a green leaf label */}
   { ((farming === "Organic") || (farming === "Certified Organic" )) && <Leaf />}
@@ -132,7 +155,7 @@ render() {
 
 {/* If the winemaker is female, puts a pink female label */}
   { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
-
+  </Grid.Column>
   </Grid.Row>
 
 
@@ -189,17 +212,14 @@ render() {
 {/* Desktop */}
 <Responsive minWidth={768}>
   <Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
-  {/* <a href = {techTest} target = "_blank" rel="noopener noreferrer">
-          <Button basic color="brown" target="_blank" rel="noopener noreferrer">
-          <Icon name='folder' /> Item Descriptions
-          </Button>
-          </a> */}
+
 
 <Grid.Row>
 
  <Grid.Column width={3}>
 {/* Renders Photo of wine */}
-  <Image onError={this.defaultSrc} className="cardImage" src={`/images/bottle/${this.state.wine.Code}.png`}/>
+  <Image onError={this.defaultSrc}  src={`/images/bottle/${this.state.wine.Code}.png`} size='large'/>         
+ 
 
 {/* CORNER LABELS */}
 {/* If the wine is Organic, puts a green leaf label */}
@@ -214,8 +234,21 @@ render() {
 {/* If the winemaker is female, puts a pink female label */}
  { this.state.wine.Female_Winemaker === "Female Winemaker"  && <Female />}
  
-     
- </Grid.Column>
+ 
+{/* Tech Sheet */}
+{ validSheet &&
+  <Segment style={{ width: '90%', marginLeft: 'auto', marginRight: 'auto', backgroundColor: '#b4bbc6'}}>
+  <Dropdown text='Tech Sheet'> 
+    <Dropdown.Menu >
+
+      <Dropdown.Item text='View in Browser' href={techSheet} target = "_blank" rel="noopener noreferrer" ><Icon name='file pdf outline icon' /> View in Browser</Dropdown.Item>
+
+      <Dropdown.Item text='Download' download href={techSheet}> <Icon name='download icon' /> Download</Dropdown.Item>
+    </Dropdown.Menu>
+  </Dropdown> 
+  </Segment>
+}
+</Grid.Column>
 
  <Grid.Column width={6}>
          <Link to={"/producerdetails/" + this.state.wine.Producer}>
@@ -233,7 +266,7 @@ render() {
            {this.state.wine.WineWise_Notes}
            </Segment>
            }
-           {/* <Button onClick={this.printDocument && this.handleOnClick}>Download Tech Sheet</Button> */}
+
  </Grid.Column>
 
 </Grid.Row>
@@ -304,6 +337,7 @@ render() {
  
     );
   }
+}
 }
 
 export default OneWine;

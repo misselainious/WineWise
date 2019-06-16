@@ -21,7 +21,6 @@ class Winecard extends Component {
   }
 
 render(){
-  console.log(this.props.Code)
 
   return(
     <Link to={"/details/" + this.props.wineid} >

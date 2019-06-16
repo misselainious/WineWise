@@ -1,7 +1,7 @@
 import React, { Component, createRef } from "react";
 // import CheckboxSidebar from "../components/CheckboxSidebar/CheckboxSidebar";
 import API from "../utils/API";
-import { Grid, Card, Header } from "semantic-ui-react";
+import { Grid, Card, Header, Segment, Dimmer, Loader } from "semantic-ui-react";
 import Producercard from "../components/ProducerCard";
 import CountryDropdown from "../components/CountryDropdown/countryDropdown";
 
@@ -12,7 +12,7 @@ contextRef = createRef()
 
     state = {
       Producers: [],
-      isLoading: false
+      isLoading: true
     };
   
     componentDidMount() {
@@ -28,7 +28,7 @@ contextRef = createRef()
       window.scrollTo(0,0);
       API.getProducers()
       .then(res => 
-        this.setState({Producers: res.data})
+        this.setState({Producers: res.data, isLoading: false})
         )
         .catch(err => console.log(err));
     }
@@ -90,6 +90,7 @@ render() {
 
     return (
         <Grid centered style={{marginTop: "40px", marginBottom: "40px"}}>
+
         <Grid.Row>
       <Grid.Column>
         <Header as='h1' textAlign='right' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
@@ -97,6 +98,7 @@ render() {
     </Header>
     </Grid.Column>
         </Grid.Row>
+
     <Grid.Row>
       <Grid.Column width={11}>
     <center>
@@ -105,13 +107,21 @@ render() {
       </p>
               {/* <SearchProducers /> */}
             </center>
-            </Grid.Column>
-            
+            </Grid.Column> 
     </Grid.Row>
+
       <CountryDropdown />
+      
     <Grid.Row style={{marginTop: '20px'}}>
   
     </Grid.Row>
+
+{this.state.isLoading ?
+  <Dimmer active inverted>
+  <Loader inverted>Loading... </Loader>
+</Dimmer>
+: (
+  <Grid centered>
 
 
 {/* FRANCE */}
@@ -134,7 +144,7 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
@@ -160,7 +170,7 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
@@ -187,7 +197,7 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
@@ -213,7 +223,7 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
@@ -239,7 +249,7 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
@@ -265,12 +275,13 @@ render() {
           ))}
         </Card.Group>
             ) : (
-              <h3>{this.state.isLoading ? "loading...": "No results to display"}</h3>
+              <h3> "No results to display"</h3>
             )}
             </Grid.Column>
           
             </Grid.Row>
-
+            </Grid>
+)}
 
      </Grid>
     );
