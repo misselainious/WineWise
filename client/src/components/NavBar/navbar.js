@@ -15,7 +15,7 @@ const FixedMenuLayout = () => (
       
       <Link to="/" onClick={scrollToTop}>
         <Menu.Item as='a' header style={{color: '#510409'}}>
-          <Image size='mini' src='./images/owl.png' style={{ marginRight: '1.5em' }} />
+          <Image size='mini' src='../../../images/owl.png' style={{ marginRight: '1.5em' }} />
           WineWise
         </Menu.Item>
         </Link>
