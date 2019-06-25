@@ -102,7 +102,6 @@ class Wines extends Component {
     // const producers = this.state.producerNames;
     const farming = ["Sustainable", "Organic", "Certified Organic", "Bio-dynamic", "Certified Bio-dynamic", "HEV"];
 
-    
     const filterElements = [{
       filterType: "countries",
       elements: countries
@@ -124,7 +123,21 @@ class Wines extends Component {
       filterType: "female",
       elements: female
     }]
-    //TODO Make the footer less wonky
+
+    // Function sorts each country by the 'Order' Column, because it is not necessarily alphabetical.
+ function compare(a,b){
+  const numA = a.Order;
+  const numB = b.Order;
+
+  let comparison = 0;
+  if(numA > numB){
+    comparison = 1;
+  } else if (numA < numB){
+    comparison = -1
+  }
+  return comparison
+}
+  
     let wineList = this.state.wines
     // console.log("preWinelist", wineList)
     //this is a hacky way to access the wine data field given that each word is
@@ -139,6 +152,7 @@ class Wines extends Component {
         )
       })
     }
+    wineList = wineList.sort(compare);
 
     return (
       <Grid style={{marginTop: '30px'}} columns={2}>
