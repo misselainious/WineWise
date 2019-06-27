@@ -88,8 +88,6 @@ class Wines extends Component {
     const { index } = titleProps
     const { activeIndex } = this.state
     const newIndex = activeIndex === index ? -1 : index
-    console.log( activeIndex);
-
     this.setState({ activeIndex: newIndex })
   }
 
