@@ -17,16 +17,15 @@ class OneProducer extends Component {
     window.scrollTo(0, 0);
     API.getProducer(this.props.match.params.id)
       .then(res => this.setState({ producer: res.data }))
-      .catch(err => console.log(err))
-
-      API.getWines()
+      .then(   
+    API.getWines()
       .then(res => {
         let data = res.data
         data = data.filter((item) => item.Producer === this.state.producer.Producer)
         this.setState({ wines: data })
       })
-      .catch(err => console.log(err));
-
+      )
+      .catch(err => console.log(err))
   }
 
 
