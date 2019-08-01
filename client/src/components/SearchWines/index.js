@@ -9,7 +9,8 @@ import "./searchwines.css";
 export default class SearchBar extends Component {
 
     state = {
-        wines: []
+        wines: [],
+        list: []
     }
 
   componentDidMount() {
@@ -47,14 +48,15 @@ export default class SearchBar extends Component {
 
       this.setState({
         isLoading: false,
-        wines: _.filter(this.state.wines, isMatch)
+        list: _.filter(this.state.wines, isMatch)
       });
     }, 300);
   };
 
+
   render() {
     
-    const { isLoading, value, wines } = this.state;
+    const { isLoading, value, wines, list } = this.state;
 
     const resRender = ({ Wine, Producer, _id }) => (
       <Link to={"/details/" + _id}>
@@ -74,7 +76,7 @@ export default class SearchBar extends Component {
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true
             })}
-            results={wines}
+            results={list}
             value={value}
             resultRenderer={resRender}
           />
