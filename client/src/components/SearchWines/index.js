@@ -12,8 +12,14 @@ export default class SearchBar extends Component {
         wines: []
     }
 
-  componentWillMount() {
+  componentDidMount() {
     this.resetComponent();
+    API.getWines()
+      .then(res => {
+        this.setState({ wines: res.data }) 
+      }
+      )
+      .catch(err => console.log(err));
   }
 
   resetComponent = () =>
@@ -32,7 +38,7 @@ export default class SearchBar extends Component {
       )
       .catch(err => console.log(err));
     
-    setTimeout(() => {
+  setTimeout(() => {
       if (this.state.value.length < 1) return this.resetComponent();
 
       const re = new RegExp(_.escapeRegExp(this.state.value), "i");
