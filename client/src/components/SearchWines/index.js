@@ -46,6 +46,7 @@ export default class SearchBar extends Component {
       //what is being tested for in search input
       const isMatch = result => re.test(result.Wine);
 
+
       this.setState({
         isLoading: false,
         list: _.filter(this.state.wines, isMatch)
