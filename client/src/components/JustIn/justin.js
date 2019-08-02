@@ -38,6 +38,7 @@ class Justin extends Component {
                         className='header'
                         horizontal
                         style={{ color: '#962d2d', margin: '1em 0em', textTransform: 'uppercase' }}>
+                          <i class="ship icon" style={{ color: '#2f3623'}}></i>
                      JUST ARRIVED!
                     </Divider>
       </Grid.Row>
