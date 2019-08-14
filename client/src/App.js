@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import { Responsive } from "semantic-ui-react";
 import Home from "./pages/home";
 import AllWines from "./pages/allwines";
+import Sort from "./pages/sort";
 import Admin from "./pages/admin";
 import Producers from "./pages/producers";
 import AboutUs from "./pages/aboutus";
@@ -78,6 +79,7 @@ const PageSwitch = props => {
     <Switch>
       <Route exact path="/" component={Home} />
       <Route path="/allwines" component={AllWines} />
+      <Route path="/sort" component={Sort} />
       <PrivateRoute path="/admin" component={Admin} />
       <Route path="/details/:id" key={window.location.pathname} component={OneWine} />
       <Route path="/producers" component={Producers} />
