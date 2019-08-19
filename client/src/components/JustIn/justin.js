@@ -33,6 +33,7 @@ class Justin extends Component {
 <Grid doubling centered columns={4}>
 
         <Grid.Row>
+      
         <Divider
                         as='h2'
                         className='header'

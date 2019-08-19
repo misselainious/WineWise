@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import { Link } from "react-router-dom";
 import { Card, Image } from 'semantic-ui-react'
-// import {Moon, Female, Leaf, Sun} from '../../components/Labels/Labels'
+import {Moon, Female, Leaf, Sun, New} from '../../components/Labels/Labels'
 import "./Winecard.css";
 
 
@@ -35,7 +35,8 @@ render(){
   {/* { ((this.props.farming === "Organic") || (this.props.farming === "Certified Organic" )) && <Leaf />}
   { ((this.props.farming === "Bio-dynamic") || (this.props.farming === "Certified Bio-dynamic" )) && <Moon />}
   { this.props.farming === "HEV" && <Sun />}
-  { this.props.female === "Female Winemaker"  && <Female />} */}
+  { this.props.female === "Female Winemaker"  && <Female />}
+  { this.props.new === "Yes" && <New />} */}
 
 
       <Card.Content style={{textAlign: "center"}}>

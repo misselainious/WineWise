@@ -151,5 +151,41 @@ class Female extends Component {
     );
 };}
 
+class New extends Component {
+  state = {
+      open: false,
+  }
 
-export {Moon, Female, Leaf, Sun};
+  handleOpen = () => {
+      this.setState({ open: true })
+    }
+  
+    handleClose = () => {
+      this.setState({ open: false })
+    }
+  render(){
+      const { open } = this.state
+  return (
+
+      <Portal
+      closeOnTriggerClick
+      openOnTriggerClick
+      trigger={
+          <Label as={'a'} color={'orange'} corner={'left'} >New! </Label>
+          // negative={open}
+          // positive={!open}
+        
+      }
+      onOpen={this.handleOpen}
+      onClose={this.handleClose}
+      >
+
+<Segment style={{ left: '20%', position: 'fixed', top: '20%', zIndex: 1000, marginRight: '80px', backgroundColor: '#efefcb'}}>
+            <Header>This wine is New!</Header>
+          
+          </Segment>
+        </Portal>
+  );
+};}
+
+export {Moon, Female, Leaf, Sun, New};
