@@ -1,0 +1,29 @@
+.banner {
+    color: whitesmoke !important;
+    text-align: center !important;
+}
+
+.chosenProducers {
+    color: rgba(148, 141, 141, 0.795) !important;
+    font-size: 30px !important;
+    text-align: center !important;
+}
+
+.desc {
+font-size: 1.2em !important;
+text-align: center !important;
+}
+
+.linked {
+    color: rgb(59, 78, 27) !important;
+    text-decoration: underline;
+    font-weight: lighter !important;
+}
+
+.registerBtn {
+    background: #961f1f !important;
+}
+
+.registerBtnText {
+    color: white;
+}

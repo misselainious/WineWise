@@ -4,7 +4,9 @@ import { Grid, Table, Segment, Image, Header, Responsive, Dimmer, Loader, Button
 import Winecard from '../components/WineCard'
 import { Link } from "react-router-dom";
 import {Moon, Female, Leaf, Sun} from '../components/Labels/Labels'
-const fs = require('fs')
+import decode from 'jwt-decode';
+var jwt = require('jsonwebtoken');
+
 
 class OneWine extends Component {
 
@@ -14,8 +16,23 @@ class OneWine extends Component {
     wines: [],
     open: false,
     isLoaded: false,
-    pdfcode: ""
+    pdfcode: "",
+    industry: false
   };
+
+
+
+// loggedIn = () => {
+//   const token = jwt.sign({ foo: 'bar' }, 'id_token');
+//   const decoded = jwt.verify(token, 'id_token');
+//   console.log(decoded.foo) // bar
+
+// // verify a token symmetric
+// jwt.verify(token, 'id_token', function(err, decoded) {
+//   console.log(decoded.foo) // bar
+// });
+
+// }
 
   handleOpen = () => {
     this.setState({ open: true })
@@ -30,7 +47,6 @@ class OneWine extends Component {
   }
 
   componentWillMount() {
-
     window.scrollTo(0,0);
     API.getWine(this.props.match.params.id)
       .then(res => this.setState({ wine: res.data}))

@@ -3,6 +3,7 @@ import Carousel from "../components/common/Carousel/Carousel";
 import { Link } from "react-router-dom";
 import Justin from "../components/JustIn/justin";
 import Feature from "../components/FeaturedWine/feature"
+import Event from "../components/Event/event"
 
 import {
   Button,
@@ -26,6 +27,10 @@ const Home = () => (
  <Header as='h1'style={{ fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
  </Grid.Row>
 
+ <Grid.Row>
+   <Event />
+  </Grid.Row>
+  
 <Grid centered>
  <Grid.Row>
    <Grid.Column width={14}>
@@ -72,6 +77,9 @@ const Home = () => (
    <Carousel />
   </Grid.Row>
 
+  <Grid.Row>
+   <Event />
+  </Grid.Row>
 
   <Grid.Row columns={2} divided >
 

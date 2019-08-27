@@ -13,11 +13,11 @@
       "id": 2,
       "name": "Ben Herod",
       "first": "Ben",
-      "image": "",
+      "image": "/images/Ben.jpg",
       "region": "San Francisco",
       "email": "ben@winewise.biz",
       "phone": "415.308.2266",
-      "bio": ""
+      "bio": "Ben Herod started his path in wine after working in restaurants in his native Bay Area. Ben has been making wine since 2004 and found his way to wine sales in 2007. He is a lover of honest old world wines made by people you can believe in from regions off the beaten path. When not selling or making wine he is usually found traveling, cooking, cycling, or hiking. "
     },
     {
       "id": 3,
@@ -33,7 +33,7 @@
       "id": 4,
       "name": "Marc West-Texeira",
       "first": "Marc",
-      "image": "",
+      "image": "/images/Marc.jpg",
       "region": "East Bay, Contra Costa County, Napa County",
       "email": "marc@winewise.biz",
       "phone": "510.599.5566",
@@ -93,7 +93,7 @@
       "id": 10,
       "name": "Tami Wong",
       "first": "Tami",
-      "image": "",
+      "image": "/images/Tami.jpg",
       "region": "Orange County, Long Beach, San Diego",
       "email": "tami@winewise.biz",
       "phone": "619.665.3748",
