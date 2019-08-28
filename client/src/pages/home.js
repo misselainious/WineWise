@@ -24,13 +24,13 @@ const Home = () => (
 
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>
- <Header as='h1'style={{ fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
+ <Header as='h1'style={{ textAlign: 'center', fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
  </Grid.Row>
 
  <Grid.Row>
    <Event />
   </Grid.Row>
-  
+
 <Grid centered>
  <Grid.Row>
    <Grid.Column width={14}>

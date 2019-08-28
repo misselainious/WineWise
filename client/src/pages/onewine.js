@@ -22,7 +22,7 @@ class OneWine extends Component {
 
 
 
-// loggedIn = () => {
+loggedIn = () => {
 //   const token = jwt.sign({ foo: 'bar' }, 'id_token');
 //   const decoded = jwt.verify(token, 'id_token');
 //   console.log(decoded.foo) // bar
@@ -31,8 +31,9 @@ class OneWine extends Component {
 // jwt.verify(token, 'id_token', function(err, decoded) {
 //   console.log(decoded.foo) // bar
 // });
-
-// }
+const token = localStorage.getItem('id_token')
+console.log(token);
+}
 
   handleOpen = () => {
     this.setState({ open: true })

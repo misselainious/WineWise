@@ -5,6 +5,7 @@
 
 .chosenProducers {
     color: rgba(148, 141, 141, 0.795) !important;
+    background-color: rgba(0, 128, 128, 0.192) !important;
     font-size: 30px !important;
     text-align: center !important;
 }
@@ -20,10 +21,6 @@ text-align: center !important;
     font-weight: lighter !important;
 }
 
-.registerBtn {
-    background: #961f1f !important;
-}
-
-.registerBtnText {
-    color: white;
+.bottom {
+    background-color: rgba(128, 128, 128, 0.308) !important;
 }

@@ -3,7 +3,7 @@ import { Button, Header, Icon, Segment, Advertisement, Image } from 'semantic-ui
 import './event.css';
 
 const Event = () => (
-    <div>
+    <div style= {{ marginTop: '100px'}}>
     <Segment inverted color='grey' attached ='top'> 
         <Header  className='banner'>
         Selections for 
@@ -18,7 +18,7 @@ const Event = () => (
           
         <Image src="../images/group/MOW.png" size='large' centered style={{ marginTop: '20px'}}/>
     </Segment>
-    <Segment attached='bottom'>
+    <Segment className="bottom" attached='bottom'>
         We are pleased to announce three of our Champagne Producers will be featured 
         in this prestigious tasting.
     </Segment>
