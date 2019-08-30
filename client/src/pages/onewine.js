@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../utils/API";
 import { Grid, Table, Segment, Image, Header, Responsive, Dimmer, Loader, Button, Icon, Dropdown} from "semantic-ui-react";
 import Winecard from '../components/WineCard'
+import Pricing from '../components/Pricing/pricing'
+import MobilePricing from '../components/Pricing/mobilePricing'
 import { Link } from "react-router-dom";
 import {Moon, Female, Leaf, Sun} from '../components/Labels/Labels'
 import decode from 'jwt-decode';
@@ -23,16 +25,11 @@ class OneWine extends Component {
 
 
 loggedIn = () => {
-//   const token = jwt.sign({ foo: 'bar' }, 'id_token');
-//   const decoded = jwt.verify(token, 'id_token');
-//   console.log(decoded.foo) // bar
-
-// // verify a token symmetric
-// jwt.verify(token, 'id_token', function(err, decoded) {
-//   console.log(decoded.foo) // bar
-// });
 const token = localStorage.getItem('id_token')
-console.log(token);
+console.log("ID token is: ", token);
+if (token) {
+  this.setState({ industry: true})
+}
 }
 
   handleOpen = () => {
@@ -48,6 +45,7 @@ console.log(token);
   }
 
   componentWillMount() {
+    this.loggedIn();
     window.scrollTo(0,0);
     API.getWine(this.props.match.params.id)
       .then(res => this.setState({ wine: res.data}))
@@ -175,6 +173,11 @@ render() {
   </Grid.Column>
   </Grid.Row>
 
+  {/* <Grid.Row>
+  <Grid.Column width={14}>
+{ this.state.industry && <MobilePricing caseSize={wine.Case_Size} price={wine.Price} net={wine.Net} avail={wine.Availability}/>}
+</Grid.Column>
+</Grid.Row> */}
 
   <Grid.Row>
     <Grid.Column width={14}>
@@ -188,7 +191,7 @@ render() {
     <Table.Body>
         {
             wineObjKeys.map(key => 
-                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && <Table.Row key={key}>
+                    wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && key !== 'Order' && key !== 'Availability'&& key !== 'Price' && key !== 'Case_Size' && key !== 'Net' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{wine[key]}</Table.Cell>
                     </Table.Row>
@@ -229,6 +232,8 @@ render() {
 {/* Desktop */}
 <Responsive minWidth={768}>
   <Grid style={{marginTop: '100px', marginLeft:'20px', marginBottom: '20px'}} >
+
+
 
 
 <Grid.Row>
@@ -286,6 +291,12 @@ render() {
 
  </Grid.Column>
 
+ {/* PRICING */}
+ {/* <Grid.Column width={6}>
+ <Grid.Row>
+{ this.state.industry && <Pricing caseSize={wine.Case_Size} price={wine.Price} net={wine.Net} avail={wine.Availability}/>}
+</Grid.Row>
+ </Grid.Column> */}
 </Grid.Row>
 
 <Grid.Row>
@@ -301,7 +312,7 @@ render() {
    <Table.Body>
        {
            wineObjKeys.map(key => 
-                   wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && key !== 'Order' && <Table.Row key={key}>
+                   wine[key] !== '' && key !== 'WineWise_Notes' && key !== 'Just_In' && key !== 'Female_Winemaker' && key !== 'Order' && key !== 'Availability' && key !== 'Price' && key !== 'Case_Size' && key !== 'Net' && <Table.Row key={key}>
                        <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                        <Table.Cell>{wine[key]}</Table.Cell>
                    </Table.Row>

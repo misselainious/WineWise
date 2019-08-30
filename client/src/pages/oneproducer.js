@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import { Grid, Table, List, Header, Responsive, Segment} from "semantic-ui-react";
+import { Grid, Table, List, Header, Responsive, Segment, Embed} from "semantic-ui-react";
 import Winecard from "../components/WineCard"
 import OneProdBtn from "../components/AllProducersBtn/index"
 
@@ -109,12 +109,25 @@ render() {
 }
 </Grid.Row>
 
+{ this.state.producer.YouTube &&
+  <Grid.Row width={15}>
+      <Grid.Column width={14}>
+      <Embed
+    id={this.state.producer.YouTube}
+    placeholder={'https://img.youtube.com/vi/'+ this.state.producer.YouTube + '/0.jpg'}
+    source='youtube'
+  />
+      </Grid.Column>
+    </Grid.Row>
+    }
+
  </Grid>
 </Responsive>
 
 {/* FOR DESKTOP: */}
 <Responsive minWidth={768}>
   <Grid style={{marginTop: "40px", marginBottom: "40px", marginLeft: "20px", marginRight: "20px"}}>
+    
    <Grid.Row>
     <Grid.Column>
       <Header as='h1' style={{color: '#510409', backgroundColor: '#f2efef', textAlign: 'center', paddingTop: "40px", paddingBottom: "40px"}} >
@@ -142,7 +155,7 @@ render() {
          <Table.Body>
         {
             producerObjKeys.map(key => 
-                    producer[key] && key !== 'List_Notes' && key !== 'Order' && <Table.Row key={key}>
+                    producer[key] && key !== 'List_Notes' && key !== 'Order' && key !== 'YouTube' && <Table.Row key={key}>
                         <Table.Cell>{this.removeUnderscores(key)}</Table.Cell>
                         <Table.Cell>{producer[key]}</Table.Cell>
                     </Table.Row>
@@ -174,6 +187,18 @@ render() {
 
   </Grid.Column>
   </Grid.Row>
+{ this.state.producer.YouTube &&
+  <Grid.Row width={12}>
+      <Grid.Column width={6}>
+      <Embed
+    id={this.state.producer.YouTube}
+    placeholder={'https://img.youtube.com/vi/'+ this.state.producer.YouTube + '/0.jpg'}
+    source='youtube'
+  />
+      </Grid.Column>
+    </Grid.Row>
+    }
+
  </Grid.Column>
 
 }

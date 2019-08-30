@@ -1,20 +1,11 @@
 import React, {Component} from 'react'
 import { Link } from "react-router-dom";
 import { Card, Image } from 'semantic-ui-react'
-import {Moon, Female, Leaf, Sun, New} from '../../components/Labels/Labels'
+// import {Moon, Female, Leaf, Sun, New} from '../../components/Labels/Labels'
 import "./Winecard.css";
 
 
 class Winecard extends Component {
-
-  // validImage = () => {
-
-  //   if( `/images/bottle/${this.props.Code}.png` == null){
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  //   };
 
   defaultSrc(ev){
     ev.target.src = '/images/StockRED.png'

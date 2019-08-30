@@ -1,8 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { Button, Form, Grid, Header, Segment } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-
-
 import AuthService from '../components/login/AuthService';
 
 class Login extends Component {
