@@ -11,7 +11,8 @@ import {
   Grid,
   Header,
   Image,
-  Responsive
+  Responsive,
+  Message
 } from 'semantic-ui-react';
 // import { createCipher } from "crypto";
 
@@ -21,7 +22,10 @@ const Home = () => (
 
 {/* Only shows if on mobile */}
 <Responsive maxWidth={767} >
-
+<Message negative>
+    <Message.Header>We're sorry... Our Database is down!</Message.Header>
+    <p style={{ fontSize: '.9em'}}>It should be back up soon, but in the meantime, please visit "For the Trade" section and view our price lists and descriptions.</p>
+  </Message>
 <Image src="../images/group/LinkedIn.png" />
  <Grid.Row dividing>
  <Header as='h1'style={{ textAlign: 'center', fontSize: '4em', color: '#962d2d'}}>WineWise</Header>
@@ -72,6 +76,14 @@ const Home = () => (
 {/* Only Shows On Desktop */}
 <Responsive minWidth={768}>
  <Grid centered style={{marginTop: '20px'}}>
+   <Grid.Row>
+     <Grid.Column style={{paddingTop: '40px'}} width={7}>
+     <Message negative>
+    <Message.Header>We're sorry... Our Database is down!</Message.Header>
+    <p style={{ fontSize: '.9em'}}>It should be back up soon, but in the meantime, please visit "For the Trade" section and view our price lists and descriptions.</p>
+  </Message>
+     </Grid.Column>
+   </Grid.Row>
 
   <Grid.Row>
    <Carousel />
