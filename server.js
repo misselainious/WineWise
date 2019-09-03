@@ -7,7 +7,7 @@ const routes = require("./routes");
 
 // Connect to the Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/wineDB', { useNewUrlParser: true });
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://Elaine_Cadman:flute0207@ds217288-a0.mlab.com:17288,ds217288-a1.mlab.com:17288/<dbname>?replicaSet=rs-ds217288', { useNewUrlParser: true });
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
 });
