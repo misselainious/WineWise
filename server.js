@@ -4,7 +4,6 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
-MONGODB_URI = 'mongodb+srv://elaine:SfCa6QtpKmP4NHW0@cluster0-j8x1r.mongodb.net/test?retryWrites=true&w=majority'
 
 // Connect to the Mongo DB
 
