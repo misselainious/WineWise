@@ -4,10 +4,25 @@ const PORT = process.env.PORT || 3001;
 const app = express();
 const mongoose = require("mongoose");
 const routes = require("./routes");
+require('dotenv').config()
 
-// Connect to the Mongo DB
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://Elaine_Cadman:flute0207@ds217288-a0.mlab.com:17288,ds217288-a1.mlab.com:17288/<dbname>?replicaSet=rs-ds217288', { useNewUrlParser: true });
+// const MongoClient = require('mongodb').MongoClient;
+// const uri = process.env.ATLAS_URI;
+// const client = new MongoClient(uri, { useNewUrlParser: true });
+// client.connect(err => {
+//   const collection = client.db("test").collection("devices");
+//  // perform actions on the collection object
+//   client.close();
+// });
+
+
+// MongoClient.connect(uri, function(err, db) {
+//   db.close();
+// });
+
+// // Connect to the Mongo DB
+mongoose.connect( process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
 });

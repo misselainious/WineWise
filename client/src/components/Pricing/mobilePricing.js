@@ -76,7 +76,7 @@ class MobilePricing extends Component {
             </Table.Cell>}
             {((this.props.avail < 5) && this.props.avail > 3) &&<Table.Cell colSpan='3'> Low
             </Table.Cell>}
-            {(this.props.avail >= 5) &&<Table.Cell colSpan='3' style={{ backgroundColor: 'green'}}> In Stock
+            {(this.props.avail >= 5) &&<Table.Cell colSpan='3'> In Stock
             </Table.Cell>}
         </Table.Row>
          
