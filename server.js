@@ -21,12 +21,22 @@ require('dotenv').config()
 //   db.close();
 // });
 
+
+// if(process.env.LOCAL || process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.LOCAL || process.env.MONGODB_URI, { useNewUrlParser: true });
+// } else {
+//   console.log("MongoDB connection string not defined!");
+// }
+
 // // Connect to the Mongo DB
-mongoose.connect( process.env.MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect( process.env.LOCAL || process.env.ATLAS_URI ||process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
 });
 mongoose.connection.on('error', function (err) { console.log(err) });
+
+
+
 
 // require("./models/wine");
 

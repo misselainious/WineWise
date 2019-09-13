@@ -26,7 +26,7 @@ class OneWine extends Component {
 
 loggedIn = () => {
 const token = localStorage.getItem('id_token')
-console.log("ID token is: ", token);
+// console.log("ID token is: ", token);
 if (token) {
   this.setState({ industry: true})
 }
