@@ -15,7 +15,7 @@ const Footer = () => (
             </Grid.Row>
             <Grid.Row>
               <span style={{color: '#9d9da0'}}>
-              5655 College Avenue Oakland, CA 94602
+              5655 College Avenue Oakland, CA 94618
               </span>
             </Grid.Row>
             <Grid.Row>
