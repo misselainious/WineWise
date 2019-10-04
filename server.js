@@ -45,7 +45,7 @@ mongoose.connection.on('error', function (err) { console.log(err) });
 
 
 
-// require("./models/wine");
+require("./models/wine");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
