@@ -17,6 +17,17 @@ require('dotenv').config()
 // });
 
 
+// MongoClient.connect(uri, function(err, db) {
+//   db.close();
+// });
+
+
+// if(process.env.LOCAL || process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.LOCAL || process.env.MONGODB_URI, { useNewUrlParser: true });
+// } else {
+//   console.log("MongoDB connection string not defined!");
+// }
+
 
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = process.env.ATLAS_URI;
@@ -36,7 +47,7 @@ require('dotenv').config()
 // mongoose.connection.on('error', function (err) { console.log(err) });
 
 // // Connect to the Mongo DB
-mongoose.connect( process.env.LOCAL || process.env.ATLAS_URI, { useNewUrlParser: true, dbName: ('wineDB' || 'wwatlasDB')});
+mongoose.connect( process.env.LOCAL || process.env.ATLAS_URI ||process.env.MONGODB_URI, { useNewUrlParser: true });
 mongoose.connection.on("open", function (ref) {
   console.log("Connected to mongo server.");
 });
@@ -45,7 +56,7 @@ mongoose.connection.on('error', function (err) { console.log(err) });
 
 
 
-require("./models/wine");
+// require("./models/wine");
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
